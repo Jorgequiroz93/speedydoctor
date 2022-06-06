@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_074129) do
+ActiveRecord::Schema.define(version: 2022_06_06_090914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "consultations", force: :cascade do |t|
+    t.string "symptoms"
+    t.string "status"
+    t.float "total_price"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "doctor_id", null: false
+    t.bigint "patient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_consultations_on_doctor_id"
+    t.index ["patient_id"], name: "index_consultations_on_patient_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.bigint "consultation_id", null: false
+    t.text "content"
+    t.text "prescription"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consultation_id"], name: "index_reports_on_consultation_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "consultation_id", null: false
+    t.integer "rating"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["consultation_id"], name: "index_reviews_on_consultation_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +55,22 @@ ActiveRecord::Schema.define(version: 2022_06_06_074129) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "date_of_birth"
+    t.string "country"
+    t.string "language"
+    t.string "role"
+    t.float "rate"
+    t.string "specialty"
+    t.string "sub_specialty"
+    t.string "skills"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "consultations", "users", column: "doctor_id"
+  add_foreign_key "consultations", "users", column: "patient_id"
+  add_foreign_key "reports", "consultations"
+  add_foreign_key "reviews", "consultations"
 end
