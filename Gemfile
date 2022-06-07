@@ -32,7 +32,7 @@ gem 'devise'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'
-gem 'simple_form', github: 'heartcombo/simple_form'
+gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
@@ -64,4 +64,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'country_select'
-gem 'language-select'
