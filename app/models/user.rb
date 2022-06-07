@@ -15,8 +15,11 @@ class User < ApplicationRecord
 
   ROLES = ["Doctor", "Patient", "Admin"]
   SPECIALTIES = ["Dermatology", "Nutrition", "General", "Psychology", "Otolaryngology",
-                 "Allergy and immunology", "Emergency", "Neurology", "Pediatrics", "Urology",
-                 "Ophthalmology", "Internal", "Onkology"]
+    "Allergy and immunology", "Emergency", "Neurology", "Pediatrics", "Urology",
+    "Ophthalmology", "Internal", "Onkology"]
+
+  LANGUAGES = ["English", "Deutsch", "Français", "Español"]
+  PREFIXES = ["Dr.", "Mr.", "Prof.", "Mrs.", "Ms."]
 
   validates :first_name, :last_name, :role, :country, :language, presence: true
   validates :email, uniqueness: true

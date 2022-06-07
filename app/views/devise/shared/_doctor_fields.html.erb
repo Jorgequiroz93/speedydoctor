@@ -1,0 +1,14 @@
+    <%= f.input :rate,
+                required: true,
+                autofocus: true%>
+    <%= f.input :specialty,
+                required: true,
+                autofocus: true,
+                collection: User::SPECIALTIES %>
+    <%= f.input :sub_specialty,
+                required: true,
+                autofocus: true%>
+    <%= f.input :skills,
+                required: true,
+                autofocus: true,
+                as: :text %>
