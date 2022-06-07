@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  ROLES = ["Doctor", "Patient"]
+  ROLES = ["Doctor", "Patient", "Admin"]
 
   validates :first_name, :last_name, :role, :country, :language, presence: true
   validates :email, uniqueness: true
