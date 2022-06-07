@@ -1,7 +1,14 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :consultations, dependent: :destroy
+
+  ## user.provided_consultations returns all consultations,
+  ## provided by user acting as DOCTOR
+  has_many :provided_consultations, class_name: 'Consultation', dependent: :destroy, foreign_key: 'doctor_id'
+
+  ## user.received_consultations returns all consultations,
+  ## provided to a user acting as PATIENT
+  has_many :received_consultations, class_name: 'Consultation', dependent: :destroy, foreign_key: 'patient_id'
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
