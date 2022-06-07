@@ -3,6 +3,6 @@ class Review < ApplicationRecord
   has_one :doctor, through: :consultations
   has_one :patient, through: :consultations
 
-  validates :consultation_id,  presence: true
-  validates :rating,  presence: true
+  validates :consultation_id, presence: true
+  validates :rating, presence: true
 end

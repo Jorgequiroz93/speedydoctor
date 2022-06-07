@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_090914) do
+ActiveRecord::Schema.define(version: 2022_06_07_061948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,14 @@ ActiveRecord::Schema.define(version: 2022_06_06_090914) do
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "consultation_id", null: false
-    t.integer "rating"
+    t.float "rating"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "speed_rating"
+    t.float "gentleness_rating"
+    t.float "professionalism_rating"
+    t.float "clarity_rating"
     t.index ["consultation_id"], name: "index_reviews_on_consultation_id"
   end
 
@@ -65,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_06_06_090914) do
     t.string "specialty"
     t.string "sub_specialty"
     t.string "skills"
+    t.string "prefix"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
