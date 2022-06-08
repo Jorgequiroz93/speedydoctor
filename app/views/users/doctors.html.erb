@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="doctors">
+        <% @doctors.each do |doctor| %>
+          <h4><%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %></h4>
+          <p><%= doctor.specialty %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
