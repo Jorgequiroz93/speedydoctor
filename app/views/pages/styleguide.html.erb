@@ -1,0 +1,65 @@
+<div class="vertical-card">
+  <div id="top-banner">
+    <div>
+      <%# <% @review.rating.to_i.times do %>
+      <%# <i class="fas fa-star"></i> %>
+      <%# <% end %>
+      <%# <% @review.blank_stars.times do %>
+      <%# <i class="far fa-star"></i> %>
+      <%# <% end %>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="far fa-star"></i>
+      <i class="far fa-star"></i>
+    </div>
+    <div>
+      <i class="far fa-heart"></i>
+    </div>
+  </div>
+  <div>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "vertical-card-avatar", alt: "avatar" %>
+  </div>
+  <div class="card-text">
+    <div id="name-field">
+      <h6> Name: </h6>
+    </div>
+    <div id="speciality">
+      <p> Specialty: </p>
+    </div>
+  </div>
+</div>
+
+<div class="horizontal-card">
+  <div class="horizontal-container">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+    <div class="horizontal-card-text">
+      <div>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+     </div>
+     <br>
+      <div id="name-field">
+        <h4> Name: Yanko Thomson</h4>
+      </div>
+      <div id="speciality">
+        <p> Specialty: Slaying and playing vidya games</p>
+      </div>
+      <div id="cost-per-min">
+        <p> Cost per Min: $$$$$</p>
+      </div>
+    </div>
+    <br>
+    <div class="class-buttons">
+      <div class="availability">
+      <p>Available</p>
+      </div>
+      <div class="btn btn-primary consult">
+      <p>Start Consultation</p>
+      </div>
+    </div>
+  </div>
+</div>
