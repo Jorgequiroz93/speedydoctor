@@ -1,0 +1,22 @@
+<div class="horizontal-card">
+  <div>
+    <div>
+      <% @review.rating.to_i.times do %>
+      <i class="fas fa-star"></i>
+      <% end %>
+      <% @song.blank_stars.times do %>
+      <i class="far fa-star"></i>
+      <% end %>
+    </div>
+    <div class="heart">
+      <i class="far fa-heart"></i>
+    </div>
+  </div>
+  <div>
+    <div class="doctor-avatar"></div>
+  </div>
+  <div class="card-text">
+    <div id="name-field"></div>
+    <div id="speciality"></div>
+  </div>
+</div>
