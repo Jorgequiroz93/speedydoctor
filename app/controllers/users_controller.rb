@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   def doctors
     if params[:query].present?
-      @doctors = User.all.search_by_first_name_and_last_name_and_specialty_and_country_and_language(params[:query])
+      @doctors = User.where(role: "Doctor").search_globally(params[:query])
     else
-      @doctors = User.all.select { |user| user.role = "doctor" }
+      @doctors = User.where(role: "Doctor")
     end
   end
 end
