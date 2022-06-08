@@ -1,29 +1,20 @@
-<div class="profile-card">
-<img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-  <div>
+<div class="fullsidebar">
+    <div class="profilepicture">
+        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+    </div>
+    
     <div>
       <h2>About Me</h2>
     </div>
+    
     <div>
       <p><%= "#{current_user.first_name} #{current_user.last_name}" %></p>
       <p><%= "#{current_user.date_of_birth}" %></p>
       <p><%= "#{current_user.country}" %></p>
       <p><%= "#{current_user.language}" %></p>
     </div>
-    <div class="confirmation">
-      <i class="fas fa-at"> Email Confirmed</i> <br>
-      <i class="fas fa-mobile-alt"> Mobile Confirmed</i>
-    </div>
-    <br>
-    <br>
+    
     <div id="edit-profile">
-        <%= link_to "Edit Profile", edit_user_registration_path, class: 'button secondary-btn btn-txt-body-primary button-block' %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-primary nav-cta-btn' %>
     </div>
-    <div>
-      <br>
-      <br>
-    </div>
-    <div>
-    <br>
-  </div>
 </div>
