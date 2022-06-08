@@ -6,8 +6,13 @@
   width: 56px;
   border-radius: 50%;
 }
-.card-avatar {
+.vertical-card-avatar {
   width: 150px;
+  border-radius: 50%;
+  padding: 10px;
+}
+.horizontal-card-avatar {
+  width: 170px;
   border-radius: 50%;
 }
 .avatar-bordered {

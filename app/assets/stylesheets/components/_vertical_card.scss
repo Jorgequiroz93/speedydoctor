@@ -1,4 +1,4 @@
-.horizontal-card {
+.vertical-card {
   border: 1px solid black;
   width: 180px;
   border-radius: 6px;
@@ -12,7 +12,7 @@
 .card-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 #name-field {
   font-size: 16px;
