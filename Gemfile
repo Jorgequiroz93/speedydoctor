@@ -64,3 +64,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'country_select'
+gem 'pg_search', '~> 2.3.0'
+gem 'language-select'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'faraday'
+
