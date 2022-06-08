@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
  # get '/ourservices' to: 'pages#ourservices'
  # get '/becomespeedy' to: 'pages#becomespeedy'
+  
+  resources :consultations, only: [:show]
 
 end
