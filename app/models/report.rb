@@ -3,6 +3,6 @@ class Report < ApplicationRecord
   has_one :patient, through: :consultations
   has_one :doctor, through: :consultations
 
-  validates :consultation_id,  presence: true
-  validates :content,  presence: true
+  validates :consultation_id, presence: true
+  validates :content, presence: true
 end
