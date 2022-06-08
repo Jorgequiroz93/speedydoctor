@@ -15,8 +15,8 @@ class User < ApplicationRecord
 
   ROLES = ["Doctor", "Patient", "Admin"]
   SPECIALTIES = ["Dermatology", "Nutrition", "General", "Psychology", "Otolaryngology",
-    "Allergy and immunology", "Emergency", "Neurology", "Pediatrics", "Urology",
-    "Ophthalmology", "Internal", "Onkology"]
+                 "Allergy and immunology", "Emergency", "Neurology", "Pediatrics", "Urology",
+                 "Ophthalmology", "Internal", "Onkology"]
 
   LANGUAGES = ["English", "Deutsch", "Français", "Español"]
   PREFIXES = ["Dr.", "Mr.", "Prof.", "Mrs.", "Ms."]
@@ -24,4 +24,11 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :role, :country, :language, presence: true
   validates :email, uniqueness: true
   validates :role, inclusion: { in: ROLES }
+
+  include PgSearch::Model
+  pg_search_scope :search_globally,
+    against: [ :first_name, :last_name, :specialty, :country, :language ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

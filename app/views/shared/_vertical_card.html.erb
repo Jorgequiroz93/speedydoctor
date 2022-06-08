@@ -1,0 +1,27 @@
+<div class="vertical-card">
+  <div id="top-banner">
+    <div>
+      <% @review.rating.to_i.times do %>
+      <i class="fas fa-star"></i>
+      <% end %>
+      <% @review.blank_stars.times do %>
+      <i class="far fa-star"></i>
+      <% end %>
+    </div>
+    <div>
+      <i class="far fa-heart"></i>
+    </div>
+  </div>
+  <div>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+  </div>
+  <br>
+  <div class="card-text">
+    <div id="name-field">
+      <h6> Name: </h6>
+    </div>
+    <div id="speciality">
+      <p> Specialty: </p>
+    </div>
+  </div>
+</div>
