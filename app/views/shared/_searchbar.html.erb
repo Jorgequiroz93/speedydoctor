@@ -1,8 +1,13 @@
-<%= form_tag doctors_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a doctor by name, specialty, country, language..."
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+
+<div class="search-container">
+  <%= form_tag doctors_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control form-control-lg",
+      placeholder: "Find a bike by model, location, maker, year, category ..."
+    %>
+    <div class="search-button">
+      <%= submit_tag "Search", class: "btn btn-primary btn-lg" %>
+    </div>
+  <% end %>
+</div>
