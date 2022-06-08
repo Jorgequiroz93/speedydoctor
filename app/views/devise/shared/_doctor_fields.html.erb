@@ -1,0 +1,19 @@
+    <%= f.input :rate,
+                placeholder: "_",
+                deafult: 1.50,
+                hint: "Rate per minute, USD",
+                required: true,
+                autofocus: true%>
+    <%= f.input :specialty,
+                required: true,
+                autofocus: true,
+                collection: User::SPECIALTIES %>
+    <%= f.input :sub_specialty,
+                placeholder: "_",
+                required: true,
+                autofocus: true%>
+    <%= f.input :skills,
+                placeholder: "_",
+                required: true,
+                autofocus: true,
+                as: :text %>

@@ -1,25 +1,81 @@
-<h2>Sign up</h2>
+<div class="container col-12 col-sm-10 col-md-8 col-xl-6">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h2 class="mt-5 mb-3">Sign up as a <%= params[:role] %></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name, role: params[:role]), wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select }) do |f| %>
+
   <%= f.error_notification %>
 
   <div class="form-inputs">
+        <%= f.input :role, as: :hidden,
+                    input_html: { value: params[:role].capitalize } %>
+
+    <div class="row">
+      <div class="col-3">
+        <%= f.input :prefix,
+                    autofocus: true, as: :select,
+                    collection: User::PREFIXES %>
+      </div>
+      <div class="col-4">
+        <%= f.input :first_name,
+                    placeholder: "_",
+                    required: true,
+                    autofocus: true  %>
+      </div>
+      <div class="col-5">
+        <%= f.input :last_name,
+                    placeholder: "_",
+                    required: true,
+                    autofocus: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <%= f.input :date_of_birth,
+                    default: 30.years.ago,
+                    start_year: 90.years.ago.year,
+                    end_year:  14.years.ago.year,
+                    required: true,
+                    order: [:day, :month, :year],
+                    autofocus: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :country,
+                    required: true, as: :select,
+                    autofocus: true %>
+        </div>
+      <div class="col-6">
+        <%= f.input :language, as: :select,
+                    required: true,
+                    autofocus: true, collection: User::LANGUAGES %>
+      </div>
+    </div>
+
     <%= f.input :email,
+                placeholder: "_",
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
+                placeholder: "_",
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                placeholder: "_",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-  </div>
 
+    <%= render "devise/shared/doctor_fields", f:f if params[:role] == 'doctor' %>
+
+  </div>
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "btn btn-success btn-lg w-100 mb-3" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
