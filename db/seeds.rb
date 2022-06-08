@@ -56,7 +56,7 @@ User::SPECIALTIES.each do |specialty|
                "hair mesotherapy", "Oxygeneo facial", "Peeling", "Microneedle therapy for scars",
                "co2 laser", "fractional co2 laser", "co2 laser for rejuvenation",
                "Facial biostimulation", "Anti-aging aesthetic treatment", "skin care treatment",
-               "mole removal", "wart removal"]
+               "mole removal", "wart removal"].sample(6).join(", ")
     )
   end
 end
