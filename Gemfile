@@ -64,9 +64,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'country_select'
-<<<<<<< HEAD
 gem 'language-select'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
-=======
->>>>>>> de9c82910d117e0f040ac4313bfc5b5e186cf585
