@@ -24,4 +24,11 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :role, :country, :language, presence: true
   validates :email, uniqueness: true
   validates :role, inclusion: { in: ROLES }
+
+  include PgSearch::Model
+  pg_search_scope :search_globally,
+    against: [ :first_name, :last_name, :specialty, :country, :language ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
