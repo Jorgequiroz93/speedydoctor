@@ -1,6 +1,8 @@
 .navbar-lewagon {
+  align-items: center;
   justify-content: space-between;
-  background: white;
+  background-color: $white;
+  padding-top: 5px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +10,28 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 150px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $primary;
+}
+
+.nav-bar-btn {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-cta-btn {
+  margin-right: 10px;
+  margin-left: 15px;
+}
+
+.dropdown {
+  margin-right: 10px;
+  margin-left: 15px;
+}
+
+.dropdown-item {
+  color: $primary
 }
