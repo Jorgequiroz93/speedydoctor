@@ -15,8 +15,8 @@ Consultation.destroy_all
 User.destroy_all
 
 ## special users
-doctor = User.create!(id: 1, email: "doctor@gmail.com", password:"123123", first_name: "Gregory", last_name: "House", date_of_birth: "1962-06-08", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.")
-patient = User.create!(id: 2, email: "patient@gmail.com", password:"123123", first_name: "Patient", last_name: "Sick", date_of_birth: "1982-07-14", country: "RU", language: "English", role: "Patient", prefix: "Mr.")
+doctor = User.create!(id: 1, email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.")
+patient = User.create!(id: 2, email: "patient@gmail.com", date_of_birth: 45.years.ago, password:"123123", first_name: "Patient", last_name: "Sick", country: "RU", language: "English", role: "Patient", prefix: "Mr.")
 consultation = Consultation.create!(id: 1, doctor_id: 1, patient_id: 2)
 
 
@@ -25,6 +25,7 @@ patients = []
   patients << User.create!(
     role: "Patient",
     prefix: Faker::Name.prefix,
+    date_of_birth: Faker::Date.birthday(min_age: 16, max_age: 100),
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
@@ -42,6 +43,7 @@ User::SPECIALTIES.each do |specialty|
       role: "Doctor",
       specialty: specialty,
       prefix: ["Dr.", "Prof"].sample,
+      date_of_birth: Faker::Date.birthday(min_age: 16, max_age: 100),
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       email: Faker::Internet.email,
