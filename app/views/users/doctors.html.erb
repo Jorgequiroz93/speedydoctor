@@ -5,6 +5,8 @@
         <% @doctors.each do |doctor| %>
           <h4><%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %></h4>
           <p><%= doctor.specialty %></p>
+          <p><%= doctor.country %></p>
+          <p><%= doctor.language %></p>
         <% end %>
       </div>
     </div>
