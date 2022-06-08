@@ -12,3 +12,18 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+#top-banner {
+  display: flex;
+  justify-content: space-between;
+}
+.card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#name-field {
+  font-size: 16px;
+}
+#speciality {
+  font-size: 14px;
+}
