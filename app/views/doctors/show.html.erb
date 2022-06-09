@@ -124,10 +124,9 @@
     </div> <%#= -------------- End of doc reviews ----------------  %>
 
     <div class="doc-cta-box">
-      <div class="doc-cta-call">
-          <div class="btn btn-primary consult">
-              <p>Start Consultation</p>
-          </div>
+            <div class="consult">
+              <p><%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary" %><br /></p>
+            </div>
       </div>
 
       <div class="doc-cta-save">
