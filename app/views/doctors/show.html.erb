@@ -2,63 +2,59 @@
 
   <div class="big-horizontal-card">
     <div class="big-horizontal-container">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
         <div class="horizontal-card-text">
             <div>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
             </div>
             <br>
-            
             <div id="name-field">
                 <h4> <%= "#{@doctor.prefix} ""#{@doctor.first_name} " "#{@doctor.last_name}" %></h4>
             </div>
-            
             <div id="speciality">
                 <p> Specialty: <%= "#{@doctor.specialty} - " "#{@doctor.sub_specialty}" %></p>
             </div>
-            
         </div>
-        
         <br>
         <div class="class-buttons">
-        <div class="availability">
-        <p>Available</p>
-        </div>
-        <br>
-        <div>
-            <div class="consult">
-              <p><%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary" %><br /></p>
+          <div class="availability">
+            <p>Available</p>
+          </div>
+          <br>
+          <div>
+            <div>
+              <%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary consult" %>
             </div>
-            
             <div class="btn btn-outline-primary favourites">
               <p>Save to Favorites</p>
             </div>
+          </div>
         </div>
       </div>
     </div>
   </div> <%#= -------------- End of big horizontal card ----------------  %>
-  
+
   <div class="doc-basic-info">
       <div class="doc-basic-info-item">
          <h3>Language:</h3>
          <p> <%= "#{@doctor.language}" %></p>
       </div>
-  
+
       <div class="doc-basic-info-item">
          <h3>Country:</h3>
          <p> <%= "#{@doctor.country}" %></p>
       </div>
-  
+
       <div class="doc-basic-info-item">
           <h3>Cost per Min:</h3>
           <p><%= "$ #{@doctor.rate}"%></p>
       </div>
   </div> <%#= -------------- End of doc basic info ----------------  %>
-  
+
   <div class="doc-intro">
       <div class="section-title">
         <h2>Introduction</h2>
@@ -86,16 +82,16 @@
             <div class="doc-skill-item">
               <p><%= @doctor.skills %></p>
             </div>
-        </div> 
+        </div>
   </div> <%#= -------------- End of doc skill ----------------  %>
 
     <div class="doc-diplomas">
        <div class="section-title">
           <h2>Diplomas</h2>
        </div>
-      
+
       <div class="doc-diplo-list">
-    
+
           <div class="doc-diplo-item">
           </div>
 

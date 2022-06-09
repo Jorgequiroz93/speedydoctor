@@ -15,10 +15,9 @@ Consultation.destroy_all
 User.destroy_all
 
 ## special users
-doctor = User.create!(id: 1, email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.")
-patient = User.create!(id: 2, email: "patient@gmail.com", date_of_birth: 45.years.ago, password:"123123", first_name: "Patient", last_name: "Sick", country: "RU", language: "English", role: "Patient", prefix: "Mr.")
-consultation = Consultation.create!(id: 1, doctor_id: 1, patient_id: 2)
-
+doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.")
+patient = User.create!(email: "patient@gmail.com", date_of_birth: 45.years.ago, password:"123123", first_name: "Patient", last_name: "Sick", country: "RU", language: "English", role: "Patient", prefix: "Mr.")
+consultation = Consultation.create!(doctor_id: doctor.id, patient_id: patient.id)
 
 patients = []
 10.times do
@@ -102,6 +101,5 @@ patients.each do |patient|
       prescription: Faker::Lorem.sentence(word_count: 25),
       consultation: consultation
     )
-
   end
 end
