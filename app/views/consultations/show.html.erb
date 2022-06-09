@@ -1,28 +1,23 @@
-<div class="container">
+<div class="container col-6">
 
 <h1>Welcome, dear <%= current_user.role %> <b> <%= current_user.first_name %> <%= current_user.last_name %></b></h1>
 
 <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
 <script>
-let myLink = '<%= @room_url %>';
-console.log(myLink);
-window.callFrame = window.DailyIframe.createFrame();
-callFrame.join({ url: myLink })
+  let myLink = '<%= @room_url %>';
+  console.log(myLink);
+  window.callFrame = window.DailyIframe.createFrame({
+    showLeaveButton: true,
+    iframeStyle: {
+      display: 'flex',
+      width: '80%',
+      margin: '0 auto',
+      border: '3px solid $blue',
+      height: '80vh',
+      userName: '<%= current_user.first_name %> <%= current_user.last_name %>'
+    }
+    });
+  callFrame.join({ url: myLink });
 </script>
-
-</div>
-
-
-
-<div class="container col-12">
-
-@doctor: <%= @doctor %><br>
-@doctor.id: <%= @doctor.id %><br>
-@patient: <%= @patient %><br>
-@patient.id: <%= @patient.id %><br>
-@consultation: <%= @consultation %><br>
-@consultation.id: <%= @consultation.id %><br>
-@consultation.room_url: <%= @consultation.room_url %><br>
-@room_url: <%= @room_url %><br>
 
 </div>
