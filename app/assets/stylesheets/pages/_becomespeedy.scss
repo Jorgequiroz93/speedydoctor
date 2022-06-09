@@ -1,7 +1,7 @@
 .header.doc{
   background: linear-gradient(
-          rgba(0, 0, 0, 0.2),
-          rgba(0, 0, 0, 0.2)
+          rgba(121, 121, 121, 0.2),
+          rgba(121, 121, 121, 0.2)
         ), asset-url('background-doctor.jpg');
 
   background-position: center;
@@ -23,6 +23,7 @@
 
 .content.doc h1, h2 {
   text-align: center;
+  font-size: 48px;
 }
 
 .header.doc {
