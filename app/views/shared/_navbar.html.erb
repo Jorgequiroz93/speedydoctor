@@ -36,8 +36,8 @@
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path(role: "doctor"), class: "nav-link" %>
           </li>
-          <li button type="button" class="btn btn-primary nav-cta-btn">
-            <%= link_to "Register as a doctor", new_user_session_path(role: "doctor"), class: "nav-bar-btn" %>
+          <li button type="button" class="nav-cta-btn">
+            <%= link_to "Register as a doctor", new_user_session_path(role: "doctor"), class: "btn btn-primary" %>
           </li>
 
         <% else %>
@@ -50,8 +50,8 @@
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path(role: "patient"), class: "nav-link" %>
           </li>
-          <li button type="button" class="btn btn-primary nav-cta-btn">
-            <%= link_to "Find a Doctor", new_user_session_path(role: "patient"), class: "nav-bar-btn" %>
+          <li button type="button" class="nav-cta-btn">
+            <%= link_to "Find a Doctor", new_user_session_path(role: "patient"), class: "btn btn-primary" %>
           </li>
 
         <% end %>
