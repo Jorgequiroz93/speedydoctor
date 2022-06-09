@@ -1,9 +1,80 @@
 .doc-basic-info {
-max-width: 80%;
-padding: 10px;
-margin: auto;
+    max-width: 80%;
+    padding: 0 60px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .doc-basic-info-item {
+    text-align: center;
+}
 
+// ----- Introduction BOX -----
+
+.section-title {
+
+}
+
+.doc-intro {
+    max-width: 80%;
+    padding: 10px;
+    margin: auto;
+}
+
+// ----- Skills BOX -----
+
+.doc-skills {
+    max-width: 80%;
+    padding: 10px;
+    margin: auto;
+}
+
+.doc-skill-list {
+
+}
+
+.doc-skill-item {
+
+}
+
+// ----- Diplomas BOX -----
+
+.doc-diplomas {
+    max-width: 80%;
+    padding: 10px;
+    margin: auto;
+}
+
+.doc-diplo-list {
+
+}
+
+.doc-diplo-item {
+
+}
+
+// ----- Reviews BOX -----
+
+.doc-reviews {
+    max-width: 80%;
+    padding: 10px;
+    margin: auto;
+}
+
+.doc-reviews-slider {
+
+}
+
+.doc-review-item {
+
+}
+
+// ----- CTA BOX -----
+
+.doc-cta-box {
+    max-width: 80%;
+    padding: 10px;
+    margin: auto;
+    display: inline;
 }

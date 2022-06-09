@@ -119,16 +119,19 @@
     </div> <%#= -------------- End of doc reviews ----------------  %>
 
     <div class="doc-cta-box">
-            <div>
-              <p><%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary consult" %><br /></p>
-            </div>
-      </div>
+    
+      <div class="doc-cta-consultation">
+          <div>
+            <%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary consult" %>
+          </div>
+       </div>
 
       <div class="doc-cta-save">
           <div class="btn btn-outline-primary favourites">
             <p>Save to Favorites</p>
           </div>
       </div>
+
     </div> <%#= -------------- End of doc cta box ----------------  %>
   </div>
 </div>
