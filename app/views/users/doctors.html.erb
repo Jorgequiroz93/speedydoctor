@@ -10,14 +10,14 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="card-deck">
-            <% 6.times do%>
+            <% 5.times do%>
               <%= render 'shared/vertical_card' %>
             <% end %>
           </div>
         </div>
         <div class="carousel-item">
           <div class="card-deck">
-            <% 6.times do%>
+            <% 5.times do%>
               <%= render 'shared/vertical_card_2' %>
             <% end %>
           </div>
@@ -38,7 +38,13 @@
       <h3>All Doctors</h3>
     </div>
     <div class="horizontal-card-container">
-
+      <div class="grid">
+        <% 6.times do %>
+          <div class="g-col-6">
+            <%= render 'shared/horizontal_card' %>
+          </div>
+        <% end%>
+      </div>
     </div>
   </div>
 </div>
