@@ -25,4 +25,8 @@ Rails.application.routes.draw do
   resources :doctors, only: [:show]
 
 
+  # get '/ourservices' to: 'pages#ourservices'
+  # get '/becomespeedy' to: 'pages#becomespeedy'
+
+  resources :consultations, only: [:show]
 end
