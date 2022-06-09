@@ -41,7 +41,9 @@
   }
 }
 .availability {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
@@ -53,6 +55,7 @@
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 6px;
+  height: 48px;
 }
 
 .consult {
@@ -65,4 +68,11 @@
 .class-buttons {
   display: flex;
   flex-direction: column;
+}
+
+.favourites {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  align-items: center;
 }
