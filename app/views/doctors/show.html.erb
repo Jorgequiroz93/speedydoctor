@@ -1,8 +1,7 @@
 <div class="complete-profile">
-
   <div class="big-horizontal-card">
     <div class="big-horizontal-container">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "big-horizontal-card-avatar", alt: "avatar" %>
         <div class="horizontal-card-text">
             <div>
               <i class="fas fa-star"></i>
@@ -132,10 +131,9 @@
     <%#= -------------- End of doc reviews ----------------  %>
 
     <div class="doc-cta-box">
-      <div class="doc-cta-call">
-          <div class="btn btn-primary consult">
-              <p>Start Consultation</p>
-          </div>
+            <div>
+              <p><%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary consult" %><br /></p>
+            </div>
       </div>
 
       <div class="doc-cta-save">
