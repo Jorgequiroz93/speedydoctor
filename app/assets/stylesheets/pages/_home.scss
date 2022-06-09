@@ -1,9 +1,10 @@
 // Specific CSS for your home-page
 .header {
   background: linear-gradient(
-          rgba(0, 0, 0, 0.7),
-          rgba(0, 0, 0, 0.7)
-        ), url('https://images.unsplash.com/photo-1614294649523-b9a566499001?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.2)
+        ), url('background-light.jpg');
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
