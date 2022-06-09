@@ -1,27 +1,28 @@
 <div class="complete-profile">
 
-  <div class="horizontal-card">
-    <div class="horizontal-container">
+  <div class="big-horizontal-card">
+    <div class="big-horizontal-container">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
         <div class="horizontal-card-text">
-        <div>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <div>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <br>
+            
+            <div id="name-field">
+                <h4> <%= "#{@doctor.prefix} ""#{@doctor.first_name} " "#{@doctor.last_name}" %></h4>
+            </div>
+            
+            <div id="speciality">
+                <p> Specialty: <%= "#{@doctor.specialty} - " "#{@doctor.sub_specialty}" %></p>
+            </div>
+            
         </div>
-        <br>
-        <div id="name-field">
-            <h4> Name: Yanko Thomson</h4>
-        </div>
-        <div id="speciality">
-            <p> Specialty: Slaying and playing vidya games</p>
-        </div>
-        <div id="cost-per-min">
-            <p> Cost per Min: $$$$$</p>
-        </div>
-        </div>
+        
         <br>
         <div class="class-buttons">
         <div class="availability">
@@ -33,7 +34,7 @@
             <p>Start Consultation</p>
             </div>
             <div class="btn btn-outline-primary favourites">
-            <p>Save to Favourites</p>
+            <p>Save to Favorites</p>
             </div>
         </div>
       </div>
@@ -42,18 +43,24 @@
   
   <div class="doc-basic-info">
       <div class="doc-basic-info-item">
+         <h3>Language:</h3>
+         <p> <%= "#{@doctor.language}" %></p>
       </div>
   
       <div class="doc-basic-info-item">
+         <h3>Country:</h3>
+         <p> <%= "#{@doctor.country}" %></p>
       </div>
   
       <div class="doc-basic-info-item">
+          <h3>Cost per Min:</h3>
+          <p><%= "$ #{@doctor.rate}"%></p>
       </div>
   </div> <%#= -------------- End of doc basic info ----------------  %>
   
   <div class="doc-intro">
       <div class="section-title">
-        <h1>Introduction</h1>
+        <h2>Introduction</h2>
       </div>
 
       <div class="section-title">
@@ -63,24 +70,27 @@
 
   <div class="doc-skills">
         <div class="section-title">
-           <h1>Skills</h1>
+           <h2>Skills</h2>
         </div>
 
         <div class="doc-skill-list">
             <div class="doc-skill-item">
+              <p><%= @doctor.skills %></p>
             </div>
 
             <div class="doc-skill-item">
+              <p><%= @doctor.skills %></p>
             </div>
 
             <div class="doc-skill-item">
+              <p><%= @doctor.skills %></p>
             </div>
         </div> 
   </div> <%#= -------------- End of doc skill ----------------  %>
 
     <div class="doc-diplomas">
        <div class="section-title">
-          <h1>Diplomas</h1>
+          <h2>Diplomas</h2>
        </div>
       
       <div class="doc-diplo-list">
@@ -95,13 +105,13 @@
     </div> <%#= -------------- End of doc diplomas ----------------  %>
 
     <div class="doc-reviews">
-
-      <div class="section-title">
-          <h1>Reviews</h1>
+       <div class="section-title">
+          <h2><%= "200 Reviews" %></h2>
        </div>
 
       <div class="doc-reviews-slider">
           <div class="doc-review-item">
+
           </div>
 
           <div class="doc-review-item">
@@ -114,9 +124,15 @@
 
     <div class="doc-cta-box">
       <div class="doc-cta-call">
+          <div class="btn btn-primary consult">
+              <p>Start Consultation</p>
+          </div>
       </div>
 
       <div class="doc-cta-save">
+          <div class="btn btn-outline-primary favourites">
+            <p>Save to Favorites</p>
+          </div>
       </div>
     </div> <%#= -------------- End of doc cta box ----------------  %>
   </div>
