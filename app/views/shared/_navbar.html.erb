@@ -10,6 +10,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Are you a doctor?", "/becomespeedy", class: "nav-link" %>
@@ -27,18 +28,30 @@
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
+
+        <% elsif params[:role] == "doctor" %>
+        <li class="nav-item">
+            <%= link_to "Our services", "/ourservices", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path(role: "doctor"), class: "nav-link" %>
+          </li>
+          <li button type="button" class="btn btn-primary nav-cta-btn">
+            <%= link_to "Register as a doctor", new_user_session_path(role: "doctor"), class: "nav-bar-btn" %>
+          </li>
+
         <% else %>
           <li class="nav-item active">
-            <%= link_to "Are you a doctor?", "#", class: "nav-link" %>
+            <%= link_to "Are you a doctor?", becomespeedy_path(role: "doctor"), class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Our services", "/ourservices", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path(role: "patient"), class: "nav-link" %>
           </li>
           <li button type="button" class="btn btn-primary nav-cta-btn">
-            <%= link_to "Find a Doctor", new_user_session_path, class: "nav-bar-btn" %>
+            <%= link_to "Find a Doctor", new_user_session_path(role: "patient"), class: "nav-bar-btn" %>
           </li>
 
         <% end %>
