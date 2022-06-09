@@ -5,16 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [] do 
     resources :consultations, only: [:create]
   end
-
-  get '/styleguide', to: 'pages#styleguide'
-  
-  get '/doctors', to: 'users#doctors'
-  get '/dashboard', to: 'pages#dashboard'
-  get '/doctors/doctors[:id]', to: 'users#doctors'
-  
-
- # get '/ourservices' to: 'pages#ourservices'
- # get '/becomespeedy' to: 'pages#becomespeedy'
   
   resources :consultations, only: [:show] do
     resources :reviews, only: [:create, :update]
@@ -24,6 +14,15 @@ Rails.application.routes.draw do
   resources :reports, only: [:show]
   resources :doctors, only: [:show]
 
+  
+  get '/styleguide', to: 'pages#styleguide'
+  
+  get '/doctors', to: 'users#doctors'
+  get '/dashboard', to: 'pages#dashboard'
+  
+
+ # get '/ourservices' to: 'pages#ourservices'
+ # get '/becomespeedy' to: 'pages#becomespeedy'
 
   # get '/ourservices' to: 'pages#ourservices'
   # get '/becomespeedy' to: 'pages#becomespeedy'
