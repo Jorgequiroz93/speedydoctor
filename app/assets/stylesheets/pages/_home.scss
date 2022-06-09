@@ -1,9 +1,10 @@
 // Specific CSS for your home-page
-.header {
+.header.home {
   background: linear-gradient(
-          rgba(0, 0, 0, 0.7),
-          rgba(0, 0, 0, 0.7)
-        ), url('https://images.unsplash.com/photo-1614294649523-b9a566499001?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.2)
+        ), asset-url('background-light.jpg');
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,19 +14,19 @@
   justify-content: center;
 }
 
-.banner-title {
+.banner-title.home {
   color: white;
 }
 
-.banner-slogan {
+.banner-slogan.home {
   color: white;
 }
 
-.content h1, h2 {
+.content.home h1, h2 {
   text-align: center;
 }
 
 
-.header {
+.header.home {
   align-content: center;
 }

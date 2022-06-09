@@ -1,0 +1,42 @@
+.header.doc{
+  background: linear-gradient(
+          rgba(121, 121, 121, 0.2),
+          rgba(121, 121, 121, 0.2)
+        ), asset-url('background-doctor.jpg');
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.banner-title.doc {
+  color: white;
+}
+
+.banner-slogan.doc {
+  color: white;
+}
+
+.content.doc h1, h2 {
+  text-align: center;
+  font-size: 48px;
+}
+
+.header.doc {
+  align-content: center;
+}
+
+.content.doc {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.btn-register {
+  padding: 10px 35px;
+}
