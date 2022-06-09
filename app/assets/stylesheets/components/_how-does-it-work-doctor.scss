@@ -1,0 +1,22 @@
+.how-does-it-work-doctor-container {
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.hdiwd-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hditd-card {
+  text-align: center;
+  max-width: 250px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  p {
+    margin-top: 25px;
+  }
+}
