@@ -1,23 +1,55 @@
-<div class="container col-6">
+<div class="container mw-100" data-controller="fetch-time">
+  <div class="row p-0">
+    <div class="col-12 col-lg-2 bg-secondary" style="min-width: 160px">
+      <h3>Welcome, dear <%= current_user.prefix %> <b> <%= current_user.first_name %> <%= current_user.last_name %></b></h3>
+      <h4>You are in a session with <b> <%= @doctor.prefix %> <%= @doctor.first_name %> <%= @doctor.last_name %></b></h4>
+      <p data-fetch-time-target="timer"> For HH:MM:SS </p>
+      <p><small> Billable: <span data-fetch-time-target="bill">XX.XX</span>$ </small></p>
+    </div>
+    <div class="col-12 col-lg-6 h-100 p-0" style="min-width: 480px">
+      <div class="card" id="videoframe">
+        <%# here will the video chat go %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 bg-success"  style="min-width: 320px">
 
-<h1>Welcome, dear <%= current_user.role %> <b> <%= current_user.first_name %> <%= current_user.last_name %></b></h1>
+      <% if current_user.role.capitalize == 'Doctor' %>
 
-<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
-<script>
-  let myLink = '<%= @room_url %>';
-  console.log(myLink);
-  window.callFrame = window.DailyIframe.createFrame({
-    showLeaveButton: true,
-    iframeStyle: {
-      display: 'flex',
-      width: '80%',
-      margin: '0 auto',
-      border: '3px solid $blue',
-      height: '80vh',
-      userName: '<%= current_user.first_name %> <%= current_user.last_name %>'
-    }
-    });
-  callFrame.join({ url: myLink });
-</script>
+        <h1>Online report</h1>
+        <%= simple_form_for :report, wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select } do |f| %>
+          <%= f.input :personal_notes, label: "Doctor's personal notes", as: :text %>
+          <%= f.input :content, as: :text %>
+          <%= f.input :prescription, as: :text %>
+          <%= f.submit "Save report", class: "btn btn-lg btn-primary w-100" %>
+        <% end %>
 
+      <% elsif current_user.role.capitalize == 'Patient' %>
+
+        <h1>Doctor's report</h1>
+        <h3>General advise</h3>
+        <p>@consultation.report.content to be picked up in the realtime<%= @consultation.report.content if @consultation.report.present? %></p>
+        <h3>Prescriptions</h3>
+        <p>@consultation.report.prescription to be picked up in the realtime<%= @consultation.report.prescription if @consultation.report.present?%></p>
+        <h3>Attachments:</h3>
+        <h1>📎 📎 📎</h1>
+
+        <hr>
+        <%= simple_form_for :review, wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select } do |f| %>
+          <%= f.input :notes, label: "My personal notes", as: :text %>
+        <h1>Leave review</h1>
+          <%= f.input :speed_rating, collection: (1..5) %>
+          <%= f.input :gentleness_rating, collection: (1..5) %>
+          <%= f.input :clarity_rating, collection: (1..5) %>
+          <%= f.input :professionalism_rating, collection: (1..5) %>
+          <%= f.input :content, as: :text %>
+          <%= f.submit "Save review", class: "btn btn-lg btn-primary w-100" %>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
 </div>
+
+<%# SCRIPTS for the VideoChat %>
+<%= current_user.role %>
+<%= render 'video_call_script' %>

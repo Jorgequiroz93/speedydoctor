@@ -1,0 +1,17 @@
+<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+<script>
+  let myLink = '<%= @room_url %>';
+  window.callFrame = window.DailyIframe.createFrame(
+    document.getElementById('videoframe'),
+    {
+      showLeaveButton: true,
+    iframeStyle: {
+      width: '100%',
+      height: 'calc(100vh - 71.08px)',
+      margin: '0 auto',
+      border: '3px solid $blue',
+      userName: '<%= current_user.first_name %> <%= current_user.last_name %>'
+    }
+    });
+  callFrame.join({ url: myLink });
+</script>
