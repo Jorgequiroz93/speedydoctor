@@ -1,9 +1,8 @@
-// Specific CSS for your home-page
-.header.home {
+.header.doc{
   background: linear-gradient(
           rgba(0, 0, 0, 0.2),
           rgba(0, 0, 0, 0.2)
-        ), asset-url('background-light.jpg');
+        ), asset-url('background-doctor.jpg');
 
   background-position: center;
   background-repeat: no-repeat;
@@ -14,19 +13,29 @@
   justify-content: center;
 }
 
-.banner-title.home {
+.banner-title.doc {
   color: white;
 }
 
-.banner-slogan.home {
+.banner-slogan.doc {
   color: white;
 }
 
-.content.home h1, h2 {
+.content.doc h1, h2 {
   text-align: center;
 }
 
-
-.header.home {
+.header.doc {
   align-content: center;
+}
+
+.content.doc {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.btn-register {
+  padding: 10px 35px;
 }
