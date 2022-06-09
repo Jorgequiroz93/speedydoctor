@@ -5,7 +5,8 @@
 .search-box {
   max-width: 900px;
   margin: 0 auto;
-  background-color: rgba(0, 35, 82, 0.8);
+  // background-color: rgba(0, 35, 82, 0.8);
+  background: linear-gradient(100deg, rgba(0, 35, 82, 1) 0%, rgba(0, 74, 173, 1) 25%);
   padding: 35px;
   border-radius: 6px;
 }
