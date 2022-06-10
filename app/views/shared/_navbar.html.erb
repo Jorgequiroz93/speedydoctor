@@ -11,10 +11,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
 
-        <% if user_signed_in? %>
-          <li class="nav-item active">
+        <% if user_signed_in? && current_user == "Patient" %>
+          <%# <li class="nav-item active">
             <%= link_to "Are you a doctor?", "/becomespeedy", class: "nav-link" %>
-          </li>
+          <%# </li> %>
           <li class="nav-item">
             <%= link_to "Our services", "/ourservices", class: "nav-link" %>
           </li>
