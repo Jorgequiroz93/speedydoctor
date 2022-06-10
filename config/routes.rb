@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
 
-  resources :doctors, only: [] do 
+  resources :doctors, only: [] do
     resources :consultations, only: [:create]
   end
 
@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
  # get '/ourservices' to: 'pages#ourservices'
   get '/becomespeedy', to: 'pages#becomespeedy'
+
+  patch '/dashboard/available', to: 'doctors#change_status_to_available'
+  patch '/dashboard/off', to: 'doctors#change_status_to_off'
 
   # get '/ourservices' to: 'pages#ourservices'
   # get '/becomespeedy' to: 'pages#becomespeedy'
