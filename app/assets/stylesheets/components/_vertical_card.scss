@@ -4,6 +4,20 @@
   border-radius: 6px;
   padding: 10px;
   margin: 10px;
+  box-shadow: 1px 1px 3px black;
+  #name-field {
+    font-size: 16px;
+    display: flex;
+    text-align: center;
+    height: 40px;
+  }
+}
+.vertical-card:hover {
+  border: 1px solid black;
+  width: 180px;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 10px;
   box-shadow: 3px 3px 5px black;
 }
 #top-banner {
@@ -15,12 +29,7 @@
   flex-direction: column;
   align-items: center;
 }
-#name-field {
-  font-size: 16px;
-  display: flex;
-  text-align: center;
-  height: 40px;
-}
+
 #speciality {
   font-size: 14px;
   display: flex;

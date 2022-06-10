@@ -24,18 +24,29 @@ class ConsultationsController < ApplicationController
   end
 
   def create
-
     @doctor = User.find(params[:doctor_id])
     @consultation =  Consultation.new()
     @consultation.doctor = @doctor
     @consultation.patient = current_user
     @consultation.status = 'calling'
     if @consultation.save
+      @doctor.status = "Busy"
+      @doctor.save
       redirect_to consultation_path(@consultation)
     else
      render 'doctors/show'
     end
+  end
 
+  def update
+    @consultation =  Consultation.find(params[:id])
+    @consultation.update(consultation_params)
+  end
+
+  private
+
+  def consultation_params
+    params.require(:consultation).permit(:start_time, :end_time, :status, :symptoms)
   end
 
 end
