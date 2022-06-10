@@ -63,7 +63,7 @@ User::SPECIALTIES.each do |specialty|
 end
 
 # Consultations:
-consultations = []
+consultation = []
 
 patients.each do |patient|
   rand(1..4).times do
