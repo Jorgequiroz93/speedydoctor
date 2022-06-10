@@ -9,10 +9,19 @@
     
     <div>
       <p><%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-      <p><%= "#{current_user.date_of_birth}" %></p>
-      <p><%= "#{current_user.country}" %></p>
-      <p><%= "#{current_user.language}" %></p>
+      <p><%= "Date of Birth: #{current_user.date_of_birth}" %></p>
+      <p><%= "Country: #{current_user.country}" %></p>
+      <p><%= "Native Language: #{current_user.language}" %></p>
+
+      <% if current_user.role == 'Doctor' %>
+        <p><%= "Session Status: #{current_user.status}" %></p>
+        <p><%= "Rate per minute: #{current_user.rate}" %></p>
+        <p><%= "Currently logged as: #{current_user.role}" %></p>
+      <% elsif current_user.role == 'Patient' %>
+      <% end %>
     </div>
+
+  
     
     <div id="edit-profile">
         <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-primary nav-cta-btn' %>
