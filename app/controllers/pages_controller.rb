@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :becomespeedy ]
+  skip_before_action :authenticate_user!, only: [ :home, :becomespeedy, :styleguide]
 
   def home
   end
@@ -7,4 +7,6 @@ class PagesController < ApplicationController
   def becomespeedy
   end
 
+  def styleguide
+  end
 end
