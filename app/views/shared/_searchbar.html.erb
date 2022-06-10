@@ -1,6 +1,5 @@
 <div class="search-box">
   <div class="search-container">
-  <p class="search-bar-label">Find a doctor :</p>
     <%= form_tag doctors_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
