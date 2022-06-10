@@ -18,7 +18,7 @@
           </div>
         <% elsif current_user.status == "Available" %>
           <div id="status">
-              <%= link_to current_user.status, dashboard_off_path, method: :patch, class: 'btn btn-primary' %>
+              <%= link_to current_user.status, dashboard_off_path, method: :patch, class: 'btn btn-tertiary' %>
           </div>
         <% end %>
         <br>
