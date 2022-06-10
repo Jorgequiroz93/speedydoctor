@@ -11,12 +11,10 @@ class ConsultationsController < ApplicationController
     if @consultation.room_url.present?
       @room_url = @consultation.room_url
     else
-      reqq = ""
       res = Faraday.post "https://api.daily.co/v1/rooms/" do |req|
         req.body = { properties: { enable_chat: true, enable_people_ui: false, enable_pip_ui: true }}.to_json
         req.headers['Content-Type'] = 'application/json'
         req.headers['Authorization'] = 'Bearer 805ef46e7bdb8a21f60dc7feb5af7c9645f921aed8348a163acdb609416e40ad'
-        reqq = req
       end
       # raise
       @consultation.room_url = JSON.parse(res.body)["url"] if res.status == 200
@@ -26,7 +24,7 @@ class ConsultationsController < ApplicationController
   end
 
   def create
-    
+
     @doctor = User.find(params[:doctor_id])
     @consultation =  Consultation.new()
     @consultation.doctor = @doctor
@@ -35,7 +33,7 @@ class ConsultationsController < ApplicationController
     if @consultation.save
       redirect_to consultation_path(@consultation)
     else
-     render 'doctors/show' 
+     render 'doctors/show'
     end
 
   end
