@@ -8,5 +8,7 @@ class PagesController < ApplicationController
   end
 
   def styleguide
+    @doctors = User.where(role: "Doctor")
+    @recommended_doctors = @doctors.reviews.where(rating: 5).first(5)
   end
 end
