@@ -21,7 +21,7 @@
         <br>
         <div class="class-buttons">
           <div class="availability">
-            <p>Available</p>
+            <p><%=@doctor.status%></p>
           </div>
           <br>
           <div>
@@ -79,7 +79,7 @@
             <div class="doc-skill-item">
               <p><%= @doctor.skills %></p>
             </div>
-            
+
         </div>
   </div>
 
@@ -123,7 +123,7 @@
 
     <%#= -------------- End of doc reviews ----------------  %>
 
-    <div class="doc-cta-box">    
+    <div class="doc-cta-box">
       <div class="doc-cta-consultation">
         <div>
           <%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary consult" %>
