@@ -100,9 +100,12 @@
       <div class="doc-diplo-list">
 
           <div class="doc-diplo-item">
+             <%# @doctor.skills.each do | skill | %>
+             <%#= @doctor.skill  %>
           </div>
 
           <div class="doc-diplo-item">
+            <p><%#= @doctor.diplomas %></p>
           </div>
 
       </div>
@@ -112,7 +115,7 @@
 
     <div class="doc-reviews">
        <div class="section-title">
-          <h2><%= "200 Reviews" %></h2>
+          <h2><%= "Reviews" %></h2>
        </div>
 
       <div class="doc-reviews-slider">

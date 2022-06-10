@@ -76,8 +76,17 @@
 // ----- CTA BOX -----
 
 .doc-cta-box {
-    max-width: 80%;
-    padding: 10px;
+    max-width: 26%;
     margin: auto;
-    display: inline;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.doc-cta-consultation {
+    box-sizing: border-box;
+    margin: auto;
+}
+.doc-cta-save {
+    box-sizing: border-box;
+    margin: auto;
 }
