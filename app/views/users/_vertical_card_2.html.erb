@@ -1,0 +1,27 @@
+<% @doctors.last(5).each do |doctor| %>
+  <div class="vertical-card">
+    <div id="top-banner">
+      <div>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <div>
+        <i class="far fa-heart"></i>
+      </div>
+    </div>
+    <div>
+      <%= image_tag "https://ozgrozer.github.io/100k-faces/0/1/001486.jpg", class: "vertical-card-avatar", alt: "avatar" %>
+    </div>
+    <div class="card-text">
+      <div id="name-field">
+        <h6><%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %></h6>
+      </div>
+      <div id="speciality">
+        <p><%= doctor.specialty %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

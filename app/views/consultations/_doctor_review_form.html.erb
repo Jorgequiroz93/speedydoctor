@@ -1,0 +1,22 @@
+        <%= simple_form_for :review, wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select } do |f| %>
+          <%= f.input :notes, label: "My personal notes", as: :text, input_html: { style: "height: auto", rows: 5 }   %>
+        <h1>Leave review</h1>
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :speed_rating, collection: (1..5) %>
+          </div>
+          <div class="col-6">
+            <%= f.input :gentleness_rating, collection: (1..5) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :clarity_rating, collection: (1..5) %>
+          </div>
+          <div class="col-6">
+            <%= f.input :professionalism_rating, collection: (1..5) %>
+          </div>
+        </div>
+          <%= f.input :content, as: :text, input_html: { style: "height: auto", rows: 5 }  %>
+          <%= f.submit "Save review", class: "btn btn-lg btn-primary w-100" %>
+        <% end %>

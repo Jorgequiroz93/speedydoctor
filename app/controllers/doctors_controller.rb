@@ -8,4 +8,24 @@ class DoctorsController < ApplicationController
         @consultation = Consultation.new()
     end
 
+    def change_status_to_available
+      @doctor = current_user
+      @doctor.status = "Available"
+      if @doctor.save
+        redirect_to dashboard_path
+      else
+        render :new
+      end
+    end
+
+    def change_status_to_off
+      @doctor = current_user
+      @doctor.status = "Off"
+      if @doctor.save
+        redirect_to dashboard_path
+      else
+        render :new
+      end
+    end
+
 end

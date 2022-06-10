@@ -1,0 +1,54 @@
+<% @doctors.each do |doctor| %>
+  <div class="horizontal-card">
+    <div class="horizontal-container">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+      <div class="horizontal-card-text">
+        <div>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <br>
+        <div id="name-field">
+          <h5><%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %></h5>
+        </div>
+        <div id="speciality">
+          <p><%= doctor.specialty %></p>
+        </div>
+        <div id="cost-per-min">
+          <p>$ <%= doctor.rate.round(2) %> per minute</p>
+        </div>
+      </div>
+      <br>
+      <div class="class-buttons">
+        <div class="availability">
+        <p>Available</p>
+        </div>
+        <div>
+          <div class="btn btn-primary consult">
+            <p>Start Consultation</p>
+          </div>
+          <div class="btn btn-outline-primary favourites">
+            <p>Save to Favourites</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="doctors">
+        <% @doctors.each do |doctor| %>
+          <h4><%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %></h4>
+          <p><%= doctor.specialty %></p>
+          <p><%= doctor.country %></p>
+          <p><%= doctor.language %></p>
+          <%= link_to "open profile", doctor_path(doctor) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
