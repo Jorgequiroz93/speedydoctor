@@ -17,7 +17,7 @@
     </div>
     <div class="card-text">
       <div id="name-field">
-        <h6><%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %></h6>
+         <%= link_to "#{doctor.prefix} #{doctor.first_name} #{doctor.last_name}", doctor_path(doctor), class: "profile2" %>
       </div>
       <div id="speciality">
         <p><%= doctor.specialty %></p>

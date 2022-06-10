@@ -12,7 +12,8 @@
       </div>
       <br>
         <div id="name-field">
-          <h5><%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %></h5>
+          <%= link_to "#{doctor.prefix} #{doctor.first_name} #{doctor.last_name}", doctor_path(doctor), class: "profile" %>
+            <%# <h5><%= doctor.prefix <%= doctor.first_name <%= doctor.last_name </h5> %>
         </div>
         <div id="speciality">
           <p><%= doctor.specialty %></p>
@@ -33,7 +34,6 @@
           <div class="btn btn-outline-primary favourites">
             <p>Save to Favourites</p>
           </div>
-          <%= link_to "open profile", doctor_path(doctor) %>
         </div>
       </div>
     </div>
