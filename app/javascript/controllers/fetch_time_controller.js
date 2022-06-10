@@ -14,12 +14,44 @@ export default class extends Controller {
 
   connect() {
     console.log('Hello, Stimulus!');
-    var start = new Date();
-    setInterval(() => {
-      var end = new Date();
-      console.log((end - start)/1000);
-      this.timerTarget.textContent = `${Math.round((end - start)/60000)}:${Math.round(((end - start)/1000) % 60)}`;
-      this.billTarget.textContent = Math.round((end - start)/10 * 3)/100;
-    }, 1000);
+    console.log(window.callFrame);
+    var seconds = 0;
+    var end;
+    var start;
+    var myThis = this;
+
+    function startChecker() {
+      console.log(myThis);
+      var joinChecker = setInterval(() => {
+        console.log('Checker is on. Participants:' + window.callFrame._participantCounts.present);
+        if (window.callFrame._participantCounts.present === 2) {
+          start = new Date();
+          clearInterval(joinChecker);
+          console.log('Checker is OFF. Participants:' + window.callFrame._participantCounts.present);
+          startTimer();
+        }
+      }, 100);
+    }
+
+    startChecker();
+
+    function startTimer() {
+      console.log('timer is on');
+      var billing = setInterval(() => {
+        console.log(window.callFrame._participantCounts.present);
+        if (window.callFrame._participantCounts.present === 2) {
+          end = new Date();
+          seconds = Math.round((end - start)/1000);
+          myThis.timerTarget.textContent = `${Math.round(seconds / 60).toString().padStart(2, '0')}:${Math.round(seconds % 60).toString().padStart(2, '0')}`;
+          myThis.billTarget.textContent = Math.round((end - start)/10 * 2 / 60)/100;
+        }
+        else {
+          console.log('timer is off');
+          clearInterval(billing);
+          startChecker();
+        }
+      }, 500);
+    }
+
   }
 }
