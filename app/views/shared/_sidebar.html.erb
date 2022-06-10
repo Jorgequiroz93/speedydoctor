@@ -1,20 +1,39 @@
 <div class="fullsidebar">
-    <div class="profilepicture">
-        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-    </div>
-    
-    <div>
-      <h2>About Me</h2>
-    </div>
-    
-    <div>
-      <p><%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-      <p><%= "#{current_user.date_of_birth}" %></p>
-      <p><%= "#{current_user.country}" %></p>
-      <p><%= "#{current_user.language}" %></p>
-    </div>
-    
-    <div id="edit-profile">
-        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-primary nav-cta-btn' %>
-    </div>
+  <div class="profilepicture">
+      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+  </div>
+
+  <div>
+    <h2>About Me</h2>
+  </div>
+
+  <div>
+    <p><%= "#{current_user.prefix} #{current_user.first_name} #{current_user.last_name}" %></p>
+    <p><%= "#{current_user.date_of_birth}" %></p>
+    <p><%= "#{current_user.country}" %></p>
+    <p><%= "#{current_user.language}" %></p>
+  </div>
+
+  <p>Your current status is :</p>
+  <% if current_user.status == "Off" %>
+  <div id="status">
+      <%= link_to current_user.status, dashboard_available_path, method: :patch, class: 'btn btn-ghost' %>
+  </div>
+  <% elsif current_user.status == "Available" %>
+  <div id="status">
+      <%= link_to current_user.status, dashboard_off_path, method: :patch, class: 'btn btn-primary' %>
+  </div>
+  <% end %>
+  <br>
+  <div id="edit-profile">
+      <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-primary nav-cta-btn' %>
+  </div>
 </div>
+
+
+
+<%# TOGGLE BUTTON  %>
+    <%# <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="status_toggle">
+      <label class="form-check-label" for="status_toggle">Are you available?</label>
+    </div> %>
