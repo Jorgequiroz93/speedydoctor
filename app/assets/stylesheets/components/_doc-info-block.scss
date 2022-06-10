@@ -1,10 +1,28 @@
+.h4 {
+    font-size: 40px;
+}
+
 .doc-basic-info {
     max-width: 80%;
-    padding: 0 60px;
+    color: white;
+    padding: 32px 88px;
     margin: auto;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
+    background: linear-gradient(
+        -100deg,
+        rgba(0, 74, 173, 1),
+        rgba(0, 35, 82, 1));
+    border-radius: 6px;
+    box-shadow: 3px 3px 5px black;
+    animation: fadeIn 3s;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
 .doc-basic-info-item {
     text-align: center;
@@ -12,15 +30,29 @@
 
 // ----- Introduction BOX -----
 
-.section-title {
-
-}
-
 .doc-intro {
     max-width: 80%;
     padding: 10px;
     margin: auto;
+    margin-top: 50px;    
+    animation: fadeIn 3s;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+.introduction {
+    padding: 10px;
+    text-align: center;
+    animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
 // ----- Skills BOX -----
 
@@ -28,16 +60,23 @@
     max-width: 80%;
     padding: 30px 60px;
     margin: auto;
-
+    margin-top: 50px;
+    animation: fadeIn 3s;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
 .doc-skill-list {
     display: flex;
+    padding: 10px;
     justify-content: space-between;
 }
 
 .doc-skill-item {
-
+    text-align: center;
 }
 
 // ----- Diplomas BOX -----
@@ -46,15 +85,23 @@
     max-width: 80%;
     padding: 10px;
     margin: auto;
+    margin-top: 50px;
+    animation: fadeIn 3s;
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
 .doc-diplo-list {
-    display: flex;
-    justify-content: space-between;
+    margin: auto;
+    border-radius: 6px;
+    padding: 10px;
 }
 
 .doc-diplo-item {
-
+    text-align: center;
 }
 
 // ----- Reviews BOX -----
@@ -63,21 +110,47 @@
     max-width: 80%;
     padding: 10px;
     margin: auto;
+    margin-top: 50px;
+    animation: fadeIn 3s;
 }
 
-.doc-reviews-slider {
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
+.doc-reviews-list {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    margin: auto;
+    border-radius: 6px;
 }
 
 .doc-review-item {
-
+    text-align: center;
+    padding: 10px;
 }
 
 // ----- CTA BOX -----
 
 .doc-cta-box {
-    max-width: 80%;
-    padding: 10px;
+    max-width: 40%;
     margin: auto;
-    display: inline;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+
+
+.doc-cta-consultation {
+    box-sizing: border-box;
+    margin: auto;
+}
+.doc-cta-save {
+    box-sizing: border-box;
+    margin: auto;
 }
