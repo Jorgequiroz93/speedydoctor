@@ -8,49 +8,64 @@
 // </div>
 
 import { Controller } from "stimulus"
+import { csrfToken } from '@rails/ujs'
 
 export default class extends Controller {
   static targets = [ "timer", "bill" ]
 
   connect() {
     console.log('Hello, Stimulus!');
-    console.log(window.callFrame);
     var seconds = 0;
     var end;
     var start;
     var myThis = this;
+    var participants = 0
+    var myInterval;
 
-    function startChecker() {
-      console.log(myThis);
-      var joinChecker = setInterval(() => {
-        console.log('Checker is on. Participants:' + window.callFrame._participantCounts.present);
-        if (window.callFrame._participantCounts.present === 2) {
-          start = new Date();
-          clearInterval(joinChecker);
-          console.log('Checker is OFF. Participants:' + window.callFrame._participantCounts.present);
-          startTimer();
-        }
-      }, 100);
-    }
+    callFrame
+    .on('joined-meeting', (event) => {
+      console.log('Participants: ' + ++participants);
+      participants === 2 ? startTimer() : stopTimer();
+    })
+    .on('participant-joined', (event) => {
+      console.log('Participants: ' + ++participants);
+      participants === 2 ? startTimer() : stopTimer();
+    })
+    .on('left-meeting', (event) => {
+      console.log('Participants: ' + --participants);
+      participants === 2 ? startTimer() : stopTimer();
+    })
+    .on('participant-left', (event) => {
+      console.log('Participants: ' + --participants);
+      participants === 2 ? startTimer() : stopTimer();
+    });
 
-    startChecker();
-
+    // STATUSES = ['calling', 'online', 'finished', "cancelled"]
     function startTimer() {
       console.log('timer is on');
-      var billing = setInterval(() => {
-        console.log(window.callFrame._participantCounts.present);
-        if (window.callFrame._participantCounts.present === 2) {
+      start = new Date();
+      fetch(window.location.href, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json', "X-CSRF-Token": csrfToken()},
+        body: JSON.stringify({'status': 'online', 'start_time': start})
+        });
+
+      myInterval = setInterval(() => {
           end = new Date();
           seconds = Math.round((end - start)/1000);
           myThis.timerTarget.textContent = `${Math.round(seconds / 60).toString().padStart(2, '0')}:${Math.round(seconds % 60).toString().padStart(2, '0')}`;
           myThis.billTarget.textContent = Math.round((end - start)/10 * 2 / 60)/100;
-        }
-        else {
-          console.log('timer is off');
-          clearInterval(billing);
-          startChecker();
-        }
       }, 500);
+    }
+
+    function stopTimer() {
+      console.log('timer is off');
+      fetch(window.location.href, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json', "X-CSRF-Token": csrfToken()},
+        body: JSON.stringify({'status': 'finished', 'end_time': end})
+        });
+      clearInterval(myInterval);
     }
 
   }
