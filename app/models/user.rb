@@ -20,6 +20,7 @@ class User < ApplicationRecord
 
   LANGUAGES = ["English", "Deutsch", "Français", "Español"]
   PREFIXES = ["Dr.", "Mr.", "Prof.", "Mrs.", "Ms."]
+  STATUS = ["Available", "Off", "Busy"]
 
   validates :first_name, :last_name, :role, :country, :language, presence: true
   validates :email, uniqueness: true
@@ -29,6 +30,6 @@ class User < ApplicationRecord
   pg_search_scope :search_globally,
     against: [ :first_name, :last_name, :specialty, :country, :language ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
 end
