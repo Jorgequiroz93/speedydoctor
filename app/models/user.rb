@@ -10,6 +10,8 @@ class User < ApplicationRecord
   ## provided to a user acting as PATIENT
   has_many :received_consultations, class_name: 'Consultation', dependent: :destroy, foreign_key: 'patient_id'
 
+  has_many :reviews, through: :provided_consultations
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

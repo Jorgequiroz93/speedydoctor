@@ -17,7 +17,13 @@
 }
 #name-field {
   font-size: 16px;
+  display: flex;
+  text-align: center;
+  height: 40px;
 }
 #speciality {
   font-size: 14px;
+  display: flex;
+  text-align: center;
+  align-content:flex-start;
 }
