@@ -18,7 +18,7 @@ class User < ApplicationRecord
   ROLES = ["Doctor", "Patient", "Admin"]
   SPECIALTIES = ["Dermatology", "Nutrition", "General", "Psychology", "Otolaryngology",
                  "Allergy and immunology", "Emergency", "Neurology", "Pediatrics", "Urology",
-                 "Ophthalmology", "Internal", "Onkology"]
+                 "Ophthalmology", "Internal", "Oncology"]
 
   LANGUAGES = ["English", "Deutsch", "Français", "Español"]
   PREFIXES = ["Dr.", "Mr.", "Prof.", "Mrs.", "Ms."]
