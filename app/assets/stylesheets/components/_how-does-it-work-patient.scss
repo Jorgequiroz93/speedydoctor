@@ -1,22 +1,51 @@
-.how-does-it-work-patient-container {
-  h1 {
+@media (min-width: 1200px) {
+  .how-does-it-work-patient-container {
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .hdiwp-cards {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .hditp-card {
     text-align: center;
+    max-width: 250px;
     margin-top: 50px;
     margin-bottom: 50px;
+    p {
+      margin-top: 25px;
+    }
   }
 }
 
-.hdiwp-cards {
-  display: flex;
-  justify-content: space-around;
-}
+@media (min-width: 300px) {
+  .how-does-it-work-patient-container {
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
 
-.hditp-card {
-  text-align: center;
-  max-width: 250px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  p {
-    margin-top: 25px;
+  .hdiwp-cards {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+
+  .hditp-card {
+    text-align: center;
+    max-width: 250px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    p {
+      margin-top: 25px;
+    }
   }
 }
