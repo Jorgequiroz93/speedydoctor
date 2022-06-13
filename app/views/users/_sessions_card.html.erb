@@ -1,0 +1,47 @@
+<% @doctors.first(7).each do |doctor| %>
+  <div class="sessions-card">
+    <div class="sessions-container">
+
+
+      <div class="doc-availability">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+        <br>
+
+      </div>
+      <div class="sessions-card-text">
+        <div> Your rating :
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+      </div>
+      <br>
+        <div id="name-field">
+          <%= link_to "#{doctor.prefix} #{doctor.first_name} #{doctor.last_name}", doctor_path(doctor), class: "profile" %>
+            <%# <h5><%= doctor.prefix <%= doctor.first_name <%= doctor.last_name </h5> %>
+        </div>
+        <div id="speciality">
+          <p><%= doctor.specialty %></p>
+        </div>
+        <div id="cost-per-min">
+          <p>$ <%= doctor.rate.round(2) %> per minute</p>
+        </div>
+        <div id="tot-price">
+          <p>$ <%= (doctor.rate.round(2)) * rand(10..75) %></p>
+        </div>
+      </div>
+      <br>
+      <div class="class-buttons">
+        <div>
+          <div class="btn btn-primary consult">
+            <%= link_to "Contact the doctor", doctor_path(doctor), class: "btn-btn-primary", style: "color: white; text-decoration: none;" %>
+          </div>
+          <div class="btn btn-outline-primary favourites">
+            <p>Save to Favourites</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
