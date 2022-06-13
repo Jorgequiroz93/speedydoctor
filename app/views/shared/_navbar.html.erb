@@ -18,8 +18,15 @@
           <li class="nav-item">
             <%= link_to "Our services", "/ourservices", class: "nav-link" %>
           </li>
+
           <li class="nav-item">
-            <%= link_to "List all doctors", "/doctors", class: "nav-link" %>
+            <% if current_user.role == "Patient" %>
+              <%= link_to "List all doctors", "/doctors", class: "nav-link" %>
+            <% end %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "#{current_user.prefix} #{current_user.first_name} #{current_user.last_name}", "/dashboard", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

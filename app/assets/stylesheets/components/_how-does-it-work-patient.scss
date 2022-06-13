@@ -36,8 +36,13 @@
 
   .hdiwp-cards {
     display: flex;
+
+    align-content: center;
+    align-items: center;
+
     justify-content: space-evenly;
     flex-direction: row;
+
   }
 
   .hditp-card {

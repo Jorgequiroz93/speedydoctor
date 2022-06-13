@@ -1,15 +1,15 @@
-<% @doctors.each do |doctor| %>
-  <div class="horizontal-card">
-    <div class="horizontal-container">
+<% @doctors.first(7).each do |doctor| %>
+  <div class="sessions-card">
+    <div class="sessions-container">
+
+
       <div class="doc-availability">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
         <br>
-        <div class="availability">
-          <p><%= doctor.status %></p>
-        </div>
+
       </div>
-      <div class="horizontal-card-text">
-        <div>
+      <div class="sessions-card-text">
+        <div> Your rating :
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -27,12 +27,15 @@
         <div id="cost-per-min">
           <p>$ <%= doctor.rate.round(2) %> per minute</p>
         </div>
+        <div id="tot-price">
+          <p>$ <%= (doctor.rate.round(2)) * rand(10..75) %></p>
+        </div>
       </div>
       <br>
       <div class="class-buttons">
         <div>
           <div class="btn btn-primary consult">
-            <p>Start Consultation</p>
+            <%= link_to "Contact the doctor", doctor_path(doctor), class: "btn-btn-primary", style: "color: white; text-decoration: none;" %>
           </div>
           <div class="btn btn-outline-primary favourites">
             <p>Save to Favourites</p>

@@ -11,4 +11,8 @@ class PagesController < ApplicationController
     @doctors = User.where(role: "Doctor")
     @recommended_doctors = @doctors.reviews.where(rating: 5).first(5)
   end
+
+  def dashboard
+    @doctors = User.where(role: "Doctor")
+  end
 end

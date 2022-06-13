@@ -1,31 +1,31 @@
-.horizontal-card {
+.sessions-card {
   border: 1px solid black;
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 3px rgb(124, 124, 124);
   #name-field {
     font-size: 16px;
     display: flex;
   }
 }
-.horizontal-card:hover {
-  border: 1px solid black;
-  border-radius: 6px;
-  padding: 20px;
-  margin: 20px;
-  box-shadow: 3px 3px 5px black;
-}
+// .sessions-card:hover {
+//   border: 1px solid black;
+//   border-radius: 6px;
+//   padding: 20px;
+//   margin: 20px;
+//   box-shadow: 3px 3px 5px black;
+// }
 #top-banner {
   display: flex;
   justify-content: space-between;
 }
-.horizontal-container {
+.sessions-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.horizontal-card-text {
+.sessions-card-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -94,7 +94,7 @@
   padding: 10px 30px;
 }
 
-.horizontal-card-container {
+.sessions-card-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
