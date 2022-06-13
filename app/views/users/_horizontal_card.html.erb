@@ -1,8 +1,8 @@
-<% @doctors.each do |doctor| %>
+<% @doctors.first(10).each do |doctor| %>
   <div class="horizontal-card">
     <div class="horizontal-container">
       <div class="doc-availability">
-        <%= image_tag "Greg House.jpg", class: "horizontal-card-avatar", alt: "avatar" %>
+        <%= image_tag doctor.photo, class: "horizontal-card-avatar", alt: "avatar" %>
         <br>
         <div class="availability">
           <p><%= doctor.status %></p>

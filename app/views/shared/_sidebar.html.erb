@@ -1,7 +1,8 @@
 <div class="fullsidebar">
 
     <div class="profilepicture">
-        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+
+        <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
     </div>
 
     <%# <div>
