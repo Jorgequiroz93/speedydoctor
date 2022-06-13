@@ -16,7 +16,7 @@
     </div>
 
       <% if current_user.role == 'Doctor' %>
-        <p><%= "Rate per minute: #{current_user.rate}" %></p>
+        <p><%= "Rate per minute: #{current_user.rate}" %> USD</p>
         <p><%= "Currently logged as: #{current_user.role}" %></p>
 
         <p>Your current status is :</p>

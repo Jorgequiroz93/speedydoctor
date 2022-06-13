@@ -1,10 +1,12 @@
 .fullsidebar {
  flex: 1 1 0;
- max-width: 300px;   
+ max-width: 300px;
  padding: 2rem 1rem;
  background-color: #C4D0E9;
  max-height: 100%;
  text-align: center;
  display: block;
+ h2 {
+   font-size: 32px;
+ }
 }
-
