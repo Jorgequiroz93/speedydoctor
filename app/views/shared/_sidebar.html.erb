@@ -3,40 +3,45 @@
     <div class="profilepicture">
         <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
     </div>
-    
-    <div>
+
+    <%# <div>
       <h2>About Me</h2>
-    </div>
-    
+    </div> %>
+
     <div>
-      <p><%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-      
-      <p>Your current status is :</p>
+      <h2><%= "#{current_user.prefix} #{current_user.first_name} #{current_user.last_name}" %></h2>
+
+      <% if current_user.role == 'Doctor' %>
+        <p>Your current status is :</p>
         <% if current_user.status == "Off" %>
           <div id="status">
               <%= link_to current_user.status, dashboard_available_path, method: :patch, class: 'btn btn-ghost' %>
           </div>
         <% elsif current_user.status == "Available" %>
           <div id="status">
-              <%= link_to current_user.status, dashboard_off_path, method: :patch, class: 'btn btn-tertiary' %>
+              <%= link_to current_user.status, dashboard_off_path, method: :patch, class: 'btn btn-primary' %>
           </div>
         <% end %>
-        <br>
-        
-      </div>
-      
+      <% end %>
+      <br>
+      <br>
+
       <p><%= "Date of Birth: #{current_user.date_of_birth}" %></p>
       <p><%= "Country: #{current_user.country}" %></p>
       <p><%= "Native Language: #{current_user.language}" %></p>
+    </div>
 
       <% if current_user.role == 'Doctor' %>
-        <p><%= "Rate per minute: #{current_user.rate}" %></p>
-        <p><%= "Currently logged as: #{current_user.role}" %></p>
+
+        <p><%= "Rate per minute: #{current_user.rate}" %> USD</p>
+<%# <%= "Currently logged as: #{current_user.role}" %>
+
+
       <% elsif current_user.role == 'Patient' %>
       <% end %>
-
+      <br>
       <div id="edit-profile">
-        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-primary nav-cta-btn' %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn-ter' %>
       </div>
 
     </div>
