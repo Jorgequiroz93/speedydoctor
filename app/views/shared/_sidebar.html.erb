@@ -3,15 +3,23 @@
     <div class="profilepicture">
         <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
     </div>
-    
+
     <div>
       <h2>About Me</h2>
     </div>
-    
+
     <div>
-      <p><%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-      
-      <p>Your current status is :</p>
+      <p><%= "#{current_user.prefix} #{current_user.first_name} #{current_user.last_name}" %></p>
+      <p><%= "Date of Birth: #{current_user.date_of_birth}" %></p>
+      <p><%= "Country: #{current_user.country}" %></p>
+      <p><%= "Native Language: #{current_user.language}" %></p>
+    </div>
+
+      <% if current_user.role == 'Doctor' %>
+        <p><%= "Rate per minute: #{current_user.rate}" %></p>
+        <p><%= "Currently logged as: #{current_user.role}" %></p>
+
+        <p>Your current status is :</p>
         <% if current_user.status == "Off" %>
           <div id="status">
               <%= link_to current_user.status, dashboard_available_path, method: :patch, class: 'btn btn-ghost' %>
@@ -22,16 +30,8 @@
           </div>
         <% end %>
         <br>
-        
-      </div>
-      
-      <p><%= "Date of Birth: #{current_user.date_of_birth}" %></p>
-      <p><%= "Country: #{current_user.country}" %></p>
-      <p><%= "Native Language: #{current_user.language}" %></p>
 
-      <% if current_user.role == 'Doctor' %>
-        <p><%= "Rate per minute: #{current_user.rate}" %></p>
-        <p><%= "Currently logged as: #{current_user.role}" %></p>
+
       <% elsif current_user.role == 'Patient' %>
       <% end %>
 
