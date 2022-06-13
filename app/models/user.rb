@@ -34,4 +34,6 @@ class User < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+    has_one_attached :photo
 end
