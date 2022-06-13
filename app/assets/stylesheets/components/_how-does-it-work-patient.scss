@@ -1,4 +1,4 @@
-@media (min-width: 1200px) {
+@media (min-width: 300px) {
   .how-does-it-work-patient-container {
     h1 {
       text-align: center;
@@ -9,7 +9,9 @@
 
   .hdiwp-cards {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
   }
 
   .hditp-card {
@@ -23,7 +25,7 @@
   }
 }
 
-@media (min-width: 300px) {
+@media (min-width: 1200px) {
   .how-does-it-work-patient-container {
     h1 {
       text-align: center;
@@ -34,9 +36,13 @@
 
   .hdiwp-cards {
     display: flex;
-    // flex-direction: column;
+
     align-content: center;
     align-items: center;
+
+//     justify-content: space-evenly;
+//     flex-direction: row;
+
   }
 
   .hditp-card {
