@@ -1,7 +1,13 @@
 <% @doctors.each do |doctor| %>
   <div class="horizontal-card">
     <div class="horizontal-container">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+      <div class="doc-availability">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+        <br>
+        <div class="availability">
+          <p><%= doctor.status %></p>
+        </div>
+      </div>
       <div class="horizontal-card-text">
         <div>
           <i class="fas fa-star"></i>
@@ -24,9 +30,6 @@
       </div>
       <br>
       <div class="class-buttons">
-        <div class="availability">
-        <p><%= doctor.status %></p>
-        </div>
         <div>
           <div class="btn btn-primary consult">
             <p>Start Consultation</p>
