@@ -69,11 +69,11 @@ User::SPECIALTIES.each do |specialty|
                "Facial biostimulation", "Anti-aging aesthetic treatment", "skin care treatment",
                "mole removal", "wart removal"].sample(6).join(", ")
     )
-    file = File.open(Rails.root.join("app/assets/images/doctors/doc#{i%10}.jpg"))
-  doctor.photo.attach(io: file, filename: "doc#{i%10}.jpg", content_type: 'images/doctors/jpg')
-  doctors << doctor
-  i += 1
-  puts User.count
+    file = File.open(Rails.root.join("app/assets/images/doctors/doc#{i % 10}.jpg"))
+    doctor.photo.attach(io: file, filename: "doc#{i % 10}.jpg", content_type: 'images/doctors/jpg')
+    doctors << doctor
+    i += 1
+    puts User.count
   end
 end
 
