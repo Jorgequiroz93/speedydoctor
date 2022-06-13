@@ -11,6 +11,9 @@
                     input_html: { value: params[:role].capitalize } %>
 
     <div class="row">
+
+    <%= f.input :photo, as: :file %>
+
       <div class="col-3">
         <%= f.input :prefix,
                     autofocus: true, as: :select,
