@@ -36,4 +36,9 @@ class User < ApplicationRecord
     }
 
     has_one_attached :photo
+
+  def rating
+    return self.reviews.average('rating').round(1) || 0
+  end
+
 end
