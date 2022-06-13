@@ -34,6 +34,7 @@ patients = []
   )
 end
 
+
 # Doctors:
 doctors = []
 User::SPECIALTIES.each do |specialty|

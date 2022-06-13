@@ -3,7 +3,8 @@
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 3px rgb(124, 124, 124);
+  transition: 0.3s;
   #name-field {
     font-size: 16px;
     display: flex;
@@ -14,7 +15,7 @@
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
-  box-shadow: 3px 3px 5px black;
+  box-shadow: 2px 2px 5px rgb(124, 124, 124);
 }
 #top-banner {
   display: flex;
