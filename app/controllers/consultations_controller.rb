@@ -30,8 +30,10 @@ class ConsultationsController < ApplicationController
     @consultation.patient = current_user
     @consultation.status = 'calling'
     if @consultation.save
+      ActionCable.server.broadcast("general", { doctor_id: @doctor.id, consultation_id: @consultation.id }) # @consultation.id Notify Doctor of the new Call/consultation
       @doctor.status = "Busy"
       @doctor.save
+
       redirect_to consultation_path(@consultation)
     else
      render 'doctors/show'
@@ -39,7 +41,7 @@ class ConsultationsController < ApplicationController
   end
 
   def update
-    @consultation =  Consultation.find(params[:id])
+    @consultation = Consultation.find(params[:id])
     @consultation.update(consultation_params)
   end
 

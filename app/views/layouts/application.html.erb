@@ -15,6 +15,7 @@
   </head>
 
   <body>
+  <script> let current_user_id = <%= current_user.nil? ? 0 : current_user.id %>  </script>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
