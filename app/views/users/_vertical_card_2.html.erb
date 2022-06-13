@@ -1,7 +1,8 @@
-<% @doctors.last(6).each do |doctor| %>
+<% @doctors.slice(7, 6).each do |doctor| %>
   <div class="vertical-card">
     <div id="top-banner">
       <div>
+        <%# <p><%= doctor.rating %>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
@@ -13,7 +14,7 @@
       </div>
     </div>
     <div>
-      <%= image_tag "https://ozgrozer.github.io/100k-faces/0/1/001486.jpg", class: "vertical-card-avatar", alt: "avatar" %>
+      <%= image_tag "https://emoji.slack-edge.com/T02NE0241/daniel-emoji/48b2b3788f2ed2a2.png", class: "vertical-card-avatar", alt: "avatar" %>
     </div>
     <div class="card-text">
       <div id="name-field">
