@@ -2,7 +2,7 @@
   <div class="horizontal-card">
     <div class="horizontal-container">
       <div class="doc-availability">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "horizontal-card-avatar", alt: "avatar" %>
+        <%= image_tag "Greg House.jpg", class: "horizontal-card-avatar", alt: "avatar" %>
         <br>
         <div class="availability">
           <p><%= doctor.status %></p>
@@ -19,7 +19,6 @@
       <br>
         <div id="name-field">
           <%= link_to "#{doctor.prefix} #{doctor.first_name} #{doctor.last_name}", doctor_path(doctor), class: "profile" %>
-            <%# <h5><%= doctor.prefix <%= doctor.first_name <%= doctor.last_name </h5> %>
         </div>
         <div id="speciality">
           <p><%= doctor.specialty %></p>
@@ -30,13 +29,14 @@
       </div>
       <br>
       <div class="class-buttons">
-        <div>
-          <div class="btn btn-primary consult">
-            <p>Start Consultation</p>
-          </div>
-          <div class="btn btn-outline-primary favourites">
-            <p>Save to Favourites</p>
-          </div>
+        <div class="btn btn-primary consult">
+          <p>Start Consultation</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="btn btn-outline-primary favourites">
+          <p>Save to Favourites</p>
         </div>
       </div>
     </div>
