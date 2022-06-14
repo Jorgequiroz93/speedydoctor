@@ -3,6 +3,7 @@ require 'faraday/net_http'
 Faraday.default_adapter = :net_http
 
 class ConsultationsController < ApplicationController
+
   def show
     @consultation = Consultation.find(params[:id])
     @doctor = @consultation.doctor
