@@ -1,0 +1,11 @@
+<h2>RATING</h2>
+<% if @consultation.review.nil? %>
+  <p>No reviews</p>
+<% else %>
+  <br>Overall Rating: <%= @consultation.review.rating %>
+  <br>Speed Rating: <%= @consultation.review.speed_rating %>
+  <br>Gentleness Rating: <%= @consultation.review.gentleness_rating %>
+  <br>Professionalism Rating: <%= @consultation.review.professionalism_rating %>
+  <br>Clarity Rating:<%= @consultation.review.clarity_rating %>
+<% end %>
+<br><br>
