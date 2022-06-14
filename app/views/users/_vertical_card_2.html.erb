@@ -1,4 +1,4 @@
-<% @doctors.slice(7, 6).each do |doctor| %>
+<% @doctors.each do |doctor| %>
   <div class="vertical-card">
     <div id="top-banner">
       <div>
@@ -22,6 +22,15 @@
       </div>
       <div id="speciality">
         <p><%= doctor.specialty %></p>
+      </div>
+      <div>
+       <% if doctor.status == "Offline" %>
+          <div class="btn-status-offline v-card"><i class="fas fa-dot-circle"></i> </div>
+        <% elsif doctor.status == "Available" %>
+          <div class="btn-status-available v-card"><i class="fas fa-dot-circle"></i> </div>
+        <% elsif doctor.status == "Busy" %>
+          <div class="btn-status-busy v-card"><i class="fas fa-dot-circle"></i> </div>
+        <% end %>
       </div>
     </div>
   </div>

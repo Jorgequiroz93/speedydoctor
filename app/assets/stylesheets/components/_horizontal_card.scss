@@ -3,7 +3,7 @@
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
-
+  background-color: white;
   #name-field {
     font-size: 22px;
     display: flex;
@@ -14,7 +14,7 @@
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
-
+  background-color: white;
   box-shadow: 1px 1px 3px $primary;
 
 }
@@ -62,11 +62,18 @@
   align-items: center;
 }
 
-.consult {
+.profile-btn {
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 100%;
-  padding: 10px;
+  padding: 10px 30px;
+}
+.profile-btn:hover {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 10px 30px;
+  transform: scale(1.1);
 }
 
 .class-buttons {
@@ -83,17 +90,23 @@
   display: flex;
   justify-content: center;
   height: 48px;
-  align-items: center;
   padding: 10px 30px;
+  background-color: $body-bg;
+  .card {
+    align-items: center;
+  }
 }
 .favourites:hover {
   display: flex;
   justify-content: center;
   height: 48px;
-  align-items: center;
   padding: 10px 30px;
   color: $primary;
-  background-color: white;
+  background-color: $body-bg;
+  transform: scale(1.1);
+  .card {
+    align-items: center;
+  }
 }
 
 .horizontal-card-container {
@@ -103,12 +116,13 @@
 
 .profile {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   color: white;
 }
+
 .profile:hover {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   color: white;
 }
 
