@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     # get consultations where rating is 5
     @five_rating = Consultation.joins(:review).where(review: { rating: 5 })
 
-    @hdoctors = @doctors.sort_by { |doctor| doctor.reviews.sum(:rating) }.reverse.first(5)
+    @hdoctors = @doctors.sort_by { |doctor| doctor.reviews.sum(:rating) }.first(5)
     # connect doctors to consultations with 5 star rating through reviews
     # @recommended_doctors = @five_rating.
     # @recommended_doctors = @doctors.joins(:consultation).joins(:review).where(rating: 5).first(5)

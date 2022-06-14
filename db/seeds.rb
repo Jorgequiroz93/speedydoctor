@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
+# require "open-uri"
 
 # Patients:
 
@@ -16,10 +17,17 @@ User.destroy_all
 
 ## special users
 doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.")
+file = File.open(Rails.root.join("app/assets/images/doctors/doc0.jpg"))
+doctor.photo.attach(io: file, filename: "doc0.jpg", content_type: 'images/doctors/jpg')
+
 patient = User.create!(email: "patient@gmail.com", date_of_birth: 45.years.ago, password:"123123", first_name: "Patient", last_name: "Sick", country: "RU", language: "English", role: "Patient", prefix: "Mr.")
+file = File.open(Rails.root.join("app/assets/images/patient0.jpg"))
+patient.photo.attach(io: file, filename: "patient0.jpg", content_type: 'images/jpg')
+
 consultation = Consultation.create!(doctor_id: doctor.id, patient_id: patient.id)
 
 patients = []
+
 10.times do
   patients << User.create!(
     role: "Patient",
@@ -37,9 +45,10 @@ end
 
 # Doctors:
 doctors = []
+i = 1
 User::SPECIALTIES.each do |specialty|
-  rand(2..10).times do
-    doctors << User.create!(
+  rand(2..3).times do
+    doctor = User.create!(
       role: "Doctor",
       specialty: specialty,
       prefix: ["Dr.", "Prof"].sample,
@@ -60,6 +69,11 @@ User::SPECIALTIES.each do |specialty|
                "Facial biostimulation", "Anti-aging aesthetic treatment", "skin care treatment",
                "mole removal", "wart removal"].sample(6).join(", ")
     )
+    file = File.open(Rails.root.join("app/assets/images/doctors/doc#{i % 10}.jpg"))
+    doctor.photo.attach(io: file, filename: "doc#{i % 10}.jpg", content_type: 'images/doctors/jpg')
+    doctors << doctor
+    i += 1
+    puts User.count
   end
 end
 

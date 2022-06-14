@@ -30,10 +30,14 @@ class User < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_globally,
-    against: [ :first_name, :last_name, :specialty, :country, :language ],
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: [ :first_name, :last_name, :specialty, :country, :language ],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
-    has_one_attached :photo
+  has_one_attached :photo
+
+  def rating
+    return reviews.empty? ? 0 : reviews.average('rating').round(1)
+  end
 end

@@ -1,40 +1,38 @@
-<% @doctors.each do |doctor| %>
+<% @doctors.first(10).each do |doctor| %>
   <div class="horizontal-card">
     <div class="horizontal-container">
       <div class="doc-availability">
-        <%= image_tag "Greg House.jpg", class: "horizontal-card-avatar", alt: "avatar" %>
+
+        <%= image_tag doctor.photo, class: "horizontal-card-avatar", alt: "avatar" %>
+
         <br>
         <div class="availability">
           <p><%= doctor.status %></p>
         </div>
       </div>
       <div class="horizontal-card-text">
-        <div>
+        <div class="stars">
+          <%= "#{doctor.rating}" %>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
       </div>
-      <br>
-        <div id="name-field">
-          <%= link_to "#{doctor.prefix} #{doctor.first_name} #{doctor.last_name}", doctor_path(doctor), class: "profile" %>
-        </div>
-        <div id="speciality">
-          <p><%= doctor.specialty %></p>
-        </div>
-        <div id="cost-per-min">
-          <p>$ <%= doctor.rate.round(2) %> per minute</p>
-        </div>
+      <div id="name-field">
+        <%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %>
       </div>
-      <br>
+      <div id="speciality">
+        <p><%= doctor.specialty %></p>
+      </div>
+      <div id="cost-per-min">
+        <p>$ <%= doctor.rate.round(2) %> per minute</p>
+      </div>
+      </div>
       <div class="class-buttons">
         <div class="btn btn-primary consult">
-          <p>Start Consultation</p>
+          <%= link_to "Visit Doctor's Profile", doctor_path(doctor), class: "profile" %>
         </div>
-        <br>
-        <br>
-        <br>
         <div class="btn btn-outline-primary favourites">
           <p>Save to Favourites</p>
         </div>
