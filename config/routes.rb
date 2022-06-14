@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   resources :consultations, only: [:show, :update] do
     resources :reviews, only: [:create, :update]
-    resources :reports, only: [:create, :show]
+    resources :reports, only: [:create]
   end
+  resources :reports, only: [:show]
 
   # resources :reports, only: [:show]
   # resources :doctors, only: [:show]
