@@ -39,10 +39,22 @@ class ConsultationsController < ApplicationController
   def update
     @consultation = Consultation.find(params[:id])
     @consultation.update(consultation_params)
+    if params[:status] == "finished"
+      @doctor = @consultation.doctor
+      @doctor.status = "Available"
+      @doctor.save!
+    end
     @report = @consultation.report
     @report.prescription = params["prescription"]
     @report.content = params["content"]
     @report.save!
+    ActionCable.server.broadcast(
+      "reporting",
+      { patient_id: @consultation.patient_id,
+        consultation_id: @consultation.id,
+        prescription: params["prescription"],
+        advice: params["content"] }
+    )
   end
 
   private
