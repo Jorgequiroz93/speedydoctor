@@ -6,7 +6,7 @@ class ReportsController < ApplicationController
       # @doctor_avg_rating = @doctor.reviews.average(:rating)
     end
 
-    
+
     def create
       @consultation = Consultation.find(params[:consultation_id])
       @report =  Report.new(report_params)

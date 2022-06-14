@@ -3,6 +3,10 @@
       <h3>Your sessions history </h3>
     </div>
     <div class="sessions-card-container">
-      <%= render 'users/sessions_card', my_consultations: @my_consultations %>
+    <% if current_user.role == "Patient" %>
+      <%= render 'users/sessions_card_patient', patient_consultations: @patient_consultations %>
+    <% elsif current_user.role == "Doctor" %>
+      <%= render 'users/sessions_card_doctor', patient_consultations: @doctor_consultations %>
+    <%end %>
     </div>
   </div>
