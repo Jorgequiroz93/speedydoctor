@@ -16,7 +16,7 @@ Consultation.destroy_all
 User.destroy_all
 
 ## special users
-doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.")
+doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.", status: "Offline")
 file = File.open(Rails.root.join("app/assets/images/doctors/doc0.jpg"))
 doctor.photo.attach(io: file, filename: "doc0.jpg", content_type: 'images/doctors/jpg')
 

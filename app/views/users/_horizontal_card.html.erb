@@ -2,50 +2,38 @@
   <div class="horizontal-card">
     <div class="horizontal-container">
       <div class="doc-availability">
-
         <%= image_tag doctor.photo, class: "horizontal-card-avatar", alt: "avatar" %>
-
-        <br>
-        <%# <div class="availability"> %>
-          <% if doctor.status == "Offline" %>
-            <div class="btn-status-offline"><i class="fas fa-dot-circle"></i>    <%=doctor.status%></div>
-            <% elsif doctor.status == "Available" %>
-            <div class="btn-status-available"><i class="fas fa-dot-circle"></i>    <%=doctor.status%></div>
-            <% elsif doctor.status == "Busy" %>
-            <div class="btn-status-busy"><i class="fas fa-dot-circle"></i>    <%=doctor.status%></div>
-          <% end %>
-        <%# </div> %>
-
-
       </div>
-
-
-
       <div class="horizontal-card-text">
         <div class="stars">
           <%= "#{doctor.rating}" %>
           <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-      </div>
-      <div id="name-field">
-        <%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %>
-      </div>
-      <div id="speciality">
-        <p><%= doctor.specialty %></p>
-      </div>
-      <div id="cost-per-min">
-        <p>$ <%= doctor.rate.round(2) %> per minute</p>
-      </div>
-      </div>
-      <div class="class-buttons">
-        <div class="btn btn-primary profile-btn">
-          <%= link_to "Visit Doctor's Profile", doctor_path(doctor), class: "profile" %>
         </div>
-        <div class="btn btn-outline-primary favourites card">
-          <p>Save to Favourites</p>
+        <div id="name-field">
+          <%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %>
+        </div>
+        <div id="speciality">
+          <p><%= doctor.specialty %></p>
+        </div>
+        <div id="cost-per-min">
+          <p>$ <%= doctor.rate.round(2) %> per minute</p>
+        </div>
+      </div>
+      <div>
+        <% if doctor.status == "Offline" %>
+          <div class="btn-status-offline"><i class="fas fa-dot-circle"></i><%=doctor.status%></div>
+          <% elsif doctor.status == "Available" %>
+          <div class="btn-status-available"><i class="fas fa-dot-circle"></i><%=doctor.status%></div>
+          <% elsif doctor.status == "Busy" %>
+          <div class="btn-status-busy"><i class="fas fa-dot-circle"></i><%=doctor.status%></div>
+        <% end %>
+        <div class="class-buttons">
+          <div class="btn btn-primary profile-btn">
+            <%= link_to "Visit Doctor's Profile", doctor_path(doctor), class: "profile" %>
+          </div>
+          <div class="btn btn-outline-primary favourites card">
+            <p>Save to Favourites</p>
+          </div>
         </div>
       </div>
     </div>
