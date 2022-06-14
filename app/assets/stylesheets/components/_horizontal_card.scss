@@ -1,21 +1,21 @@
 .horizontal-card {
-  border: 1px solid black;
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
   background-color: white;
+  box-shadow: 0 0 10px rgba(0,75,173,0.2);
   #name-field {
     font-size: 22px;
     display: flex;
   }
 }
 .horizontal-card:hover {
-  border: 1px solid black;
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
   background-color: white;
   box-shadow: 1px 1px 3px $primary;
+  box-shadow: 0 0 15px rgba(0,75,173,0.2);
 
 }
 #top-banner {

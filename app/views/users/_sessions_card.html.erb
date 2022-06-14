@@ -9,7 +9,6 @@
           <%= image_tag consultation.doctor.photo, class: "avatar-large", alt: "avatar" %>
         </div>
         <br>
-        <br>
         <div class="sessions-card-text">
           Consultation with: <br>
           <h4><%= consultation.doctor.prefix %> <%= consultation.doctor.first_name %> <%= consultation.doctor.last_name %></h4>
@@ -35,9 +34,10 @@
       <% end %>
 
       <div class="sessions-btns">
-        <div class="btn btn-primary consult">
-          <%= link_to "Contact the doctor", doctor_path(consultation.doctor), class: "btn-btn-primary", style: "color: white; text-decoration: none;" %>
+        <div class="btn btn-primary">
+          <%= link_to "Contact the doctor", doctor_path(consultation.doctor), class: "btn btn-primary", style: "color: white; text-decoration: none;" %>
         </div>
+        <br>
         <div class="btn btn-outline-primary favourites">
           Save to Favourites
         </div>
