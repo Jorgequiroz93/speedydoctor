@@ -35,28 +35,48 @@
 .btn-status-busy {
   color: rgb(236, 153, 0);
   background-color: rgb(255, 233, 191);
-  // width: 125px;
-  // height: 40px;
   text-align: center;
   border-radius: 50px;
   padding: 6px 35px;
-
+  .v-card {
+    padding: 6px 11px;
+  }
 }
 .btn-status-offline {
   color: rgb(100, 100, 100);
   background-color: rgb(219, 219, 219);
-  // width: 125px;
-  // height: 40px;
   text-align: center;
   border-radius: 50px;
   padding: 6px 35px;
-
+  .v-card {
+    padding: 6px 11px;
+  }
 }
 .btn-status-available {
   color: green;
   background-color:rgb(213, 238, 213);
-  // width: 125px;
-  // height: 40px;
+  text-align: center;
+  border-radius: 50px;
+  padding: 6px 35px;
+}
+
+.btn-status-busy.v-card {
+  color: rgb(236, 153, 0);
+  background-color: rgb(255, 233, 191);
+  text-align: center;
+  border-radius: 50px;
+  padding: 6px 11px;
+}
+.btn-status-offline.v-card {
+  color: rgb(100, 100, 100);
+  background-color: rgb(219, 219, 219);
+  text-align: center;
+  border-radius: 50px;
+  padding: 6px 11px;
+}
+.btn-status-available.v-card {
+  color: green;
+  background-color:rgb(213, 238, 213);
   text-align: center;
   border-radius: 50px;
   padding: 6px 35px;

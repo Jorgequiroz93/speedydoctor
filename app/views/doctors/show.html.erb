@@ -46,18 +46,18 @@
 
   <div class="doc-basic-info">
       <div class="doc-basic-info-item">
-         <h3>Language:</h3>
-         <p> <%= "#{@doctor.language}" %></p>
+         <h4>Language:</h4>
+         <h2> <%= "#{@doctor.language}" %></h2>
       </div>
 
       <div class="doc-basic-info-item">
-         <h3>Country:</h3>
-         <p> <%= "#{@doctor.country}" %></p>
+         <h4>Country:</h4>
+         <h2> <%= "#{@doctor.country}" %></h2>
       </div>
 
       <div class="doc-basic-info-item">
-          <h3>Cost per Min:</h3>
-          <p><%= "$ #{@doctor.rate.round(2)}"%></p>
+          <h4>Cost per Min:</h4>
+          <h2><%= "$ #{@doctor.rate.round(2)}"%></h2>
       </div>
   </div>
 
@@ -69,7 +69,7 @@
       </div>
 
       <div class="introduction">
-        <p> <%=" Dr. #{@doctor.first_name} #{@doctor.last_name}, is an unconventional, misanthropic medical genius who, despite his dependence on pain medication, leads a team of diagnosticians at the fictional Princeton–Plainsboro Teaching Hospital (PPTH) in New Jersey." %></p>
+        <p> <%=" Dr. #{@doctor.first_name} #{@doctor.last_name}, is an unconventional, misanthropic medical genius who, despite his dependence on pain medication, leads a team of diagnosticians at the fictional Princeton-Plainsboro Teaching Hospital (PPTH) in New Jersey." %></p>
       </div>
   </div>
 
@@ -117,11 +117,11 @@
           </div>
 
           <div class="doc-review-item">
-              <p> <%= "Thank you doctor #{@doctor.first_name} for curing my husband's impotency problem!" %> </p>
+              <p> <%= "Thank you Dr. #{@doctor.first_name} for curing my husband's impotency problem!" %> </p>
           </div>
 
           <div class="doc-review-item">
-              <p> <%= "#{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
+              <p> <%= "Dr. #{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
           </div>
       </div>
     </div>
@@ -141,4 +141,6 @@
           <p>Save to Favorites</p>
         </div>
       </div>
-    </div> <%#= -------------- End of doc cta box ----------------  %>
+    </div>
+
+    <%#= -------------- End of doc cta box ----------------  %>

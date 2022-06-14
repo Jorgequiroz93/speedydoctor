@@ -66,7 +66,8 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   width: 100%;
-  padding: 10px;
+  padding: 10px 30px;
+
 }
 
 .class-buttons {
@@ -83,17 +84,22 @@
   display: flex;
   justify-content: center;
   height: 48px;
-  align-items: center;
   padding: 10px 30px;
+  .card {
+    align-items: center;
+  }
 }
 .favourites:hover {
   display: flex;
   justify-content: center;
   height: 48px;
-  align-items: center;
   padding: 10px 30px;
   color: $primary;
   background-color: white;
+  transform: scale(1.1);
+  .card {
+    align-items: center;
+  }
 }
 
 .horizontal-card-container {
@@ -103,13 +109,14 @@
 
 .profile {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   color: white;
 }
 .profile:hover {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   color: white;
+  transform: scale(1.1);
 }
 
 .stars {
