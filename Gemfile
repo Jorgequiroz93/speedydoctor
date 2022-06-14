@@ -69,8 +69,5 @@ gem 'language-select'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'faraday'
-<<<<<<< HEAD
 gem 'prawn'
-=======
 gem 'cloudinary', '~> 1.16.0'
->>>>>>> 629ece8e6390f92674fd581aa031f5e3f0e2d440
