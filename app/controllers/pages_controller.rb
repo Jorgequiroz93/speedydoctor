@@ -14,5 +14,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @doctors = User.where(role: "Doctor")
+    @my_consultations = Consultation.where(patient: current_user)
   end
+
 end

@@ -2,110 +2,46 @@
   border: 1px solid black;
   border-radius: 6px;
   padding: 20px;
-  margin: 20px;
-  box-shadow: 1px 1px 3px rgb(124, 124, 124);
-  #name-field {
-    font-size: 16px;
-    display: flex;
-  }
-}
-// .sessions-card:hover {
-//   border: 1px solid black;
-//   border-radius: 6px;
-//   padding: 20px;
-//   margin: 20px;
-//   box-shadow: 3px 3px 5px black;
-// }
-#top-banner {
+  margin: 10px;
+  box-shadow: 1px 1px 3px $primary;
   display: flex;
   justify-content: space-between;
+  width: 1100px;
 }
+
 .sessions-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
 }
+
 .sessions-card-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px 25px;
-  height: 225px;
 }
-#speciality {
-  font-size: 14px;
-}
-.button-column {
+
+.sessions-btns {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-around;
+  margin-right: 25px;
+}
 
+.pic_and_info {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  align-items: center;
+  padding: 25px 50px;
+}
+
+.sessions-card-review {
+  margin: auto 0;
+  max-width: 250px;
   p {
-    margin: 0;
-    padding: 5px 25px;
-    width: 210px;
+    font-size: 14px;
   }
 }
-// .availability {
-//   display: flex;
-//   justify-content: center;
-//   // align-items: center;
-//   font-weight: 400;
-//   line-height: 1.5;
-//   text-align: center;
-//   text-decoration: none;
-//   vertical-align: middle;
-//   background-color: $tertiary;
-//   color: black;
-//   border: 1px solid transparent;
-//   padding: 0.375rem 0.75rem;
-//   font-size: 1rem;
-//   border-radius: 6px;
-//   height: 36px;
-//   // margin-bottom: 2rem;
-// }
 
-.doc-availability {
-  display: flex;
-  flex-direction: column;
+.sessions-card-text {
+  font-size: 14px;
 }
-
-// .consult {
-//   margin-top: 1rem;
-//   margin-bottom: 1rem;
-//   width: 100%;
-//   padding: 11px 30px;
-// }
-
-// .class-buttons {
-//   display: flex;
-//   flex-direction: column;
-//   p {
-//     margin: 0px !important;
-//   }
-// }
-
-// .favourites {
-//   display: flex;
-//   justify-content: center;
-//   height: 48px;
-//   align-items: center;
-//   padding: 10px 30px;
-// }
-
-.sessions-card-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-// .profile {
-//   text-decoration: none;
-//   font-size: 22px;
-//   color: black;
-// }
-// .profile:hover {
-//   text-decoration: none;
-//   font-size: 22px;
-//   color: black;
-// }

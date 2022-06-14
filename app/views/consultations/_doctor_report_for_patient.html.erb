@@ -1,7 +1,11 @@
-        <h1 class="mt-3">Doctor's report</h1>
-        <h3 class="mt-3">General advise</h3>
-        <p>@consultation.report.content to be picked up in the realtime<%= @consultation.report.content if @consultation.report.present? %></p>
-        <h3 class="mt-3">Prescriptions</h3>
-        <p>@consultation.report.prescription to be picked up in the realtime<%= @consultation.report.prescription if @consultation.report.present?%></p>
-        <h3 class="mt-3">Attachments:</h3>
-        <h1>📎 📎 📎</h1>
+  <div class="form-floating">
+    <textarea type="text" name="patient_notes_input" style="height: 200px" class="form-control" data-controller="save-fields" data-save-fields-target="patientNotes" data-action="keyup->save-fields#save" placeholder="My personal notes"><%=@consultation.patient_notes%></textarea>
+    <label for="patient_notes_input">My personal notes</label>
+  </div>
+  <h5 class="mt-3">Doctor's report</h5>
+  <h6 class="mt-3">General advise</h6>
+  <p>@consultation.report.content to be picked up in the realtime<%= @consultation.report.content if @consultation.report.present? %></p>
+  <h6 class="mt-3">Prescriptions</h6>
+  <p>@consultation.report.prescription to be picked up in the realtime<%= @consultation.report.prescription if @consultation.report.present?%></p>
+  <h6 class="mt-3">Attachments:</h6>
+  <h1>📎 📎 📎</h1>
