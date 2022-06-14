@@ -1,7 +1,8 @@
 <div class="complete-profile">
   <div class="big-horizontal-card">
     <div class="big-horizontal-container">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "big-horizontal-card-avatar", alt: "avatar" %>
+      <%= image_tag @doctor.photo, class: "big-horizontal-card-avatar", alt: "avatar" %>
+
         <div class="horizontal-card-text">
             <div>
               <i class="fas fa-star"></i>
@@ -20,9 +21,13 @@
         </div>
         <br>
         <div class="class-buttons">
-          <div class="availability">
-            <p><%=@doctor.status%></p>
-          </div>
+          <% if @doctor.status == "Offline" %>
+            <div class="btn-status-offline"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <% elsif @doctor.status == "Available" %>
+            <div class="btn-status-available"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <% elsif @doctor.status == "Busy" %>
+            <div class="btn-status-busy"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+          <% end %>
           <br>
           <div>
             <div>
@@ -41,18 +46,18 @@
 
   <div class="doc-basic-info">
       <div class="doc-basic-info-item">
-         <h3>Language:</h3>
-         <p> <%= "#{@doctor.language}" %></p>
+         <h4>Language:</h4>
+         <h2> <%= "#{@doctor.language}" %></h2>
       </div>
 
       <div class="doc-basic-info-item">
-         <h3>Country:</h3>
-         <p> <%= "#{@doctor.country}" %></p>
+         <h4>Country:</h4>
+         <h2> <%= "#{@doctor.country}" %></h2>
       </div>
 
       <div class="doc-basic-info-item">
-          <h3>Cost per Min:</h3>
-          <p><%= "$ #{@doctor.rate.round(2)}"%></p>
+          <h4>Cost per Min:</h4>
+          <h2><%= "$ #{@doctor.rate.round(2)}"%></h2>
       </div>
   </div>
 
@@ -64,7 +69,7 @@
       </div>
 
       <div class="introduction">
-        <p> <%=" Dr. #{@doctor.first_name} #{@doctor.last_name}, is an unconventional, misanthropic medical genius who, despite his dependence on pain medication, leads a team of diagnosticians at the fictional Princeton–Plainsboro Teaching Hospital (PPTH) in New Jersey." %></p>
+        <p> <%=" Dr. #{@doctor.first_name} #{@doctor.last_name}, is an unconventional, misanthropic medical genius who, despite his dependence on pain medication, leads a team of diagnosticians at the fictional Princeton-Plainsboro Teaching Hospital (PPTH) in New Jersey." %></p>
       </div>
   </div>
 
@@ -103,20 +108,20 @@
 
     <div class="doc-reviews">
        <div class="section-title">
-          <h2>"Reviews"</h2>
+          <h2>Reviews</h2>
        </div>
 
       <div class="doc-reviews-list">
           <div class="doc-review-item">
-              <p><%= "Amazing doctor! Cured my herpes in no time! Now im back in the game baby! Thanks #{@doctor.last_name}" %></p>
+              <p><%= "Amazing doctor! Cured my herpes in no time! Now I'm back in the game baby! Thanks #{@doctor.last_name}" %></p>
           </div>
 
           <div class="doc-review-item">
-              <p> <%= "Thank you doctor #{@doctor.first_name} for curing my husband's impotency problem!" %> </p>
+              <p> <%= "Thank you Dr. #{@doctor.first_name} for curing my husband's impotency problem!" %> </p>
           </div>
 
           <div class="doc-review-item">
-              <p> <%= "#{@doctor.last_name} you are a life saver! it goes beyond words what you did to my breast!" %> </p>
+              <p> <%= "Dr. #{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
           </div>
       </div>
     </div>
@@ -136,4 +141,6 @@
           <p>Save to Favorites</p>
         </div>
       </div>
-    </div> <%#= -------------- End of doc cta box ----------------  %>
+    </div>
+
+    <%#= -------------- End of doc cta box ----------------  %>
