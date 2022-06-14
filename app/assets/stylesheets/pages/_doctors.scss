@@ -21,11 +21,13 @@
 }
 
 .carousel-control-prev {
-  left: -120px;
+  left: -50px;
+  width: fit-content;
 }
 
 .carousel-control-next {
-  right: -120px;
+  right: -50px;
+  width: fit-content
 }
 
 .list-heading {

@@ -3,7 +3,7 @@
   padding: 20px;
   margin: 10px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0,75,173,0.2);
+  box-shadow: 0 0 10px $primary;
   #name-field {
     font-size: 18px;
     font-weight: bold;
@@ -34,6 +34,7 @@
   padding: 10px 25px;
   height: 100%;
 }
+
 #speciality {
   font-size: 14px;
 }
@@ -117,13 +118,13 @@
 
 .profile {
   text-decoration: none;
-  font-size: 14px;
+  // font-size: 14px;
   color: white;
 }
 
 .profile:hover {
   text-decoration: none;
-  font-size: 14px;
+  // font-size: 14px;
   color: white;
 }
 
@@ -132,4 +133,6 @@
   align-items: center;
   width: 100%;
   // justify-content: space-evenly;
+  justify-content: flex-start;
+
 }

@@ -4,11 +4,12 @@
   padding: 10px;
   margin: 10px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0,75,173,0.2);
+  box-shadow: 0 0 10px $primary;
   #name-field {
     font-size: 16px;
     display: flex;
     text-align: center;
+    align-items: center;
     height: 40px;
   }
 }
@@ -18,12 +19,12 @@
   padding: 10px;
   margin: 10px;
   background-color: white;
-  box-shadow: 1px 1px 3px $primary;
-  box-shadow: 0 0 15px rgba(0,75,173,0.2);
+  box-shadow: 0 0 15px $primary;
 }
 #top-banner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .card-text {
   display: flex;
@@ -31,11 +32,15 @@
   align-items: center;
 }
 
-#speciality {
+#speciality.v-card {
   font-size: 14px;
   display: flex;
   text-align: center;
   align-content:flex-start;
+  p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
  .profile2 {
    text-decoration: none;
@@ -47,3 +52,12 @@
    font-size: 17px;
    color: black;
  }
+
+.doc-status {
+
+}
+
+#vert-img {
+  display: flex;
+  justify-content: center;
+}
