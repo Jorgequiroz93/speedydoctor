@@ -5,6 +5,7 @@ Faraday.default_adapter = :net_http
 class ConsultationsController < ApplicationController
   def show
     @consultation = Consultation.find(params[:id])
+    @report = Report.new()
     @doctor = @consultation.doctor
     @patient = @consultation.patient
     #check what is @consultation.room_url for empty room

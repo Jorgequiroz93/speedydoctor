@@ -1,6 +1,6 @@
         <h1>Online report</h1>
-        <%= simple_form_for :report, wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select } do |f| %>
-          <%= f.input :personal_notes, label: "Doctor's personal notes", as: :text, input_html: { style: "height: auto", rows: 5 } %>
+        <%= simple_form_for [@consultation, @report], wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select } do |f| %>
+          <%#= f.input :personal_notes, label: "Doctor's personal notes", as: :text, input_html: { style: "height: auto", rows: 5 } %>
           <%= f.input :content, as: :text, input_html: { style: "height: auto", rows: 5 }  %>
           <%= f.input :prescription, as: :text, input_html: { style: "height: auto", rows: 5 }  %>
           <%= f.submit "Save report", class: "btn btn-lg btn-primary w-100" %>
