@@ -2,7 +2,11 @@
 
     <div class="profilepicture">
 
-        <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
+        <% else %>
+         <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large"%>
+        <% end %>
     </div>
 
     <%# <div>
