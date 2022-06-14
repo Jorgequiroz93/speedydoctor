@@ -12,6 +12,13 @@
   border-color: white !important;
 }
 
+.btn.btn-ghost:hover {
+  color: white !important;
+  background-color: transparent;
+  border-color: white !important;
+  transform: scale(1.1);
+}
+
 .btn.btn-ghost {
   color: $body-color !important;
   background-color: transparent;
