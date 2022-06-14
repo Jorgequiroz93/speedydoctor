@@ -7,7 +7,11 @@ class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
+<<<<<<< HEAD
+    @report = Report.new()
+=======
     @report = @consultation.report
+>>>>>>> d4e7e8b98ba686b7854bb1e7fdafbb3115e9d7b1
     @doctor = @consultation.doctor
     @patient = @consultation.patient
     @room_url = @consultation.room_url

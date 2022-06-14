@@ -15,16 +15,17 @@
       <% if current_user.role == 'Doctor' %>
         <p>Your current status is :</p>
         <% if current_user.status == "Off" %>
-          <%= link_to current_user.status, dashboard_available_path, method: :patch, class: 'btn-status-offline' %>
+          <div id="status">
+              <%= link_to current_user.status, dashboard_available_path, method: :patch, class: 'btn btn-ghost' %>
+          </div>
         <% elsif current_user.status == "Available" %>
-          <%= link_to current_user.status, dashboard_off_path, method: :patch, class: 'btn-status-available' %>
-        <% end %>
-        <br>
-      <% end %>
+          <div id="status">
+              <%= link_to current_user.status, dashboard_off_path, method: :patch, class: 'btn btn-primary' %>
+          </div>
+          <br>
       <br>
-
-
-
+        <% end %>
+      <% end %>
 
 
       <p><%= "Date of Birth: #{current_user.date_of_birth}" %></p>

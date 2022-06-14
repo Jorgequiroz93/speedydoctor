@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
     
     def create
       @consultation = Consultation.find(params[:consultation_id])
-      @review =  Review.find(params[:consultation_id])
       @report =  Report.new(report_params)
       @report.consultation = @consultation
       if @report.save

@@ -1,37 +1,48 @@
 <div class="complete-container">
   <div class="report-container">
-      <div class="report-header">
+    <div class="report-header">
+      <%= render 'report-header' %> 
+    </div> <%# ------ End of report header ------ %>
+      
+    <div class="report-body">
+      <div class="report-basic-info">
+             
+        <div class="report-patient-info">
+          <%= render 'patient-info' %> 
+        </div><%# ------ End of patient info info ------ %>
+             
+        <div class="report-doctor-info">
+          <%= render 'doctor-info' %> 
+        </div><%# ------ End of doctor info info ------ %>
+
+      </div> <%# ------ End of report basic info ------ %>
+
+      <div class="report-data">
+                
+        <div class="report-content">
+          <%= render 'content-report' %>
+        </div><%# ------ End of report content ------ %>
             
-      </div>
+        <div class="report-prescription">
+          <%= render 'prescription-report' %>
+        </div><%# ------ End of report prescription ------ %>
+
+      </div> <%# ------ End of report data info ------ %>
+
+    </div><%# ------ End of report body ------ %>
       
-      <div class="report-body">
-            <div class="report-basic-info">
-                
-                <div class="report-patient-info">
-                </div>
-                
-                <div class="report-doctor-info">
-                </div>
+    <div class="report-signature-box">
+        
+      <div class="report-doc-signature">
+        <%= render 'signature' %> 
+      </div><%# ------ End of report doc signature ------ %>
 
-            </div>
+    </div><%# ------ End of report signature box------ %>
 
-            <div class="report-data">
-                
-                <div class="report-content">
-                </div>
-                
-                <div class="report-prescription">
-                </div>
-
-            </div>
-      </div>
+    <div class="report-footer">
+      <%= render 'report-footer' %> 
+    </div><%# ------ End of report footer ------ %>
       
-      <div class="report-signature-box">
-        <div class="report-doc-signature">
-        </div>
-      </div>
+  </div><%# ------ End of report container ------ %>
 
-      <div class="report-footer">
-      </div>
-  </div>
-</div>
+</div><%# ------ End of complete container ------ %>
