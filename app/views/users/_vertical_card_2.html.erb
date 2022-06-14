@@ -1,13 +1,9 @@
-<% @doctors.each do |doctor| %>
+<% @doctors.slice(7,6).each do |doctor| %>
   <div class="vertical-card">
     <div id="top-banner">
       <div>
-        <%# <p><%= doctor.rating %>
+        <%= "#{doctor.rating}" %>
         <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
       </div>
       <div>
         <i class="far fa-heart"></i>
