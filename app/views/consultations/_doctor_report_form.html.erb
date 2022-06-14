@@ -1,7 +1,18 @@
-        <h1>Online report</h1>
-        <%= simple_form_for :report, wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select } do |f| %>
-          <%= f.input :personal_notes, label: "Doctor's personal notes", as: :text, input_html: { style: "height: auto", rows: 5 } %>
-          <%= f.input :content, as: :text, input_html: { style: "height: auto", rows: 5 }  %>
-          <%= f.input :prescription, as: :text, input_html: { style: "height: auto", rows: 5 }  %>
-          <%= f.submit "Save report", class: "btn btn-lg btn-primary w-100" %>
-        <% end %>
+<div data-controller="save-doc-fields">
+  <div class="form-floating">
+    <textarea type="text" name="doctor_notes_input" style="height: 200px" class="form-control mb-3" data-save-doc-fields-target="doctorNotes" data-action="keyup->save-doc-fields#save" placeholder="Doctor's personal notes"><%=@consultation.doctor_notes%></textarea>
+    <label for="doctor_notes_input">Doctor's personal notes</label>
+  </div>
+
+  <h5>Realtime reporting</h5>
+
+  <div class="form-floating">
+    <textarea type="text" name="advice_input" style="height: 200px" class="form-control mb-3" data-save-doc-fields-target="advice" data-action="keyup->save-doc-fields#save" placeholder="General advice"><%=@consultation.report.content%></textarea>
+    <label for="advice_input">General advice</label>
+  </div>
+
+  <div class="form-floating">
+    <textarea type="text" name="prescription_input" style="height: 200px" class="form-control mb-3" data-save-doc-fields-target="prescription" data-action="keyup->save-doc-fields#save" placeholder="Prescription"><%=@consultation.report.prescription%></textarea>
+    <label for="prescription_input">Prescription</label>
+  </div>
+</div>
