@@ -6,10 +6,21 @@
         <%= image_tag doctor.photo, class: "horizontal-card-avatar", alt: "avatar" %>
 
         <br>
-        <div class="availability">
-          <p><%= doctor.status %></p>
-        </div>
+        <%# <div class="availability"> %>
+          <% if doctor.status == "Offline" %>
+            <div class="btn-status-offline"><i class="fas fa-dot-circle"></i>    <%=doctor.status%></div>
+            <% elsif doctor.status == "Available" %>
+            <div class="btn-status-available"><i class="fas fa-dot-circle"></i>    <%=doctor.status%></div>
+            <% elsif doctor.status == "Busy" %>
+            <div class="btn-status-busy"><i class="fas fa-dot-circle"></i>    <%=doctor.status%></div>
+          <% end %>
+        <%# </div> %>
+
+
       </div>
+
+
+
       <div class="horizontal-card-text">
         <div class="stars">
           <%= "#{doctor.rating}" %>

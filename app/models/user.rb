@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   LANGUAGES = ["English", "Deutsch", "Français", "Español"]
   PREFIXES = ["Dr.", "Mr.", "Prof.", "Mrs.", "Ms."]
-  STATUS = ["Available", "Off", "Busy"]
+  STATUS = ["Available", "Offline", "Busy"]
 
   validates :first_name, :last_name, :role, :country, :language, presence: true
   validates :email, uniqueness: true
