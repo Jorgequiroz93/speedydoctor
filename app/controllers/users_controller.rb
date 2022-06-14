@@ -17,5 +17,4 @@ class UsersController < ApplicationController
     # @recommended_doctors = @five_rating.
     # @recommended_doctors = @doctors.joins(:consultation).joins(:review).where(rating: 5).first(5)
   end
-
 end
