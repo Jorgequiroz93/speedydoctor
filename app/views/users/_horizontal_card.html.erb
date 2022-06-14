@@ -6,8 +6,7 @@
       </div>
       <div class="horizontal-card-text">
         <div class="stars">
-          <%= "#{doctor.rating}" %>
-          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>   <%= "  #{  doctor.rating}" %>
         </div>
         <div id="name-field">
           <%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %>
@@ -16,16 +15,16 @@
           <p><%= doctor.specialty %></p>
         </div>
         <div id="cost-per-min">
-          <p>$ <%= doctor.rate.round(2) %> per minute</p>
+          <p>$ <%= doctor.rate.round(2) %> / min</p>
         </div>
       </div>
       <div>
         <% if doctor.status == "Offline" %>
-          <div class="btn-status-offline"><i class="fas fa-dot-circle"></i><%=doctor.status%></div>
+          <div class="btn-status-offline"><i class="fas fa-dot-circle"></i>  <%=doctor.status%></div>
           <% elsif doctor.status == "Available" %>
-          <div class="btn-status-available"><i class="fas fa-dot-circle"></i><%=doctor.status%></div>
+          <div class="btn-status-available"><i class="fas fa-dot-circle"></i>  <%=doctor.status%></div>
           <% elsif doctor.status == "Busy" %>
-          <div class="btn-status-busy"><i class="fas fa-dot-circle"></i><%=doctor.status%></div>
+          <div class="btn-status-busy"><i class="fas fa-dot-circle"></i>  <%=doctor.status%></div>
         <% end %>
         <div class="class-buttons">
           <div class="btn btn-primary profile-btn">
