@@ -14,36 +14,38 @@ export default class extends Controller {
   static targets = [ "timer", "bill" ]
 
   connect() {
-    console.log('Hello, Stimulus!');
+    console.log('Stimulus fetch time initiated!');
     var seconds = 0;
     var end;
-    var start;
+    var start = 0;
     var myThis = this;
     var participants = 0
     var myInterval;
+    var isTimerRunning = false;
 
     callFrame
     .on('joined-meeting', (event) => {
       console.log('Participants: ' + ++participants);
-      participants === 2 ? startTimer() : stopTimer();
+      if (participants === 2 && !isTimerRunning) startTimer();
     })
     .on('participant-joined', (event) => {
       console.log('Participants: ' + ++participants);
-      participants === 2 ? startTimer() : stopTimer();
+      if (participants === 2 && !isTimerRunning) startTimer();
     })
     .on('left-meeting', (event) => {
       console.log('Participants: ' + --participants);
-      participants === 2 ? startTimer() : stopTimer();
+      if (participants != 2 && isTimerRunning) stopTimer();
     })
     .on('participant-left', (event) => {
       console.log('Participants: ' + --participants);
-      participants === 2 ? startTimer() : stopTimer();
+      if (participants != 2 && isTimerRunning) stopTimer();
     });
 
     // STATUSES = ['calling', 'online', 'finished', "cancelled"]
     function startTimer() {
+      isTimerRunning = true;
       console.log('timer is on');
-      start = new Date();
+      if (start === 0) start = new Date();
       fetch(window.location.href, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json', "X-CSRF-Token": csrfToken()},
@@ -55,10 +57,11 @@ export default class extends Controller {
           seconds = Math.round((end - start)/1000);
           myThis.timerTarget.textContent = `${Math.round(seconds / 60).toString().padStart(2, '0')}:${Math.round(seconds % 60).toString().padStart(2, '0')}`;
           myThis.billTarget.textContent = Math.round((end - start)/10 * 2 / 60)/100;
-      }, 500);
+      }, 1000);
     }
 
     function stopTimer() {
+      isTimerRunning = false;
       console.log('timer is off');
       fetch(window.location.href, {
         method: 'PATCH',

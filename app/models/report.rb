@@ -4,5 +4,4 @@ class Report < ApplicationRecord
   has_one :doctor, through: :consultations
 
   validates :consultation_id, presence: true
-  validates :content, presence: true
 end
