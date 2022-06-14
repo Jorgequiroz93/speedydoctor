@@ -24,7 +24,44 @@ patient = User.create!(email: "patient@gmail.com", date_of_birth: 45.years.ago, 
 file = File.open(Rails.root.join("app/assets/images/patient0.jpg"))
 patient.photo.attach(io: file, filename: "patient0.jpg", content_type: 'images/jpg')
 
-consultation = Consultation.create!(doctor_id: doctor.id, patient_id: patient.id)
+
+p start_time = Faker::Time.backward(days: 14, period: :evening)
+p num_minutes = rand(1..60).minutes
+p end_time = start_time + num_minutes
+
+consultation = Consultation.create!(
+  patient_id: patient.id,
+  doctor_id: doctor.id,
+  symptoms: Faker::Lorem.sentence(word_count: 10),
+  status: Consultation::STATUSES.sample,
+  start_time: start_time,
+  end_time: end_time,
+  total_price: num_minutes * doctor.rate
+)
+
+professionalism_rating = rand(1.0..5.0)
+speed_rating = rand(1.0..5.0)
+clarity_rating = rand(1.0..5.0)
+gentleness_rating = rand(1.0..5.0)
+rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4
+
+Review.create!(
+  content: Faker::Lorem.sentence(word_count: 15),
+  professionalism_rating: professionalism_rating,
+  speed_rating: speed_rating,
+  clarity_rating: clarity_rating,
+  gentleness_rating: gentleness_rating,
+  rating: rating,
+  consultation: consultation
+)
+
+Report.create!(
+  content: Faker::Lorem.sentence(word_count: 25),
+  prescription: Faker::Lorem.sentence(word_count: 25),
+  consultation: consultation
+)
+
+# consultation = Consultation.create!(doctor_id: doctor.id, patient_id: patient.id)
 
 patients = []
 
@@ -103,7 +140,7 @@ patients.each do |patient|
     gentleness_rating = rand(1.0..5.0)
     rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4
 
-    Review.create!(
+    p Review.create!(
       content: Faker::Lorem.sentence(word_count: 15),
       professionalism_rating: professionalism_rating,
       speed_rating: speed_rating,

@@ -16,4 +16,5 @@ class PagesController < ApplicationController
     @doctors = User.where(role: "Doctor")
     @my_consultations = Consultation.where(patient: current_user)
   end
+
 end
