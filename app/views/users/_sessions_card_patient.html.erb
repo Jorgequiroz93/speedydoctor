@@ -35,11 +35,11 @@
 
       <div class="sessions-btns">
         <div class="btn btn-primary">
-          <%= link_to "Contact the doctor", doctor_path(consultation.doctor), class: "btn btn-primary", style: "color: white; text-decoration: none;" %>
+          <%= link_to "See the report", report_path(consultation.report), class: "btn btn-primary", style: "color: white; text-decoration: none;" %>
         </div>
         <br>
         <div class="btn btn-outline-primary favourites">
-          Save to Favourites
+          <%= link_to "Contact the doctor", doctor_path(consultation.doctor), style: "text-decoration: none;" %>
         </div>
       </div>
 
