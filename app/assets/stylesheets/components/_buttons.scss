@@ -30,8 +30,6 @@
   text-decoration: underline !important;
 }
 
-
-
 .btn-status-busy {
   color: rgb(236, 153, 0);
   background-color: rgb(255, 233, 191);
@@ -42,6 +40,7 @@
     padding: 6px 11px;
   }
 }
+
 .btn-status-offline {
   color: rgb(100, 100, 100);
   background-color: rgb(219, 219, 219);
@@ -52,6 +51,7 @@
     padding: 6px 11px;
   }
 }
+
 .btn-status-available {
   color: green;
   background-color:rgb(213, 238, 213);
@@ -69,6 +69,7 @@
   position: relative;
   left: -13px;
 }
+
 .btn-status-offline.v-card {
   color: rgb(100, 100, 100);
   background-color: rgb(219, 219, 219);
@@ -78,6 +79,7 @@
   position: relative;
   left: -13px;
 }
+
 .btn-status-available.v-card {
   color: green;
   background-color:rgb(213, 238, 213);
