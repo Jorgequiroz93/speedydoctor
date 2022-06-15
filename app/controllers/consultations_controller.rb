@@ -39,6 +39,7 @@ class ConsultationsController < ApplicationController
   def update
     @consultation = Consultation.find(params[:id])
     @consultation.update(consultation_params)
+
     if params[:status] == "finished"
       @doctor = @consultation.doctor
       @doctor.status = "Available"
@@ -69,7 +70,6 @@ class ConsultationsController < ApplicationController
   end
 
   def consultation_params
-    params.require(:consultation).permit(:start_time, :end_time, :status, :symptoms, :doctor_notes, :patient_notes)
+    params.require(:consultation).permit(:start_time, :end_time, :status, :symptoms, :doctor_notes, :patient_notes, :total_price)
   end
-
 end
