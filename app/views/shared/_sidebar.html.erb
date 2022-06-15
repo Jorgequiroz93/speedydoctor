@@ -1,8 +1,11 @@
 <div class="fullsidebar">
 
     <div class="profilepicture">
-
-        <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
+<% if current_user.photo.attached? %>
+  <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
+<% else %>
+  <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large"%>
+<% end %>
     </div>
 
     <%# <div>
@@ -14,7 +17,7 @@
 
       <% if current_user.role == 'Doctor' %>
         <p>Your current status is :</p>
-        <% if current_user.status == "Off" %>
+        <% if current_user.status == "Offline" %>
           <div id="status">
               <%= link_to current_user.status, dashboard_available_path, method: :patch, class: 'btn btn-ghost' %>
           </div>
