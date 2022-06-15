@@ -1,4 +1,7 @@
 <div class="complete-profile">
+  <div class="main-title">
+  <h1>Doctor's Profile Page</h1>
+  </div>
   <div class="big-horizontal-card">
     <div class="big-horizontal-container">
       <%= image_tag @doctor.photo, class: "big-horizontal-card-avatar", alt: "avatar" %>
@@ -16,7 +19,8 @@
                 <h4> <%= "#{@doctor.prefix} ""#{@doctor.first_name} " "#{@doctor.last_name}" %></h4>
             </div>
             <div id="speciality">
-                <p> Specialty: <%= "#{@doctor.specialty} - " "#{@doctor.sub_specialty}" %></p>
+                <p><strong>Specialty:</strong> <%= "#{@doctor.specialty} - " "#{@doctor.sub_specialty}" %></p>
+                <%= image_tag "general-doctor.png", height: 50 %>
             </div>
         </div>
         <br>
@@ -74,9 +78,12 @@
   </div>
 
   <%#= -------------- End of doc intro ----------------  %>
-<div class="skill-diploma">
-  <div class="doc-skills">
+ <div class="skill-diploma">
+   <div class="doc-skills">
         <div class="section-title">
+           <%= image_tag "icons-skills.png", height: 100 %>
+           <br>
+           <br>
            <h3>Skills</h3>
         </div>
 
@@ -86,12 +93,15 @@
             </div>
 
         </div>
-  </div>
+   </div>
 
-  <%#= -------------- End of doc skill ----------------  %>
+   <%#= -------------- End of doc skill ----------------  %>
 
     <div class="doc-diplomas">
        <div class="section-title">
+          <%= image_tag "icons-diploma.png", height: 100 %>
+          <br>
+          <br>
           <h3>Diplomas</h3>
        </div>
 
@@ -102,7 +112,7 @@
 
       </div>
     </div>
-  </div>
+</div>
 
     <%#= -------------- End of doc diplomas ----------------  %>
 
@@ -113,19 +123,25 @@
 
       <div class="doc-reviews-list">
           <div class="doc-review-item">
-              <i class="fas fa-star"></i>   <%= "  #{  @doctor.rating}" %>
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+              <br><br>
+              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
               <br><br>
               <p><%= "Amazing doctor! Cured my herpes in no time! Now I'm back in the game baby! Thanks #{@doctor.last_name}" %></p>
           </div>
 
           <div class="doc-review-item">
-              <i class="fas fa-star"></i>   <%= "  #{  @doctor.rating}" %>
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+              <br><br>
+              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
               <br><br>
               <p> <%= "Thank you Dr. #{@doctor.first_name} for curing my husband's impotency problem!" %> </p>
           </div>
 
           <div class="doc-review-item">
-              <i class="fas fa-star"></i>   <%= "  #{  @doctor.rating}" %>
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+              <br><br>
+              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
               <br><br>
               <p> <%= "Dr. #{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
           </div>
