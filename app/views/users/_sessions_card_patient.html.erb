@@ -24,12 +24,18 @@
         <div class="sessions-card-review">
         <h5>Your review :</h5>
         <br>
-          <p>General rating: <%= consultation.review.rating.round(2) %><br><br>
           "<%= consultation.review.content %>"<br><br>
-          Professionalism: <%= consultation.review.professionalism_rating.round(2) %><br>
+
+          <p>Professionalism: <%= consultation.review.professionalism_rating.round(2) %><br>
           Speed: <%= consultation.review.speed_rating.round(2) %><br>
           Clarity: <%= consultation.review.clarity_rating.round(2) %><br>
-          Gentleness: <%= consultation.review.gentleness_rating.round(2) %></p>
+          Gentleness: <%= consultation.review.gentleness_rating.round(2) %><br><br></p>
+          <div>
+          Total rating:<br>
+          <i class="fas fa-star"></i>
+        <%= consultation.review.rating.round(2) %>
+
+        </div>
         </div>
       <% end %>
 
