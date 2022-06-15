@@ -1,6 +1,6 @@
 require 'faraday'
 require 'faraday/net_http'
-require 'pry-byebug'
+# require 'pry-byebug'
 Faraday.default_adapter = :net_http
 
 class ConsultationsController < ApplicationController
