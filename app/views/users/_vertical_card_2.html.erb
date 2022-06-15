@@ -1,3 +1,4 @@
+
 <% @doctors.offset(6).limit(6).each do |doctor| %>
   <div class="vertical-card">
     <div id="top-banner">
@@ -19,7 +20,7 @@
       </div>
     </div>
     <div id="vert-img">
-      <%= link_to doctor.photo, doctor_path(doctor), class: "vertical-card-avatar", alt: "avatar" %>
+      <%= image_tag doctor.photo, class: "vertical-card-avatar", alt: "avatar" %>
     </div>
     <div class="card-text">
       <div id="name-field">

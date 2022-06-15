@@ -27,10 +27,10 @@
           </li>
 
           <li class="nav-item">
-            <%= link_to "#{current_user.prefix} #{current_user.first_name} #{current_user.last_name}", "/dashboard", class: "nav-link" %>
+            <%= link_to "#{current_user.prefix} #{current_user.first_name} #{current_user.last_name}", "/dashboard", class: "nav-link", style: "font-weight: bold;"%>
           </li>
           <li class="nav-item dropdown">
-          
+
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>

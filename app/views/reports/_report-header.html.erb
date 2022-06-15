@@ -1,20 +1,17 @@
 
 <div class="report-header-container">
   <div class="report-id">
-    <h1>CONSULTATION REPORT</h1> 
+    <h1>CONSULTATION REPORT</h1>
     <br>Consultation ID: <%= @report.consultation_id %>
-    <br>Date of consultation: <%= @report.consultation.created_at %>
-    <br>Time of call: <%= @report.consultation.start_time %>
-    <br>Duration: Calculating ...
-    <br>Total Price: <%= @report.consultation.total_price %>
+    <br>Date of consultation: <%= @report.consultation.start_time.strftime("%b %d, %Y") %>
+    <br>Time of call: <%= @report.consultation.start_time.strftime("%H:%M") %>
+    <br>Duration: <%= Time.at(@report.consultation.end_time - @report.consultation.start_time).utc.strftime("%H:%M") %>
+    <br>Total Price: $ <%= @report.consultation.total_price %>
     <br><br>
   </div>
-  
+
   <div class="report-logo">
     <%= image_tag "logo.png", height: 50 %>
   </div>
 
 </div>
-
-
-
