@@ -16,7 +16,6 @@ Consultation.destroy_all
 User.destroy_all
 
 ## special users
-=====
 
 ##----------------- doctor house for live consultation
 doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.", status: "Offline", diplomas:"Ph.D in Critical Care Medicine from Harvard School of Medicine - Boston, MA, USA")
