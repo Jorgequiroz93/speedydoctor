@@ -1,18 +1,19 @@
 .horizontal-card {
   border-radius: 6px;
   padding: 20px;
-  margin: 20px;
+  margin: 10px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0,75,173,0.2);
   #name-field {
-    font-size: 22px;
+    font-size: 18px;
+    font-weight: bold;
     display: flex;
   }
 }
 .horizontal-card:hover {
   border-radius: 6px;
   padding: 20px;
-  margin: 20px;
+  margin: 10px;
   background-color: white;
   box-shadow: 0 0 15px rgba(0,75,173,0.2);
   transform: scale(1.1);
@@ -60,6 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .profile-btn {
@@ -91,6 +93,7 @@
   height: 48px;
   padding: 10px 30px;
   background-color: $body-bg;
+  font-size: 14px;
   .card {
     align-items: center;
   }
@@ -129,5 +132,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  // justify-content: space-evenly;
   justify-content: flex-start;
+
 }
