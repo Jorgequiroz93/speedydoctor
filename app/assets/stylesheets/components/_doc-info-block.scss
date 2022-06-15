@@ -1,5 +1,10 @@
-.h4 {
-    font-size: 40px;
+
+
+.section-title {
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
 }
 
 .doc-basic-info {
@@ -26,132 +31,4 @@
 
 .doc-basic-info-item {
     text-align: center;
-}
-
-// ----- Introduction BOX -----
-
-.doc-intro {
-    max-width: 80%;
-    padding: 10px;
-    margin: auto;
-    margin-top: 50px;
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-.introduction {
-    padding: 10px;
-    text-align: center;
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-// ----- Skills BOX -----
-
-.doc-skills {
-    max-width: 80%;
-    padding: 30px 60px;
-    margin: auto;
-    margin-top: 50px;
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-.doc-skill-list {
-    display: flex;
-    padding: 10px;
-    justify-content: center;
-}
-
-.doc-skill-item {
-    text-align: center;
-}
-
-// ----- Diplomas BOX -----
-
-.doc-diplomas {
-    max-width: 80%;
-    padding: 10px;
-    margin: auto;
-    margin-top: 50px;
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-.doc-diplo-list {
-    margin: auto;
-    border-radius: 6px;
-    padding: 10px;
-}
-
-.doc-diplo-item {
-    text-align: center;
-}
-
-// ----- Reviews BOX -----
-
-.doc-reviews {
-    max-width: 80%;
-    padding: 10px;
-    margin: auto;
-    margin-top: 50px;
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-.doc-reviews-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 10px;
-    justify-content: space-between;
-    margin: auto;
-    border-radius: 6px;
-}
-
-.doc-review-item {
-    text-align: center;
-    padding: 10px;
-}
-
-// ----- CTA BOX -----
-
-.doc-cta-box {
-    max-width: 40%;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    display: flex;
-    justify-content: space-evenly;
-
-}
-
-
-
-.doc-cta-consultation {
-    box-sizing: border-box;
-    margin: auto;
-}
-.doc-cta-save {
-    box-sizing: border-box;
-    margin: auto;
 }
