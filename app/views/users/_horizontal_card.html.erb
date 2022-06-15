@@ -5,9 +5,10 @@
         <%= image_tag doctor.photo, class: "horizontal-card-avatar", alt: "avatar" %>
       </div>
       <div class="horizontal-card-text">
-        <div class="stars">
-          <i class="fas fa-star"></i>   <%= "  #{  doctor.rating}" %>
-        </div>
+        <div>
+        <%= "#{doctor.rating}" %>
+        <i class="fas fa-star"></i>
+      </div>
         <div id="name-field">
           <%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %>
         </div>
