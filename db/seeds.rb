@@ -24,7 +24,6 @@ patient = User.create!(email: "patient@gmail.com", date_of_birth: 45.years.ago, 
 file = File.open(Rails.root.join("app/assets/images/patient0.jpg"))
 patient.photo.attach(io: file, filename: "patient0.jpg", content_type: 'images/jpg')
 
-
 p start_time = Faker::Time.backward(days: 14, period: :evening)
 p num_minutes = rand(1..60).minutes
 p end_time = start_time + num_minutes
@@ -78,7 +77,6 @@ patients = []
     language: Faker::Nation.language
   )
 end
-
 
 # Doctors:
 doctors = []

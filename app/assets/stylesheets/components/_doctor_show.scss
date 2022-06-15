@@ -25,6 +25,19 @@
     justify-content: space-around;
   }
 
+  .consult {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 10px 30px;
+  }
+  .consult:hover {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 10px 30px;
+    transform: scale(1.1);
+
   .btn.btn-primary.profile-btn {
       font-size: 14px;
   }
