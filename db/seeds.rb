@@ -27,7 +27,23 @@ file = File.open(Rails.root.join("app/assets/images/manon-avatar.png"))
 patient.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/png')
 
 ##----------------- doctor for creating an old consultation
-doctor2 = User.create!(email: "doctor2@gmail.com", date_of_birth: 45.years.ago, password:"123123", first_name: "Meredith", last_name: "Grey", country: "US", language: "English", role: "Doctor", rate: 2.2, specialty: "General", sub_specialty: "Diagnostics", skills: "Can heal anything", prefix: "Dr.", status: "Busy")
+doctor2 = User.create!(
+  email: "doctor2@gmail.com",
+  date_of_birth: 45.years.ago,
+  password:"123123",
+  first_name: "Meredith",
+  last_name: "Grey",
+  country: "US",
+  language: "English",
+  role: "Doctor",
+  rate: 2.2,
+  diplomas: "Medicine and pharmacy, BHMS – Bachelor of Homeopathy Medicine and Surgery",
+  specialty: "General",
+  sub_specialty: "Diagnostics",
+  skills: "Aesthetic dermatology, Intense pulsed light - ipl, Microneedle therapy for scars,
+  CO2 laser, Fractional CO2 laser",
+  prefix: "Dr.",
+  status: "Busy")
 file = File.open(Rails.root.join("app/assets/images/doctors/meredith.jpg"))
 doctor2.photo.attach(io: file, filename: "meredith.jpg", content_type: 'images/doctors/jpg')
 
