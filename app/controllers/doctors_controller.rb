@@ -20,7 +20,7 @@ class DoctorsController < ApplicationController
 
   def change_status_to_off
     @doctor = current_user
-    @doctor.status = " Off"
+    @doctor.status = " Offline"
     if @doctor.save
       redirect_to dashboard_path
     else
