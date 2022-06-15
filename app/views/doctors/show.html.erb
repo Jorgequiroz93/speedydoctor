@@ -1,4 +1,7 @@
 <div class="complete-profile">
+  <div class="main-title">
+  <h1>Doctor's Profile Page</h1>
+  </div>
   <div class="big-horizontal-card">
     <div class="big-horizontal-container">
       <%= image_tag @doctor.photo, class: "big-horizontal-card-avatar", alt: "avatar" %>
@@ -16,7 +19,8 @@
                 <h4> <%= "#{@doctor.prefix} ""#{@doctor.first_name} " "#{@doctor.last_name}" %></h4>
             </div>
             <div id="speciality">
-                <p> Specialty: <%= "#{@doctor.specialty} - " "#{@doctor.sub_specialty}" %></p>
+                <p><strong>Specialty:</strong> <%= "#{@doctor.specialty} - " "#{@doctor.sub_specialty}" %></p>
+                <%= image_tag "general-doctor.png", height: 50 %>
             </div>
         </div>
         <br>
@@ -31,9 +35,9 @@
           <br>
           <div>
             <div>
-              <%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary consult" %>
+              <%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary profile-btn" %>
             </div>
-            <div class="btn btn-outline-primary favourites">
+            <div class="btn btn-outline-primary favourites card">
               <p>Save to Favorites</p>
             </div>
           </div>
@@ -46,26 +50,26 @@
 
   <div class="doc-basic-info">
       <div class="doc-basic-info-item">
-         <h4>Language:</h4>
-         <h2> <%= "#{@doctor.language}" %></h2>
+         <p>Language:</p>
+         <h4> <%= "#{@doctor.language}" %></h4>
       </div>
 
       <div class="doc-basic-info-item">
-         <h4>Country:</h4>
-         <h2> <%= "#{@doctor.country}" %></h2>
+         <p>Country:</p>
+         <h4> <%= "#{@doctor.country}" %></h4>
       </div>
 
       <div class="doc-basic-info-item">
-          <h4>Cost per Min:</h4>
-          <h2><%= "$ #{@doctor.rate.round(2)}"%></h2>
+          <p>Cost per Min:</p>
+          <h4><%= "$ #{@doctor.rate.round(2)}"%></h4>
       </div>
   </div>
 
   <%#= -------------- End of doc basic info ----------------  %>
-
+<div class="info-container">
   <div class="doc-intro">
       <div class="section-title">
-        <h2>Introduction</h2>
+        <h3>Introduction</h3>
       </div>
 
       <div class="introduction">
@@ -74,10 +78,13 @@
   </div>
 
   <%#= -------------- End of doc intro ----------------  %>
-
-  <div class="doc-skills">
+ <div class="skill-diploma">
+   <div class="doc-skills">
         <div class="section-title">
-           <h2>Skills</h2>
+           <%= image_tag "icons-skills.png", height: 100 %>
+           <br>
+           <br>
+           <h3>Skills</h3>
         </div>
 
         <div class="doc-skill-list">
@@ -86,61 +93,83 @@
             </div>
 
         </div>
-  </div>
+   </div>
 
-  <%#= -------------- End of doc skill ----------------  %>
+   <%#= -------------- End of doc skill ----------------  %>
 
     <div class="doc-diplomas">
        <div class="section-title">
-          <h2>Diplomas</h2>
+          <%= image_tag "icons-diploma.png", height: 100 %>
+          <br>
+          <br>
+          <h3>Diplomas</h3>
        </div>
 
       <div class="doc-diplo-list">
-
           <div class="doc-diplo-item">
             <p><%= @doctor.diplomas %></p>
           </div>
 
       </div>
     </div>
+</div>
+
+      <div class="graph-render">
+            <%= render 'graph' %>
+      </div>
 
     <%#= -------------- End of doc diplomas ----------------  %>
 
     <div class="doc-reviews">
        <div class="section-title">
-          <h2>Reviews</h2>
+          <h3>Reviews</h3>
        </div>
 
       <div class="doc-reviews-list">
           <div class="doc-review-item">
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+              <br><br>
+              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
+              <br><br>
               <p><%= "Amazing doctor! Cured my herpes in no time! Now I'm back in the game baby! Thanks #{@doctor.last_name}" %></p>
           </div>
 
           <div class="doc-review-item">
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+              <br><br>
+              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
+              <br><br>
               <p> <%= "Thank you Dr. #{@doctor.first_name} for curing my husband's impotency problem!" %> </p>
           </div>
 
           <div class="doc-review-item">
+              <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+              <br><br>
+              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
+              <br><br>
               <p> <%= "Dr. #{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
           </div>
       </div>
     </div>
+
+
 
     <%#= -------------- End of doc reviews ----------------  %>
 
     <div class="doc-cta-box">
       <div class="doc-cta-consultation">
         <div>
-          <%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary consult" %>
+          <%= link_to "Start Consultation", doctor_consultations_path(@doctor),method: :post, class: "btn btn-primary profile-btn" %>
         </div>
       </div>
 
 
       <div class="doc-cta-save">
-        <div class="btn btn-outline-primary favourites">
-          <p>Save to Favorites</p>
+        <div class="btn btn-outline-primary favourites card">
+          Save to Favorites
         </div>
       </div>
     </div>
+  </div>
 
     <%#= -------------- End of doc cta box ----------------  %>

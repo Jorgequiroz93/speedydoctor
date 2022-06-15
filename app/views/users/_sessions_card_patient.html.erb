@@ -1,7 +1,7 @@
 
 <div class="sessions-container">
 
-  <% @my_consultations.each do |consultation| %>
+  <% @patient_consultations.each do |consultation| %>
     <div class="sessions-card">
 
       <div class="pic_and_info">
@@ -15,7 +15,7 @@
           <br>
           Date: <%= consultation.start_time.strftime("%b %d, %Y") %> <br>
           Start time: <%= consultation.start_time.strftime("%H:%M") %> <br>
-          End time: <%= consultation.end_time.strftime("%H:%M") %> <br>
+          Duration: <%= Time.at(consultation.end_time - consultation.start_time).utc.strftime("%H:%M") %> <br>
           Total price: $ <%= consultation.total_price %> <br>
         </div>
       </div>
@@ -24,22 +24,28 @@
         <div class="sessions-card-review">
         <h5>Your review :</h5>
         <br>
-          <p>General rating: <%= consultation.review.rating.round(2) %><br><br>
           "<%= consultation.review.content %>"<br><br>
-          Professionalism: <%= consultation.review.professionalism_rating.round(2) %><br>
+
+          <p>Professionalism: <%= consultation.review.professionalism_rating.round(2) %><br>
           Speed: <%= consultation.review.speed_rating.round(2) %><br>
           Clarity: <%= consultation.review.clarity_rating.round(2) %><br>
-          Gentleness: <%= consultation.review.gentleness_rating.round(2) %></p>
+          Gentleness: <%= consultation.review.gentleness_rating.round(2) %><br><br></p>
+          <div>
+          Total rating:<br>
+          <i class="fas fa-star"></i>
+        <%= consultation.review.rating.round(2) %>
+
+        </div>
         </div>
       <% end %>
 
       <div class="sessions-btns">
         <div class="btn btn-primary">
-          <%= link_to "Contact the doctor", doctor_path(consultation.doctor), class: "btn btn-primary", style: "color: white; text-decoration: none;" %>
+          <%= link_to "See the report", report_path(consultation.report), class: "btn btn-primary", style: "color: white; text-decoration: none;" %>
         </div>
         <br>
         <div class="btn btn-outline-primary favourites">
-          Save to Favourites
+          <%= link_to "Contact the doctor", doctor_path(consultation.doctor), style: "text-decoration: none;" %>
         </div>
       </div>
 

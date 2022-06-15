@@ -10,7 +10,7 @@ class DoctorsController < ApplicationController
 
   def change_status_to_available
     @doctor = current_user
-    @doctor.status = "Available"
+    @doctor.status = " Available"
     if @doctor.save
       redirect_to dashboard_path
     else
@@ -20,7 +20,7 @@ class DoctorsController < ApplicationController
 
   def change_status_to_off
     @doctor = current_user
-    @doctor.status = "Off"
+    @doctor.status = " Off"
     if @doctor.save
       redirect_to dashboard_path
     else

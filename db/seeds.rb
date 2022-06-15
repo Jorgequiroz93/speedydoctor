@@ -16,37 +16,61 @@ Consultation.destroy_all
 User.destroy_all
 
 ## special users
-doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.", status: "Offline")
+=====
+
+##----------------- doctor house for live consultation
+doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.", status: "Offline", diplomas:"Ph.D in Critical Care Medicine from Harvard School of Medicine - Boston, MA, USA")
 file = File.open(Rails.root.join("app/assets/images/doctors/doc0.jpg"))
 doctor.photo.attach(io: file, filename: "doc0.jpg", content_type: 'images/doctors/jpg')
+##----------------- manon's profile
+patient = User.create!(email: "patient@gmail.com", date_of_birth: 34.years.ago, password:"123123", first_name: "Manon", last_name: "Aidinian", country: "France", language: "English", role: "Patient", prefix: "Mrs.")
+file = File.open(Rails.root.join("app/assets/images/manon-avatar.png"))
+patient.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/png')
 
-patient = User.create!(email: "patient@gmail.com", date_of_birth: 45.years.ago, password:"123123", first_name: "Patient", last_name: "Sick", country: "RU", language: "English", role: "Patient", prefix: "Mr.")
-file = File.open(Rails.root.join("app/assets/images/patient0.jpg"))
-patient.photo.attach(io: file, filename: "patient0.jpg", content_type: 'images/jpg')
-
+##----------------- doctor for creating an old consultation
+doctor2 = User.create!(
+  email: "doctor2@gmail.com",
+  date_of_birth: 45.years.ago,
+  password:"123123",
+  first_name: "Meredith",
+  last_name: "Grey",
+  country: "US",
+  language: "English",
+  role: "Doctor",
+  rate: 2.2,
+  diplomas: "Medicine and pharmacy, BHMS – Bachelor of Homeopathy Medicine and Surgery",
+  specialty: "General",
+  sub_specialty: "Diagnostics",
+  skills: "Aesthetic dermatology, Intense pulsed light - ipl, Microneedle therapy for scars,
+  CO2 laser, Fractional CO2 laser",
+  prefix: "Dr.",
+  status: "Busy")
+file = File.open(Rails.root.join("app/assets/images/doctors/meredith.jpg"))
+doctor2.photo.attach(io: file, filename: "meredith.jpg", content_type: 'images/doctors/jpg')
 
 p start_time = Faker::Time.backward(days: 14, period: :evening)
-p num_minutes = rand(1..60).minutes
+p session_time = 25
+p num_minutes = session_time.minutes
 p end_time = start_time + num_minutes
 
 consultation = Consultation.create!(
   patient_id: patient.id,
-  doctor_id: doctor.id,
+  doctor_id: doctor2.id,
   symptoms: Faker::Lorem.sentence(word_count: 10),
   status: Consultation::STATUSES.sample,
   start_time: start_time,
   end_time: end_time,
-  total_price: num_minutes * doctor.rate
+  total_price: (session_time * doctor2.rate).round(2)
 )
 
-professionalism_rating = rand(1.0..5.0)
-speed_rating = rand(1.0..5.0)
-clarity_rating = rand(1.0..5.0)
-gentleness_rating = rand(1.0..5.0)
-rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4
+professionalism_rating = rand(2..5)
+speed_rating = rand(2..5)
+clarity_rating = rand(2..5)
+gentleness_rating = rand(2..5)
+rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4.0
 
 Review.create!(
-  content: Faker::Lorem.sentence(word_count: 15),
+  content: "Dr. Grey has been very kind, her magical pills were amazing.",
   professionalism_rating: professionalism_rating,
   speed_rating: speed_rating,
   clarity_rating: clarity_rating,
@@ -56,8 +80,8 @@ Review.create!(
 )
 
 Report.create!(
-  content: Faker::Lorem.sentence(word_count: 25),
-  prescription: Faker::Lorem.sentence(word_count: 25),
+  content: "Manon showed some loss memories issues since the start of her bootcamp",
+  prescription: "I diagnosed it is due to the size of her brain that can't store that much information and prescribed her some magical coding pills",
   consultation: consultation
 )
 
@@ -78,7 +102,6 @@ patients = []
     language: Faker::Nation.language
   )
 end
-
 
 # Doctors:
 doctors = []
@@ -120,7 +143,8 @@ consultation = []
 patients.each do |patient|
   rand(1..4).times do
     p start_time = Faker::Time.backward(days: 14, period: :evening)
-    p num_minutes = rand(1..60).minutes
+    p session_time = rand(5..60)
+    p num_minutes = session_time.minutes
     p end_time = start_time + num_minutes
     doctor = doctors.sample
 
@@ -131,14 +155,14 @@ patients.each do |patient|
       status: Consultation::STATUSES.sample,
       start_time: start_time,
       end_time: end_time,
-      total_price: num_minutes * doctor.rate
+      total_price: (session_time * doctor.rate).round(2)
     )
 
-    professionalism_rating = rand(1.0..5.0)
-    speed_rating = rand(1.0..5.0)
-    clarity_rating = rand(1.0..5.0)
-    gentleness_rating = rand(1.0..5.0)
-    rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4
+    professionalism_rating = rand(2..5)
+    speed_rating = rand(2..5)
+    clarity_rating = rand(2..5)
+    gentleness_rating = rand(2..5)
+    rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4.0
 
     p Review.create!(
       content: Faker::Lorem.sentence(word_count: 15),
