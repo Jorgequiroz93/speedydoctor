@@ -16,8 +16,9 @@ Consultation.destroy_all
 User.destroy_all
 
 ## special users
+
 ##----------------- doctor house for live consultation
-doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.", status: "Offline")
+doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Piss people off.", prefix: "Dr.", status: "Offline", diplomas:"Ph.D in Critical Care Medicine from Harvard School of Medicine - Boston, MA, USA")
 file = File.open(Rails.root.join("app/assets/images/doctors/doc0.jpg"))
 doctor.photo.attach(io: file, filename: "doc0.jpg", content_type: 'images/doctors/jpg')
 ##----------------- manon's profile
@@ -29,7 +30,6 @@ patient.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'imag
 doctor2 = User.create!(email: "doctor2@gmail.com", date_of_birth: 45.years.ago, password:"123123", first_name: "Meredith", last_name: "Grey", country: "US", language: "English", role: "Doctor", rate: 2.2, specialty: "General", sub_specialty: "Diagnostics", skills: "Can heal anything", prefix: "Dr.", status: "Busy")
 file = File.open(Rails.root.join("app/assets/images/doctors/meredith.jpg"))
 doctor2.photo.attach(io: file, filename: "meredith.jpg", content_type: 'images/doctors/jpg')
-
 
 p start_time = Faker::Time.backward(days: 14, period: :evening)
 p session_time = 25
@@ -85,7 +85,6 @@ patients = []
     language: Faker::Nation.language
   )
 end
-
 
 # Doctors:
 doctors = []
