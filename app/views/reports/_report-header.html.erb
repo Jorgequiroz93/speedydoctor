@@ -5,7 +5,7 @@
     <br>Consultation ID: <%= @report.consultation_id %>
     <br>Date of consultation: <%= @report.consultation.start_time.strftime("%b %d, %Y") %>
     <br>Time of call: <%= @report.consultation.start_time.strftime("%H:%M") %>
-    <br>Duration: Calculating ...
+    <br>Duration: <%= Time.at(@report.consultation.end_time - @report.consultation.start_time).utc.strftime("%H:%M") %>
     <br>Total Price: $ <%= @report.consultation.total_price %>
     <br><br>
   </div>

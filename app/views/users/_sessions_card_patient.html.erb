@@ -15,7 +15,7 @@
           <br>
           Date: <%= consultation.start_time.strftime("%b %d, %Y") %> <br>
           Start time: <%= consultation.start_time.strftime("%H:%M") %> <br>
-          End time: <%= consultation.end_time.strftime("%H:%M") %> <br>
+          Duration: <%= Time.at(consultation.end_time - consultation.start_time).utc.strftime("%H:%M") %> <br>
           Total price: $ <%= consultation.total_price %> <br>
         </div>
       </div>

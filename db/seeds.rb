@@ -32,7 +32,8 @@ doctor2.photo.attach(io: file, filename: "meredith.jpg", content_type: 'images/d
 
 
 p start_time = Faker::Time.backward(days: 14, period: :evening)
-p num_minutes = 25.minutes
+p session_time = 25
+p num_minutes = session_time.minutes
 p end_time = start_time + num_minutes
 
 consultation = Consultation.create!(
@@ -42,7 +43,7 @@ consultation = Consultation.create!(
   status: Consultation::STATUSES.sample,
   start_time: start_time,
   end_time: end_time,
-  total_price: num_minutes * doctor2.rate
+  total_price: (session_time * doctor2.rate).round(2)
 )
 
 professionalism_rating = rand(2..5)
@@ -52,7 +53,7 @@ gentleness_rating = rand(2..5)
 rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4.0
 
 Review.create!(
-  content: Faker::Lorem.sentence(word_count: 15),
+  content: "Dr. Grey has been very kind, her magical pills were amazing.",
   professionalism_rating: professionalism_rating,
   speed_rating: speed_rating,
   clarity_rating: clarity_rating,
@@ -126,7 +127,8 @@ consultation = []
 patients.each do |patient|
   rand(1..4).times do
     p start_time = Faker::Time.backward(days: 14, period: :evening)
-    p num_minutes = rand(5..60).minutes
+    p session_time = rand(5..60)
+    p num_minutes = session_time.minutes
     p end_time = start_time + num_minutes
     doctor = doctors.sample
 
@@ -137,7 +139,7 @@ patients.each do |patient|
       status: Consultation::STATUSES.sample,
       start_time: start_time,
       end_time: end_time,
-      total_price: num_minutes * doctor.rate
+      total_price: (session_time * doctor.rate).round(2)
     )
 
     professionalism_rating = rand(2..5)
