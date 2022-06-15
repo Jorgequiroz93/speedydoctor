@@ -21,8 +21,7 @@ Rails.application.routes.draw do
   get '/doctors', to: 'users#doctors'
   get '/dashboard', to: 'pages#dashboard'
 
-
- # get '/ourservices' to: 'pages#ourservices'
+  # get '/ourservices' to: 'pages#ourservices'
   get '/becomespeedy', to: 'pages#becomespeedy'
 
   patch '/dashboard/available', to: 'doctors#change_status_to_available'
@@ -30,4 +29,10 @@ Rails.application.routes.draw do
 
   # get '/ourservices' to: 'pages#ourservices'
   # get '/becomespeedy' to: 'pages#becomespeedy'
+
+  resources :users, only: [:index] do
+    member do
+      post '/dashboard', to: "users#toggle_favorite"
+    end
+  end
 end

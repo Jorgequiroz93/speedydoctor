@@ -1,3 +1,10 @@
+.main-title{
+  margin-top: 50px;
+  text-align: center;
+}
+
+
+
 .big-horizontal-card {
     max-width: 80%;
     padding: 20px;
@@ -5,59 +12,197 @@
     margin-top: 55px;
     margin-bottom: 15px;
     animation: fadeIn 2s;
-  }
+}
 
-  @keyframes fadeIn {
+@keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-  }
+}
 
-  .big-horizontal-card-avatar {
+.big-horizontal-card-avatar {
     width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
     display: flex;
-  }
+}
 
-  .big-horizontal-container {
-    display: flex;
-    justify-content: space-around;
-  }
+.big-horizontal-container {
+  display: flex;
+  justify-content: space-around;
+}
 
-  .btn.btn-primary.profile-btn {
-      font-size: 14px;
-  }
+.consult {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 10px 30px;
+}
+.consult:hover {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 10px 30px;
+  transform: scale(1.1);
+}
 
-  .info-container {
-    text-align: center;
-  }
+.btn.btn-primary.profile-btn {
+    font-size: 14px;
+}
 
-  .doc-review-item {
-    background-color: white;
-    border-radius: 6px;
-    margin: 0 10px;
-    padding: 10px;
-    padding-top: 20px !important;
-  }
+.info-container {
+  text-align: center;
+}
 
-  .skill-diploma {
-    display: flex;
-    justify-content: space-around;
-  }
 
-  .doc-skills {
-    max-width: 400px !important;
-    padding: 25px !important;
-    border: 1px solid $primary;
-    border-radius: 6px;
-    min-height: 200px;
-  }
+  // ----- Introduction BOX -----
 
-  .doc-diplomas {
-    max-width: 400px !important;
-    padding: 25px !important;
-    border: 1px solid $primary;
-    border-radius: 6px;
-    min-height: 200px;
+.doc-intro {
+  max-width: 80%;
+  padding: 10px;
+  margin: auto;
+  margin-top: 50px;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.introduction {
+  padding: 10px 200px;
+  text-align: center;
+  animation: fadeIn 3s;
+
+  p {
+    font-size: 1.2rem;
   }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+// ----- Skills BOX -----
+
+.skill-diploma {
+  margin: 0px 155px;
+  display: flex;
+  justify-content: space-around;
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.doc-skills  {
+  max-width: 100%;
+  padding: 10px 70px;
+  margin: auto;
+  margin-top: 30px;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.doc-skill-list {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+
+.doc-skill-item {
+  text-align: center;
+}
+
+// ----- Diplomas BOX -----
+
+.doc-diplomas {
+  max-width: 100%;
+  padding: 10px 130px 10px 5px;
+  margin: auto;
+  margin-top: 30px;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.doc-diplo-list {
+  margin: auto;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.doc-diplo-item {
+  text-align: center;
+}
+
+// ----- Reviews BOX -----
+
+.doc-reviews {
+  max-width: 80%;
+  padding: 10px;
+  margin: auto;
+  margin-top: 50px;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.doc-reviews-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+  justify-content: space-between;
+  margin: auto;
+  border-radius: 6px;
+
+  .avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+
+.doc-review-item {
+  background-color: white;
+  border-radius: 6px;
+  margin: 0 10px;
+  padding: 10px;
+  padding-top: 20px !important;
+}
+
+
+// ----- CTA BOX -----
+
+.doc-cta-box {
+  max-width: 40%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+
+
+.doc-cta-consultation {
+  box-sizing: border-box;
+  margin: auto;
+}
+.doc-cta-save {
+  box-sizing: border-box;
+  margin: auto;
+}
