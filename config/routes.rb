@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   # resources :reports, only: [:show]
   # resources :doctors, only: [:show]
+  post '/consultations/:id', to: 'reviews#create'
 
   get '/styleguide', to: 'pages#styleguide'
 

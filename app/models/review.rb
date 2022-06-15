@@ -4,7 +4,6 @@ class Review < ApplicationRecord
   has_one :patient, through: :consultations
 
   validates :consultation_id, presence: true
-  validates :rating, presence: true
 
   def blank_stars
     5 - rating.to_i
