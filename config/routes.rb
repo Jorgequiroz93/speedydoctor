@@ -29,4 +29,10 @@ Rails.application.routes.draw do
 
   # get '/ourservices' to: 'pages#ourservices'
   # get '/becomespeedy' to: 'pages#becomespeedy'
+
+  # resources :users, only: :index do
+  #   member do
+  #     post 'toggle_favorite', to: "users#toggle_favorite"
+  #   end
+  # end
 end
