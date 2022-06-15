@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:doctors]
+  before_action :authenticate_user!, only: :toggle_favorite
 
   def doctors
     if params[:query].present?
@@ -16,5 +17,10 @@ class UsersController < ApplicationController
     # connect doctors to consultations with 5 star rating through reviews
     # @recommended_doctors = @five_rating.
     # @recommended_doctors = @doctors.joins(:consultation).joins(:review).where(rating: 5).first(5)
+  end
+
+  def toggle_favorite
+    @user = User.find_by(id: params[:id])
+    current_user.favorited?(@user) ? current_user.unfavorite(@user) : current_user.favorite(@user)
   end
 end
