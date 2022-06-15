@@ -1,20 +1,12 @@
 <div class="fullsidebar">
 
     <div class="profilepicture">
-<<<<<<< HEAD
 
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
         <% else %>
          <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large"%>
         <% end %>
-=======
-<% if current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
-<% else %>
-  <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large"%>
-<% end %>
->>>>>>> 6bc0d425019c487a10ba92d724a97db49b4c8ad5
     </div>
 
     <%# <div>
