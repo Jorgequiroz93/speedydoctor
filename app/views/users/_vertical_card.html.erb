@@ -1,4 +1,4 @@
-<% @doctors.each do |doctor| %>
+<% @doctors.first(6).each do |doctor| %>
   <div class="vertical-card">
     <div id="top-banner">
       <div>
@@ -14,8 +14,10 @@
           <div class="btn-status-busy v-card"><i class="fas fa-dot-circle"></i> </div>
         <% end %>
       </div>
-      <div>
+      <div class="like-icon mx-2 <%= 'red' if current_user.favorited?(doctor) %>" data-id="<%= doctor.id %>">
+        <%= link_to dashboard_user_path(doctor), remote: true, method: :post do %>
         <i class="fas fa-heart"></i>
+        <% end %>
       </div>
     </div>
     <div id="vert-img">
