@@ -12,7 +12,7 @@
         <div class="sessions-card-text">
           Consultation with: <br>
           <h4><%= consultation.doctor.prefix %> <%= consultation.doctor.first_name %> <%= consultation.doctor.last_name %></h4>
-          <br>
+
           Date: <%= consultation.start_time.strftime("%b %d, %Y") %> <br>
           Start time: <%= consultation.start_time.strftime("%H:%M") %> <br>
           Duration: <%= Time.at(consultation.end_time - consultation.start_time).utc.strftime("%H:%M") %> <br>
@@ -22,18 +22,20 @@
 
       <% unless consultation.review.nil? %>
         <div class="sessions-card-review">
-        <h5>Your review :</h5>
-        <br>
-          "<%= consultation.review.content %>"<br><br>
-
-          <p>Professionalism: <%= consultation.review.professionalism_rating.round(2) %><br>
-          Speed: <%= consultation.review.speed_rating.round(2) %><br>
-          Clarity: <%= consultation.review.clarity_rating.round(2) %><br>
-          Gentleness: <%= consultation.review.gentleness_rating.round(2) %><br><br></p>
-          <div>
-          Total rating:<br>
+        Your rating:
           <i class="fas fa-star"></i>
-        <%= consultation.review.rating.round(2) %>
+        <%= consultation.review.rating.round(2) %><br><br>
+          <p>"<%= consultation.review.content %>"</p>
+
+      <div class="ratings">
+          <p>| Professionalism: <%= consultation.review.professionalism_rating.round(2) %><br>
+          | Speed: <%= consultation.review.speed_rating.round(2) %></p>
+
+          <p>| Clarity: <%= consultation.review.clarity_rating.round(2) %><br>
+          | Gentleness: <%= consultation.review.gentleness_rating.round(2) %></p>
+          <div>
+      </div>
+
 
         </div>
         </div>

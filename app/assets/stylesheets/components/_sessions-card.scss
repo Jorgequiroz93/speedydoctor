@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 50px;
 }
 
 .sessions-btns {
@@ -30,10 +31,11 @@
 
 .pic_and_info {
   display: flex;
-  flex-direction: column;
-  width: 350px;
+  // flex-direction: column;
+  // width: 250px;
   align-items: center;
-  padding: 25px 25px;
+  // padding: 25px 25px;
+  margin-left: 25px;
 }
 
 .sessions-card-review {
@@ -46,4 +48,9 @@
 
 .sessions-card-text {
   font-size: 14px;
+}
+
+.ratings {
+  display: flex;
+  justify-content: space-between;
 }
