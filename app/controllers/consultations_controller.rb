@@ -1,17 +1,13 @@
 require 'faraday'
 require 'faraday/net_http'
-require 'pry-byebug'
+# require 'pry-byebug'
 Faraday.default_adapter = :net_http
 
 class ConsultationsController < ApplicationController
 
   def show
     @consultation = Consultation.find(params[:id])
-<<<<<<< HEAD
-    @report = Report.new()
-=======
     @report = @consultation.report
->>>>>>> d4e7e8b98ba686b7854bb1e7fdafbb3115e9d7b1
     @doctor = @consultation.doctor
     @patient = @consultation.patient
     @room_url = @consultation.room_url
@@ -43,6 +39,7 @@ class ConsultationsController < ApplicationController
   def update
     @consultation = Consultation.find(params[:id])
     @consultation.update(consultation_params)
+
     if params[:status] == "finished"
       @doctor = @consultation.doctor
       @doctor.status = "Available"
@@ -73,7 +70,6 @@ class ConsultationsController < ApplicationController
   end
 
   def consultation_params
-    params.require(:consultation).permit(:start_time, :end_time, :status, :symptoms, :doctor_notes, :patient_notes)
+    params.require(:consultation).permit(:start_time, :end_time, :status, :symptoms, :doctor_notes, :patient_notes, :total_price)
   end
-
 end

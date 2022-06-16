@@ -6,8 +6,9 @@
       </div>
       <div class="horizontal-card-text">
         <div>
-        <%= "#{doctor.rating}" %>
-        <i class="fas fa-star"></i>
+          <%= "#{doctor.rating}" %>
+          <i class="fas fa-star"></i>
+        </div>
       </div>
         <div id="name-field">
           <%= doctor.prefix %> <%= doctor.first_name %> <%= doctor.last_name %>
@@ -19,7 +20,7 @@
           <p>$ <%= doctor.rate.round(2) %> / min</p>
         </div>
       </div>
-      <div>
+      <div class="button-container">
         <% if doctor.status == "Offline" %>
           <div class="btn-status-offline"><i class="fas fa-dot-circle"></i>  <%=doctor.status%></div>
           <% elsif doctor.status == "Available" %>

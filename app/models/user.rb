@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # for the favourites heart to work
+  # for which model you want to be able to get favorited
+  acts_as_favoritable
+  # for which model can favorite other models
+  acts_as_favoritor
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
@@ -40,4 +45,48 @@ class User < ApplicationRecord
   def rating
     return reviews.empty? ? 2.0 : reviews.average('rating').round(1)
   end
+
+  # def acts_as_favoritor
+  #   user = User.find(1)
+
+  #   # `user` favorites `user`.
+  #   user.favorite(user)
+  #   # `user` removes `user` from favorites.
+  #   user.unfavorite(user)
+  #   # Whether `user` has marked `user` as his favorite.
+  #   user.favorited?(user)
+  #   # Returns an Active Record relation of `user`'s `Favorite` records that have not been blocked.
+  #   user.all_favorites
+  #   # Returns an array of all unblocked favorited objects of `user`. This can be a collection of different object types, e.g.: `User`, `User`.
+  #   user.all_favorited
+  #   # Returns an Active Record relation of `Favorite` records where the `favoritable_type` is `user`.
+  #   user.favorites_by_type('User')
+  #   # Returns an Active Record relation of all favorited objects of `user` where `favoritable_type` is 'user'.
+  #   user.favorited_by_type('User')
+  #   # Returns the exact same as `user.favorited_by_type('User')`.
+  #   user.favorited_users
+  #   # Whether `user` has been blocked by `user`.
+  #   user.blocked_by?(user)
+  #   # Returns an array of all favoritables that blocked `user`.
+  #   user.blocked_by
+  # end
+
+  # def acts_as_favoritable
+  #   # Returns all favoritors of a model that `acts_as_favoritable`
+  #   user.favoritors
+  #   # Returns an Active Record relation of records with type `User` following `user`.
+  #   user.favoritors_by_type('User')
+  #   # Returns the exact same as `user.favoritors_by_type('User')`.
+  #   user.user_favoritors
+  #   # Whether `user` has been favorited by `user`.
+  #   user.favorited_by?(user)
+  #   # Block a favoritor
+  #   user.block(user)
+  #   # Unblock a favoritor
+  #   user.unblock(user)
+  #   # Whether `user` has blocked `user` as favoritor.
+  #   user.blocked?(user)
+  #   # Returns an array of all blocked favoritors.
+  #   user.blocked
+  # end
 end

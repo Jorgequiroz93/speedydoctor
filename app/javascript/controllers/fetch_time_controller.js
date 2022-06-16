@@ -22,6 +22,7 @@ export default class extends Controller {
     var participants = 0
     var myInterval;
     var isTimerRunning = false;
+    var totalPrice = 0;
 
     callFrame
     .on('joined-meeting', (event) => {
@@ -56,19 +57,24 @@ export default class extends Controller {
           end = new Date();
           seconds = Math.round((end - start)/1000);
           myThis.timerTarget.textContent = `${Math.round(seconds / 60).toString().padStart(2, '0')}:${Math.round(seconds % 60).toString().padStart(2, '0')}`;
-          myThis.billTarget.textContent = Math.round((end - start)/10 * 2 / 60)/100;
+          totalPrice = Math.round((end - start)/10 * 2.5 / 60)/100;
+          myThis.billTarget.textContent = totalPrice;
       }, 1000);
     }
 
     function stopTimer() {
       isTimerRunning = false;
       console.log('timer is off');
+      console.log('totalPrice is ', totalPrice, 'json: ', JSON.stringify({'status': 'finished', 'end_time': end, 'total_cost': totalPrice}));
       fetch(window.location.href, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json', "X-CSRF-Token": csrfToken()},
-        body: JSON.stringify({'status': 'finished', 'end_time': end})
+        body: JSON.stringify({'status': 'finished', 'end_time': end, 'total_price': totalPrice})
         });
       clearInterval(myInterval);
+      document.getElementById('bill').innerText = `${Math.round((end - start)/10 * 2.5 / 60)/100} $`;
+      var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+      myModal.show();
     }
 
   }

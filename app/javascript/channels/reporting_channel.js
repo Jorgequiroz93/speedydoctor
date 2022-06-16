@@ -10,12 +10,6 @@ consumer.subscriptions.create( "ReportingChannel",
       console.log("advice (report.content): " + data.advice);
       console.log("prescription (report.prescription): " + data.prescription);
 
-    //   { patient_id: @consultation.patient_id,
-    //     consultation_id: @consultation.id,
-    //     perscription: params["prescription"],
-    //     advice: params["content"] }
-    // )
-
       document.getElementById('advice').innerText = data.advice;
       document.getElementById('prescription').innerText = data.prescription;
     }
