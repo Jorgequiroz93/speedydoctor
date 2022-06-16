@@ -1,8 +1,10 @@
 <div class="col-12">
   <h3>Favorite Doctors</h3>
     <div class="favorites">
-        <div class="fav-grid">
-          <%= render '/users/horizontal_card', doctors: current_user.all_favorited %>
+        <div class="fav-grid" data-controller="favorite">
+          <div data-favorite-target="fitems">
+            <%= render '/users/horizontal_card', doctors: current_user.all_favorited %>
+          </div>
         </div>
     </div>
 </div>
