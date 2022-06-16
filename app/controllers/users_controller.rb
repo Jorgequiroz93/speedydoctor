@@ -22,5 +22,6 @@ class UsersController < ApplicationController
   def toggle_favorite
     @user = User.find_by(id: params[:id])
     user_signed_in? && current_user.favorited?(@user) ? current_user.unfavorite(@user) : current_user.favorite(@user)
+    redirect_to doctors_path
   end
 end
