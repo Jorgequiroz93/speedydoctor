@@ -1,4 +1,4 @@
-<% @doctors.each do |doctor| %>
+<% doctors.each do |doctor| %>
   <div class="horizontal-card">
     <div class="horizontal-container">
       <div class="doc-availability">
@@ -32,7 +32,15 @@
             <%= link_to "Visit Doctor's Profile", doctor_path(doctor), class: "profile" %>
           </div>
           <div class="btn btn-outline-primary favourites card">
-            <p>Save to Favourites</p>
+            <% if user_signed_in? && current_user.favorited?(doctor) %>
+              <%= link_to toggle_favorite_user_path(doctor), remote: true, method: :post do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+            <% else %>
+              <%= link_to toggle_favorite_user_path(doctor), remote: true, method: :post do %>
+                <i class="far fa-heart"></i>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

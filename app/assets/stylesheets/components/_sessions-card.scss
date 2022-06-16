@@ -1,12 +1,12 @@
 .sessions-card {
   border-radius: 6px;
-  padding: 20px;
   margin: 15px auto;
   box-shadow: 0 0 15px rgba(0,75,173,0.2);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1.5fr 0.8fr;
   width: 100%;
   background-color: white;
+  padding: 25px 0px;
 }
 
 .sessions-container {
@@ -24,16 +24,8 @@
 .sessions-btns {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-right: 25px;
-  margin-top: 25px;
-}
-
-.pic_and_info {
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  align-items: center;
-  padding: 25px 25px;
 }
 
 .sessions-card-review {
@@ -46,4 +38,14 @@
 
 .sessions-card-text {
   font-size: 14px;
+}
+
+.ratings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.session-pic {
+  margin: auto auto;
+  margin-right: 75px;
 }
