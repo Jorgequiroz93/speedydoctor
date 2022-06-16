@@ -7,13 +7,11 @@
       <%= image_tag @doctor.photo, class: "big-horizontal-card-avatar", alt: "avatar" %>
 
         <div class="horizontal-card-text">
-            <div>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
+          <div>
+          <i class="fas fa-star"></i>
+            <%= "#{@doctor.rating}" %>
+
+          </div>
             <br>
             <div id="name-field">
                 <h4> <%= "#{@doctor.prefix} ""#{@doctor.first_name} " "#{@doctor.last_name}" %></h4>
@@ -117,7 +115,7 @@
        <br><br><br>
        <div class="section-title">
           <h3>Doctor Rating Chart</h3>
-       </div> 
+       </div>
       <div class="graph-render">
             <%= render 'graph' %>
       </div>
@@ -132,7 +130,7 @@
           <div class="doc-review-item">
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
               <br><br>
-              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
+              <i class="fas fa-star"></i>   <%= "#{  (@doctor.rating - 0.1).round(1)}" %>
               <br><br>
               <p><%= "Amazing doctor! Cured my herpes in no time! Now I'm back in the game baby! Thanks #{@doctor.last_name}" %></p>
           </div>
@@ -148,7 +146,7 @@
           <div class="doc-review-item">
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
               <br><br>
-              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
+              <i class="fas fa-star"></i>   <%= "#{  (@doctor.rating - 0.3).round(1)}" %>
               <br><br>
               <p> <%= "Dr. #{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
           </div>

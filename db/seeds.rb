@@ -18,25 +18,50 @@ User.destroy_all
 ## special users
 
 ##----------------- doctor house for live consultation
-doctor = User.create!(email: "doctor@gmail.com", date_of_birth: 40.years.ago, password:"123123", first_name: "Gregory", last_name: "House", country: "US", language: "English", role: "Doctor", rate: 2.5, specialty: "General", sub_specialty: "Diagnostics", skills: "Analytical thinking | Creative thinking | Solution-oriented thinking |Ability to ask questions | Open-mindedness", prefix: "Dr.", status: "Available", diplomas:"Ph.D in Critical Care Medicine from Harvard School of Medicine - Boston, MA, USA")
-file = File.open(Rails.root.join("app/assets/images/doctors/doc0.jpg"))
-doctor.photo.attach(io: file, filename: "doc0.jpg", content_type: 'images/doctors/jpg')
-##----------------- manon's profile
-patient = User.create!(email: "patient@gmail.com", date_of_birth: 34.years.ago, password:"123123", first_name: "Manon", last_name: "Aidinian", country: "France", language: "English", role: "Patient", prefix: "Mrs.")
-file = File.open(Rails.root.join("app/assets/images/manon-avatar.png"))
-patient.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/png')
+doctor = User.create!(
+  email: "doctor@gmail.com",
+  date_of_birth: 40.years.ago,
+  password:"123123",
+  first_name: "Max",
+  last_name: "Matrenitski",
+  country: "USA",
+  language: "English",
+  role: "Doctor",
+  rate: 4.5,
+  specialty: "General",
+  sub_specialty: "Diagnostics",
+  skills: "Analytical thinking | Creative thinking | Solution-oriented thinking |Ability to ask questions | Open-mindedness",
+  prefix: "Dr.",
+  status: "Available",
+  diplomas:"Ph.D in Critical Care Medicine from Harvard School of Medicine - Boston, MA, USA")
+file = File.open(Rails.root.join("app/assets/images/doc_max.jpg"))
+doctor.photo.attach(io: file, filename: "doc_max.jpg", content_type: 'images/jpg')
+
+##----------------- jorge's profile
+patient = User.create!(
+  email: "patient@gmail.com",
+  date_of_birth: 34.years.ago,
+  password:"123123",
+  first_name: "Jorge",
+  last_name: "Quiroz",
+  country: "Colombia",
+  language: "English",
+  role: "Patient",
+  prefix: "Mr.")
+file = File.open(Rails.root.join("app/assets/images/jorge.jpg"))
+patient.photo.attach(io: file, filename: "jorge.jpg", content_type: 'images/jpg')
 
 ##----------------- doctor for creating an old consultation
 doctor2 = User.create!(
   email: "doctor2@gmail.com",
   date_of_birth: 45.years.ago,
   password:"123123",
-  first_name: "Meredith",
-  last_name: "Grey",
-  country: "US",
+  first_name: "Alicia",
+  last_name: "Miller",
+  country: "USA",
   language: "English",
   role: "Doctor",
-  rate: 2.2,
+  rate: 3.8,
   diplomas: "Medicine and pharmacy, BHMS – Bachelor of Homeopathy Medicine and Surgery",
   specialty: "General",
   sub_specialty: "Diagnostics",
@@ -44,11 +69,11 @@ doctor2 = User.create!(
   CO2 laser, Fractional CO2 laser",
   prefix: "Dr.",
   status: "Busy")
-file = File.open(Rails.root.join("app/assets/images/doctors/meredith.jpg"))
-doctor2.photo.attach(io: file, filename: "meredith.jpg", content_type: 'images/doctors/jpg')
+file = File.open(Rails.root.join("app/assets/images/doc_miller.png"))
+doctor2.photo.attach(io: file, filename: "doc_miller.png", content_type: 'images/png')
 
 p start_time = Faker::Time.backward(days: 14, period: :evening)
-p session_time = 25
+p session_time = 17
 p num_minutes = session_time.minutes
 p end_time = start_time + num_minutes
 
@@ -62,14 +87,14 @@ consultation = Consultation.create!(
   total_price: (session_time * doctor2.rate).round(2)
 )
 
-professionalism_rating = rand(2..5)
-speed_rating = rand(2..5)
-clarity_rating = rand(2..5)
-gentleness_rating = rand(2..5)
+professionalism_rating = rand(3..5)
+speed_rating = rand(3..5)
+clarity_rating = rand(3..5)
+gentleness_rating = rand(3..5)
 rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4.0
 
 Review.create!(
-  content: "Dr. Grey has been very kind, her magical pills were amazing.",
+  content: "Dr. Miller was great, thanks to her advises I was healed in no time.",
   professionalism_rating: professionalism_rating,
   speed_rating: speed_rating,
   clarity_rating: clarity_rating,
@@ -79,8 +104,8 @@ Review.create!(
 )
 
 Report.create!(
-  content: "Manon showed some loss memories issues since the start of her bootcamp",
-  prescription: "I diagnosed it is due to the size of her brain that can't store that much information and prescribed her some magical coding pills",
+  content: "Jorge showed some loss memories issues since the start of her bootcamp",
+  prescription: "I diagnosed it is due to the size of his brain that can't store that much informations and prescribed him some magical coding pills",
   consultation: consultation
 )
 
@@ -110,7 +135,7 @@ User::SPECIALTIES.each do |specialty|
     doctor = User.create!(
       role: "Doctor",
       specialty: specialty,
-      prefix: ["Dr.", "Prof"].sample,
+      prefix: ["Dr.", "Prof."].sample,
       date_of_birth: Faker::Date.birthday(min_age: 16, max_age: 100),
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -120,7 +145,7 @@ User::SPECIALTIES.each do |specialty|
       diplomas: ["Doctor of Optometr (OD) Program", "Doctor Osteopatic Medicine", "Medicine and pharmacy", "Clinical Medical Assistant training", "MBBS – Bachelor of Medicine, Bachelor of Surgery.", "BDS – Bachelor of Dental Surgery.", "BAMS – Bachelor of Ayurvedic Medicine and Surgery.", "BHMS – Bachelor of Homeopathy Medicine and Surgery."].sample(2).join(", "),
       country: Faker::Address.country,
       language: Faker::Nation.language,
-      rate: rand(0.1..10.0),
+      rate: rand(3..10.0),
       sub_specialty: Faker::Science.science(:natural),
       skills: ["aesthetic dermatology", "Intense pulsed light - ipl", "Hydrafacial",
                "hair mesotherapy", "Oxygeneo facial", "Peeling", "Microneedle therapy for scars",
@@ -128,8 +153,8 @@ User::SPECIALTIES.each do |specialty|
                "Facial biostimulation", "Anti-aging aesthetic treatment", "skin care treatment",
                "mole removal", "wart removal"].sample(6).join(", ")
     )
-    file = File.open(Rails.root.join("app/assets/images/doctors/doc#{i % 10}.jpg"))
-    doctor.photo.attach(io: file, filename: "doc#{i % 10}.jpg", content_type: 'images/doctors/jpg')
+    file = File.open(Rails.root.join("app/assets/images/doctors/doc#{i % 18}.jpg"))
+    doctor.photo.attach(io: file, filename: "doc#{i % 18}.jpg", content_type: 'images/doctors/jpg')
     doctors << doctor
     i += 1
     puts User.count
@@ -157,10 +182,10 @@ patients.each do |patient|
       total_price: (session_time * doctor.rate).round(2)
     )
 
-    professionalism_rating = rand(2..5)
-    speed_rating = rand(2..5)
-    clarity_rating = rand(2..5)
-    gentleness_rating = rand(2..5)
+    professionalism_rating = rand(3..5)
+    speed_rating = rand(3..5)
+    clarity_rating = rand(3..5)
+    gentleness_rating = rand(3..5)
     rating = (professionalism_rating + speed_rating + clarity_rating + gentleness_rating) / 4.0
 
     p Review.create!(

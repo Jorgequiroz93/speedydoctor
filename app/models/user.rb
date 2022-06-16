@@ -43,7 +43,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   def rating
-    return reviews.empty? ? 2.0 : reviews.average('rating').round(1)
+    return reviews.empty? ? 4.2 : reviews.average('rating').round(1)
   end
 
   # def acts_as_favoritor
