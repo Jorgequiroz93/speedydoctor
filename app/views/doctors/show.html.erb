@@ -8,6 +8,7 @@
 
         <div class="horizontal-card-text">
           <div>
+
           <i class="fas fa-star"></i>
             <%= "#{@doctor.rating}" %>
 
@@ -24,11 +25,11 @@
         <br>
         <div class="class-buttons">
           <% if @doctor.status == "Offline" %>
-            <div class="btn-status-offline"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <div class="btn-status-offline"><i class="fas fa-dot-circle"></i> <%=@doctor.status%></div>
             <% elsif @doctor.status == "Available" %>
-            <div class="btn-status-available"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <div class="btn-status-available"><i class="fas fa-dot-circle"></i> <%=@doctor.status%></div>
             <% elsif @doctor.status == "Busy" %>
-            <div class="btn-status-busy"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <div class="btn-status-busy"><i class="fas fa-dot-circle"></i> <%=@doctor.status%></div>
           <% end %>
           <br>
           <div>
@@ -130,7 +131,9 @@
           <div class="doc-review-item">
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
               <br><br>
-              <i class="fas fa-star"></i>   <%= "#{  (@doctor.rating - 0.1).round(1)}" %>
+
+              <i class="fas fa-star"></i>   <%= "#{rand(3.5..5.0).round(1)}" %>
+
               <br><br>
               <p><%= "Amazing doctor! Cured my herpes in no time! Now I'm back in the game baby! Thanks #{@doctor.last_name}" %></p>
           </div>
@@ -138,7 +141,7 @@
           <div class="doc-review-item">
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
               <br><br>
-              <i class="fas fa-star"></i>   <%= "#{  @doctor.rating}" %>
+              <i class="fas fa-star"></i>   <%= "#{rand(3.5..5.0).round(1)}" %>
               <br><br>
               <p> <%= "Thank you Dr. #{@doctor.first_name} for curing my husband's impotency problem!" %> </p>
           </div>
@@ -146,7 +149,10 @@
           <div class="doc-review-item">
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
               <br><br>
-              <i class="fas fa-star"></i>   <%= "#{  (@doctor.rating - 0.3).round(1)}" %>
+
+
+              <i class="fas fa-star"></i>   <%= "#{rand(3.5..5.0).round(1)}" %>
+
               <br><br>
               <p> <%= "Dr. #{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
           </div>

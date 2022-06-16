@@ -30,7 +30,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 10px 25px;
+  padding: 10px 15px;
   height: 100%;
 }
 
@@ -131,4 +131,10 @@
   align-items: center;
   width: 100%;
   justify-content: flex-start;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

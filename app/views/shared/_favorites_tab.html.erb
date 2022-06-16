@@ -1,1 +1,5 @@
-Your favorite doctors
+<% current_user.all_favorites.each do |user| %>
+  <div class="fav-grid">
+    <%= render '/users/horizontal_card', doctor: @doctors %>
+  </div>
+<% end %>
