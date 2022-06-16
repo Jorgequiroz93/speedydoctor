@@ -8,8 +8,10 @@
 
         <div class="horizontal-card-text">
           <div>
+
+          <i class="fas fa-star"></i>
             <%= "#{@doctor.rating}" %>
-            <i class="fas fa-star"></i>
+
           </div>
             <br>
             <div id="name-field">
@@ -129,7 +131,9 @@
           <div class="doc-review-item">
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
               <br><br>
+
               <i class="fas fa-star"></i>   <%= "#{rand(3.5..5.0).round(1)}" %>
+
               <br><br>
               <p><%= "Amazing doctor! Cured my herpes in no time! Now I'm back in the game baby! Thanks #{@doctor.last_name}" %></p>
           </div>
@@ -145,7 +149,10 @@
           <div class="doc-review-item">
               <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
               <br><br>
+
+
               <i class="fas fa-star"></i>   <%= "#{rand(3.5..5.0).round(1)}" %>
+
               <br><br>
               <p> <%= "Dr. #{@doctor.last_name} you are a life saver! It goes beyond words what you did to my breast!" %> </p>
           </div>
