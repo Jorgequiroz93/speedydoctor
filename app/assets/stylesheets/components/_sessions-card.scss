@@ -3,8 +3,8 @@
   padding: 20px;
   margin: 15px auto;
   box-shadow: 0 0 15px rgba(0,75,173,0.2);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   background-color: white;
 }
@@ -32,7 +32,7 @@
 .pic_and_info {
   display: flex;
   // flex-direction: column;
-  // width: 250px;
+
   align-items: center;
   // padding: 25px 25px;
   margin-left: 25px;
