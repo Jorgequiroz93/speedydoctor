@@ -9,6 +9,7 @@
 
 import { Controller } from "stimulus"
 import { csrfToken } from '@rails/ujs'
+import { initStarRating } from '../plugins/init_star_rating';
 
 export default class extends Controller {
   static targets = [ "timer", "bill" ]
@@ -57,7 +58,7 @@ export default class extends Controller {
           end = new Date();
           seconds = Math.round((end - start)/1000);
           myThis.timerTarget.textContent = `${Math.round(seconds / 60).toString().padStart(2, '0')}:${Math.round(seconds % 60).toString().padStart(2, '0')}`;
-          totalPrice = Math.round(10 + (end - start)/10 * 2.5 / 60)/100;
+          totalPrice = (10 + ((end - start)/10 * 2.5 / 60)/100).toFixed(2);
           myThis.billTarget.textContent = totalPrice;
       }, 1000);
     }
@@ -74,7 +75,9 @@ export default class extends Controller {
       clearInterval(myInterval);
       document.getElementById('bill').innerText = `${totalPrice} $`;
       var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+      // initStarRating();
       myModal.show();
+      initStarRating();
     }
 
   }

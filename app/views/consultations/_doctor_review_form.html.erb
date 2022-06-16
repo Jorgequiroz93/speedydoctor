@@ -7,9 +7,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h5><span class="muted">Your credit card</span> 555x xxxx xxxx x433</h5>
-        <h5><span class="muted">has been charged with</span> <span id="bill"></span></h5>
-        <%= simple_form_for :review, wrapper: :floating_labels_form, wrapper_mappings: { select: :floating_labels_select } do |f| %>
+        <h5><span class="text-muted">Your credit card</span> 555x xxxx xxxx x433</h5>
+        <h5 class="mb-3"><span class="text-muted">has been charged with</span> <span id="bill"></span></h5>
+        <hr>
+        <%= simple_form_for :review do |f| %>
         <h1></h1>
         <div class="row">
           <div class="col-6">
@@ -30,10 +31,6 @@
           <%= f.input :content, as: :text, input_html: { style: "height: auto", rows: 5 }  %>
           <%= f.submit "Save review", class: "btn btn-lg btn-primary w-100" %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
