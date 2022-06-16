@@ -23,7 +23,7 @@
       <% unless consultation.review.nil? %>
         <div class="sessions-card-review">
         <p>Your rating: <i class="fas fa-star"></i>  <%= consultation.review.rating.round(2) %></p>
-          <p>"<%= consultation.review.content %>"</p>
+          <p>"<%= consultation.review.content.truncate(60) %>"</p>
 
       <div class="ratings">
           <p>| Professionalism: <%= consultation.review.professionalism_rating.round(2) %><br>
