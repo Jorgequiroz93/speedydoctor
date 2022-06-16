@@ -46,8 +46,8 @@ class ConsultationsController < ApplicationController
       @doctor.save!
     end
     @report = @consultation.report
-    @report.prescription = params["prescription"]
-    @report.content = params["content"]
+    @report.prescription = params["prescription"] if params["prescription"]
+    @report.content = params["content"] if params["content"]
     @report.save!
     ActionCable.server.broadcast(
       "reporting",
