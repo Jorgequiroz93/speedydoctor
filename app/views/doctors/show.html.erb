@@ -23,11 +23,11 @@
         <br>
         <div class="class-buttons">
           <% if @doctor.status == "Offline" %>
-            <div class="btn-status-offline"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <div class="btn-status-offline"><i class="fas fa-dot-circle"></i> <%=@doctor.status%></div>
             <% elsif @doctor.status == "Available" %>
-            <div class="btn-status-available"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <div class="btn-status-available"><i class="fas fa-dot-circle"></i> <%=@doctor.status%></div>
             <% elsif @doctor.status == "Busy" %>
-            <div class="btn-status-busy"><i class="fas fa-dot-circle"></i>    <%=@doctor.status%></div>
+            <div class="btn-status-busy"><i class="fas fa-dot-circle"></i> <%=@doctor.status%></div>
           <% end %>
           <br>
           <div>
