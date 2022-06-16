@@ -50,14 +50,14 @@ export default class extends Controller {
       fetch(window.location.href, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json', "X-CSRF-Token": csrfToken()},
-        body: JSON.stringify({'status': 'online', 'start_time': start})
+        body: JSON.stringify({'status': 'online', 'start_time': start, 'end_time': start })
         });
 
       myInterval = setInterval(() => {
           end = new Date();
           seconds = Math.round((end - start)/1000);
           myThis.timerTarget.textContent = `${Math.round(seconds / 60).toString().padStart(2, '0')}:${Math.round(seconds % 60).toString().padStart(2, '0')}`;
-          totalPrice = Math.round((end - start)/10 * 2.5 / 60)/100;
+          totalPrice = Math.round(10 + (end - start)/10 * 2.5 / 60)/100;
           myThis.billTarget.textContent = totalPrice;
       }, 1000);
     }
@@ -72,7 +72,7 @@ export default class extends Controller {
         body: JSON.stringify({'status': 'finished', 'end_time': end, 'total_price': totalPrice})
         });
       clearInterval(myInterval);
-      document.getElementById('bill').innerText = `${Math.round((end - start)/10 * 2.5 / 60)/100} $`;
+      document.getElementById('bill').innerText = `${totalPrice} $`;
       var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
       myModal.show();
     }

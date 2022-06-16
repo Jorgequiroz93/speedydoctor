@@ -3,6 +3,11 @@ class ReportsController < ApplicationController
     def show
       @report = Report.find(params[:id])
       @consultation = @report.consultation
+      10.times do
+        p @report
+        p @report.prescription
+        p @report.content
+      end
 
       # @doctor_avg_rating = @doctor.reviews.average(:rating)
     end
