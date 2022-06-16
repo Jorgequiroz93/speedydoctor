@@ -6,9 +6,9 @@
       <h3 class="mt-3">Welcome, <%= current_user.prefix %> <b> <%= current_user.first_name %> <%= current_user.last_name %></b></h3>
 
       <% if current_user.role == 'Doctor' %>
-        <h4 class="mt-3">Your patient is <br/><b><%= @patient.prefix %> <%= @patient.first_name %> <%= @patient.last_name %></b></h4>
+        <h6 class="mt-3 muted">Your patient is <br/><b><%= @patient.prefix %> <%= @patient.first_name %> <%= @patient.last_name %></b></h6>
       <% elsif current_user.role == 'Patient' %>
-        <h4 class="mt-3">Your doctor is <br/><b><%= @doctor.prefix %> <%= @doctor.first_name %> <%= @doctor.last_name %></b></h4>
+        <h5 class="mt-3">Your doctor is <br/><b><%= @doctor.prefix %> <%= @doctor.first_name %> <%= @doctor.last_name %></b></h5>
       <% end %>
 
       <div class="card p-3 text-center mt-5">

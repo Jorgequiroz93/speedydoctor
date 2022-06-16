@@ -9,14 +9,15 @@ export default class extends Controller {
   }
 
   save() {
+    var myThis = this;
     console.log('saving ', this.doctorNotesTarget.value, this.adviceTarget.value, this.prescriptionTarget.value, ' via PATCH to: ', window.location.href )
     fetch(window.location.href, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json', "X-CSRF-Token": csrfToken()},
       body: JSON.stringify({
-        'doctor_notes': this.doctorNotesTarget.value,
-        'content': this.adviceTarget.value,
-        'prescription': this.prescriptionTarget.value
+        'doctor_notes': myThis.doctorNotesTarget.value,
+        'content': myThis.adviceTarget.value,
+        'prescription': myThis.prescriptionTarget.value
       })
       });
 

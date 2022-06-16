@@ -1,6 +1,7 @@
 require 'faraday'
 require 'faraday/net_http'
-# require 'pry-byebug'
+require 'date'
+require 'pry-byebug'
 Faraday.default_adapter = :net_http
 
 class ConsultationsController < ApplicationController
@@ -16,6 +17,8 @@ class ConsultationsController < ApplicationController
   def create
     @doctor = User.find(params[:doctor_id])
     @consultation = Consultation.new
+    @consultation.start_time = DateTime.now
+    @consultation.end_time = DateTime.now
     @consultation.doctor = @doctor
     @consultation.patient = current_user
     @consultation.status = 'calling'
@@ -46,8 +49,8 @@ class ConsultationsController < ApplicationController
       @doctor.save!
     end
     @report = @consultation.report
-    @report.prescription = params["prescription"]
-    @report.content = params["content"]
+    @report.prescription = params["prescription"] if params["prescription"]
+    @report.content = params["content"] if params["content"]
     @report.save!
     ActionCable.server.broadcast(
       "reporting",
