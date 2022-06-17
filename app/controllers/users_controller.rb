@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     user_signed_in? && current_user.favorited?(@user) ? current_user.unfavorite(@user) : current_user.favorite(@user)
     if request.referer.include? "doctors"
-      redirect_to doctors_path
+      redirect_to request.referer
     else
       redirect_to dashboard_path
     end
