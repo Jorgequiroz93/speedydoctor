@@ -1,4 +1,4 @@
-@media (min-width: 300px) {
+@media (min-width: 250px) {
   .how-does-it-work-patient-container {
     h1 {
       text-align: center;
@@ -12,6 +12,34 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
+  }
+
+  .hditp-card {
+    text-align: center;
+    max-width: 250px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    p {
+      margin-top: 25px;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .how-does-it-work-patient-container {
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .hdiwp-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
   }
 
   .hditp-card {
