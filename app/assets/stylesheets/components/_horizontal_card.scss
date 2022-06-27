@@ -38,29 +38,18 @@
 #speciality {
   font-size: 14px;
 }
-
-#top-banner {
+.button-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
 }
-
-
-.availability {
+.class-buttons {
   display: flex;
-  justify-content: center;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  background-color: $tertiary;
-  color: black;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  height: 36px;
-  width: 100%;
+  flex-direction: column;
+  height: 100%;
+  p {
+    margin: 0px !important;
+  }
 }
 
 .profile-btn {
@@ -77,13 +66,16 @@
   transform: scale(1.1);
 }
 
-.class-buttons {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  p {
-    margin: 0px !important;
-  }
+.profile {
+  text-decoration: none;
+  // font-size: 14px;
+  color: white;
+}
+
+.profile:hover {
+  text-decoration: none;
+  // font-size: 14px;
+  color: white;
 }
 
 .favourites {
@@ -109,52 +101,44 @@
   }
 }
 
-.profile {
-  text-decoration: none;
-  // font-size: 14px;
-  color: white;
-}
+// .stars {
+  //   display: flex;
+  //   align-items: center;
+  //   width: 100%;
+  //   justify-content: flex-start;
+  // }
 
-.profile:hover {
-  text-decoration: none;
-  // font-size: 14px;
-  color: white;
-}
+  @media (min-width: 750px) {
 
-.stars {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-start;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-@media (min-width: 750px) {
-
-  .horizontal-card-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    .horizontal-card-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
-}
 
-@media (min-width: 250px) {
+  @media (min-width: 250px) and (max-width: 400px) {
 
-  .horizontal-card-container {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .horizontal-card {
+    .horizontal-card-container {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .horizontal-card {
     border-radius: 6px;
     padding: 10px;
-    margin: 10px;
+    margin: -10px 10px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,75,173,0.2);
-    width: 100%;
+    transform: scale(0.86);
+    position: relative;
+    left: -3rem;
+    .horizontal-card:hover {
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0,75,173,0.2);
+    }
+
     #name-field {
       font-size: 22px;
       display: flex;
@@ -209,11 +193,39 @@
     // font-size: 14px;
     color: white;
   }
-  .stars {
-    display: flex;
-    align-items: center;
+  .profile-btn:hover {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     width: 100%;
-    justify-content: flex-start;
+    padding: 10px 30px;
   }
+  // .stars {
+    //   display: flex;
+  //   align-items: center;
+  //   width: 100%;
+  //   justify-content: flex-start;
+  // }
 
 }
+
+
+
+
+// No longer used but keeping incase something breaks //
+// .availability {
+//   display: flex;
+//   justify-content: center;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   text-align: center;
+//   text-decoration: none;
+//   vertical-align: middle;
+//   background-color: $tertiary;
+//   color: black;
+//   border: 1px solid transparent;
+//   padding: 0.375rem 0.75rem;
+//   font-size: 1rem;
+//   border-radius: 6px;
+//   height: 36px;
+//   width: 100%;
+// }
