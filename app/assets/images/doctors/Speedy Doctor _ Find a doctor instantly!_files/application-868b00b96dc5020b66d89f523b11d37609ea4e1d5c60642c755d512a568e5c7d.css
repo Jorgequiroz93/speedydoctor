@@ -20220,7 +20220,7 @@ legend ~ div.form-check:first-of-type {
 }
 
 /* line 59, app/assets/stylesheets/components/_horizontal_card.scss */
-.doc-availability {
+.doc-avatar {
   display: flex;
   flex-direction: column;
   align-items: center;
